@@ -13,10 +13,10 @@ export function createTabs(block) {
     });
   
     const panel = document.createElement('div');
-    panel.classList.add('hero-horiz-tabs-panel');
+    panel.classList.add('horiz-tabs-panel');
   
     const nav = document.createElement('nav');
-    nav.classList.add('hero-horiz-tabs-nav');
+    nav.classList.add('horiz-tabs-nav');
   
     nav.replaceChildren(ul);
     panel.appendChild(nav);
