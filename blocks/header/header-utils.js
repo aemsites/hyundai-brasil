@@ -59,8 +59,10 @@ export function createTabs(block, navFragment) {
     return tabs;
   }
   
-  export function addTabs(tabs, block) {
+  export function addTabs(tabs, block, navFragment) {
     console.log(tabs);
+    const navPanel = navFragment.querySelector('.hero-horiz-tabs-panel');
+    console.log(navPanel);
     tabs.forEach((tab, index) => {
       const button = document.createElement('button');
       const { tabButton, title, name } = tab;
@@ -81,6 +83,7 @@ export function createTabs(block, navFragment) {
           if (tab.content) {
             console.log(tab.content);
             tab.content.classList.add('active');
+            navPanel.after(tab.content);
           }
         } else if (activeButton !== tabButton) {
           console.log(button);
@@ -89,6 +92,7 @@ export function createTabs(block, navFragment) {
           activeButton.parentElement.classList.remove('active');
           if (tab.content) {
             tab.content.classList.remove('active');
+            tab.content.remove();
           }
           button.classList.add('active');
           // add active class to parent li
@@ -96,6 +100,7 @@ export function createTabs(block, navFragment) {
           if (tab.content) {
             console.log(tab.content);
             tab.content.classList.add('active');
+            navPanel.after(tab.content);
           }
         }
       });
