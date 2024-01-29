@@ -27,7 +27,6 @@ export function createTabs(block, navFragment) {
     const wrapper = block.parentElement;
     const container = wrapper.parentElement;
     const sections = navFragment.querySelectorAll('[data-tab]');
-    console.log(sections);
   
     // move the tab's sections before the tab riders.
     [...sections].forEach((tabContent) => {
@@ -45,63 +44,61 @@ export function createTabs(block, navFragment) {
         tabDiv.classList.add('tab-item');
         tabDiv.append(...tabContent.children);
         sectionWrapper.append(tabDiv);
-        // console.log(sectionWrapper);
-        // console.log(wrapper);
-        // container.insertBefore(sectionWrapper, wrapper);
-  
-        // remove it from the dom
-        console.log(tabContent);
+
         tabContent.remove();
         tab.content = tabDiv;
       }
     });
-    console.log(tabs);
     return tabs;
   }
   
   export function addTabs(tabs, block, navFragment) {
-    console.log(tabs);
-    const navPanel = navFragment.querySelector('.hero-horiz-tabs-panel');
-    console.log(navPanel);
+    const navPanel = navFragment.querySelector('.section.nav-sections').parentElement;
     tabs.forEach((tab, index) => {
       const button = document.createElement('button');
       const { tabButton, title, name } = tab;
-      console.log(name);
       button.textContent = title.split(',');
       button.classList.add('tab');
   
       tabButton.replaceChildren(button);
   
-      tabButton.addEventListener('click', () => {
+      tabButton.addEventListener('mouseover', () => {
         const activeButton = block.querySelector('button.active');
 
         if (! activeButton) {
-          console.log(button);
           button.classList.add('active');
           // add active class to parent li
           tabButton.classList.add('active');
           if (tab.content) {
-            console.log(tab.content);
             tab.content.classList.add('active');
             navPanel.after(tab.content);
+            navPanel.nextSibling.classList.add('tab-active');
           }
         } else if (activeButton !== tabButton) {
-          console.log(button);
           activeButton.classList.remove('active');
           // remove active class from parent li
           activeButton.parentElement.classList.remove('active');
           if (tab.content) {
             tab.content.classList.remove('active');
-            tab.content.remove();
+            navPanel.nextSibling.remove();
           }
           button.classList.add('active');
           // add active class to parent li
           tabButton.classList.add('active');
           if (tab.content) {
-            console.log(tab.content);
             tab.content.classList.add('active');
             navPanel.after(tab.content);
           }
+        }
+      });
+
+      tabButton.addEventListener('mouseout', () => {
+        const activeButton = block.querySelector('button.active');
+        activeButton.classList.remove('active');
+        activeButton.parentElement.classList.remove('active');
+        if (tab.content) {
+          tab.content.classList.remove('active');
+          navPanel.nextSibling.remove();
         }
       });
     });
