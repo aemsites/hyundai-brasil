@@ -1,4 +1,4 @@
-export function createTabs(block, text) {
+export function createTabs(block) {
     const ul = block.querySelector('ul');
     if (!ul) return null;
   
@@ -14,7 +14,6 @@ export function createTabs(block, text) {
   
     const panel = document.createElement('div');
     panel.classList.add('hero-horiz-tabs-panel');
-    if (text) panel.appendChild(text);
   
     const nav = document.createElement('nav');
     nav.classList.add('hero-horiz-tabs-nav');
@@ -26,7 +25,9 @@ export function createTabs(block, text) {
     // search referenced sections and move them inside the tab-container
     const wrapper = block.parentElement;
     const container = wrapper.parentElement;
+    console.log(document);
     const sections = document.querySelectorAll('[data-tab]');
+    console.log(sections);
   
     // move the tab's sections before the tab riders.
     [...sections].forEach((tabContent) => {
@@ -52,6 +53,7 @@ export function createTabs(block, text) {
         tab.content = tabDiv;
       }
     });
+    console.log(tabs);
     return tabs;
   }
   

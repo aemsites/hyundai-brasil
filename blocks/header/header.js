@@ -118,16 +118,25 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
-      });
-    });
+    const tabs = createTabs(navSections);
+
+    if (tabs) {
+      // move the tab riders in front
+        const wrapper = block.parentElement;
+        const container = wrapper.parentElement;
+        container.insertBefore(wrapper, container.firstElementChild);
+    
+        addTabs(tabs, block);}
+    // navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
+    //   if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+    //   navSection.addEventListener('click', () => {
+    //     if (isDesktop.matches) {
+    //       const expanded = navSection.getAttribute('aria-expanded') === 'true';
+    //       toggleAllNavSections(navSections);
+    //       navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    //     }
+    //   });
+    // });
   }
 
   // hamburger for mobile
