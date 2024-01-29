@@ -1,0 +1,184 @@
+.monte-o-seu {
+    /* see if we can move this to styles.css */
+    font-family: HyundaiSansHead-Medium, sans-serif;
+}
+
+.monte-o-seu > div:first-child {
+    transition: transform .5s ease-out;
+    display: flex;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    z-index: 9999;
+    color: white;
+    cursor: pointer;
+}
+
+.monte-o-seu.minimized > div:first-child {
+    transform: translateX(100%);
+}
+
+.monte-o-seu div.flecha {
+    opacity: 0;
+    transition: opacity .5s ease-out;
+    position: absolute;
+    top: 80px;
+    right: 38px;
+    display: flex;
+    width: 30px;
+    height: 48px;
+    background-color: var(--hyundai-light-blue);
+    justify-content: center;
+    align-items: center;
+}
+
+.monte-o-seu.minimized div.flecha {
+    opacity: 1;
+}
+
+.monte-o-seu div.flecha > img {
+    width: 10px;
+    height: 20px;
+}
+
+.monte-o-seu div.menu {
+    /* show on the top right corner */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+}
+
+.monte-o-seu div.menu > * {
+    width: 40px;
+    height: 44px;
+}
+
+.monte-o-seu span.icon-close {
+    display: flex;
+    height: 30px;
+}
+
+.monte-o-seu span.icon-close > img {
+    width: 14px;
+    height: 14px;
+    margin: auto;
+    filter: drop-shadow(2px 2px 2px rgb(0 0 0 / 70%))
+}
+
+.monte-o-seu a.monte-link {
+    /* TODO check font-weight and size are correct (the numbers match but not the presentation) */
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    height: 138px;
+    background-color: var(--hyundai-light-blue);
+    border: solid 1px var(--hyundai-light-blue);
+    text-orientation: mixed;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 3px;
+    color: white;
+}
+
+.monte-o-seu a.monte-link:hover {
+    background-color: white;
+    color: var(--hyundai-light-blue);
+    text-decoration: none;
+}
+
+.monte-o-seu span.icon-smiley-survey,
+.monte-o-seu span.icon-undo {
+    background-color: var(--hyundai-gray);
+    border: solid 1px var(--hyundai-gray);
+    height: 38px;
+    padding: 5px;
+    margin-bottom: 3px;
+}
+
+.monte-o-seu span.icon-undo {
+    display: none;
+}
+
+.monte-o-seu.survey-open span.icon-undo {
+    display: inline-block;
+}
+
+.monte-o-seu.survey-open span.icon-smiley-survey {
+    display: none;
+}
+
+.monte-o-seu a.whatsapp {
+    background-color: #00a884;
+    border: solid 1px #00a884;
+    padding: 10px;
+    width: 40px;
+    height: 44px;
+}
+
+.monte-o-seu a.whatsapp > span {
+    display: flex;
+    width: 18px;
+    height: 22px;
+    justify-content: center;
+}
+
+.monte-o-seu .survey {
+    color: black;
+    background-color: white;
+    position: fixed;
+    bottom: 20px;
+    right: 45px;
+    z-index: 9999;
+    width: 100%;
+    max-width: 385px;
+    height: 517px;
+    border: solid 1px var(--border);
+    border-top: solid 10px var(--hyundai-light-blue);
+    overflow-y: auto;
+    transform: translateX(calc(100% + 45px));
+    transition: all .5s ease-out;
+    padding: 10.5px 24px 27px;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+.monte-o-seu.survey-open .survey {
+    transform: translateX(0);
+}
+
+.monte-o-seu.survey-open .survey::-webkit-scrollbar {
+    width: 20px;
+}
+
+.monte-o-seu.survey-open .survey::-webkit-scrollbar-thumb {
+    height: 20px;
+    border: solid 7px transparent;
+    background-color: var(--scroll-thumb);
+    border-radius: 0;
+    background-clip: content-box;
+}
+
+.monte-o-seu.survey-open .survey::-webkit-scrollbar-track {
+    border-radius: 0;
+    border: solid 7px transparent;
+    background-color: var(--scroll-track);
+    background-clip: content-box;
+}
+
+.monte-o-seu .survey h5 {
+    color: var(--hyundai-blue);
+    font-size: 17px;
+    white-space: pre-line;
+    margin-bottom: 25px;
+}
+
+.monte-o-seu .survey label {
+    margin-bottom: 12px;
+
+    /* TODO this is not what the css on the original site says, look closer */
+    font-weight: 600;
+}
