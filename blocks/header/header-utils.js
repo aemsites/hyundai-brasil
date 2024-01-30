@@ -71,15 +71,15 @@ export function addTabs(tabs, block, navFragment) {
           navPanel.after(tab.content);
           navPanel.nextSibling.classList.add('tab-active');
         }
-        navPanel.nextSibling.addEventListener('mouseout', () => {
-          const activeButton = block.querySelector('button.active');
-          activeButton.classList.remove('active');
-          activeButton.parentElement.classList.remove('active');
-          if (tab.content) {
-            tab.content.classList.remove('active');
-            navPanel.nextSibling.remove();
-          }
-        });
+        // navPanel.nextSibling.addEventListener('mouseout', () => {
+        //   const activeButton = block.querySelector('button.active');
+        //   activeButton.classList.remove('active');
+        //   activeButton.parentElement.classList.remove('active');
+        //   if (tab.content) {
+        //     tab.content.classList.remove('active');
+        //     navPanel.nextSibling.remove();
+        //   }
+        // });
       } else if (activeButton !== tabButton) {
         activeButton.classList.remove('active');
         // remove active class from parent li
@@ -98,14 +98,14 @@ export function addTabs(tabs, block, navFragment) {
       }
     });
 
-    // tabButton.addEventListener('mouseout', () => {
-    //   const activeButton = block.querySelector('button.active');
-    //   activeButton.classList.remove('active');
-    //   activeButton.parentElement.classList.remove('active');
-    //   if (tab.content) {
-    //     tab.content.classList.remove('active');
-    //     navPanel.nextSibling.remove();
-    //   }
-    // });
+    tabButton.addEventListener('mouseout', () => {
+      const activeButton = block.querySelector('button.active');
+      activeButton.classList.remove('active');
+      activeButton.parentElement.classList.remove('active');
+      if (tab.content) {
+        tab.content.classList.remove('active');
+        navPanel.nextSibling.remove();
+      }
+    });
   });
 }
