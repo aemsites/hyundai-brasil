@@ -2,7 +2,7 @@
 header .nav-wrapper {
   background-color: transparent;
   box-shadow: none;
-  background-image: linear-gradient(rgba(0,0,0,.61),rgba(0,0,0,0));
+  background-image: linear-gradient(rgba(0 0 0 61%),rgba(0 0 0 0%));
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -15,7 +15,6 @@ header nav button {
   justify-content: center;
   color: #fff;
   font-size: 16px;
-  font-family: "HyundaiSansHead-Bold";
   line-height: 1;
   position: relative;
   background-color: transparent;
