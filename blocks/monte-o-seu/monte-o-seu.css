@@ -182,3 +182,151 @@
     /* TODO this is not what the css on the original site says, look closer */
     font-weight: 600;
 }
+
+.monte-o-seu .survey .questions > div {
+    margin-bottom: 40px;
+}
+
+.monte-o-seu .survey input {
+    height: 45px;
+    width: 100%;
+    border: 0;
+    border-bottom: solid 1px  var(--hyundai-gray);
+    padding: 5px 10px 0;
+    transition: all .5s ease-out;
+    outline: none;
+}
+
+.monte-o-seu .survey .radio label {
+    display: flex;
+    font-size: 14px;
+    font-weight: normal;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+    justify-content: left;
+    line-height: 1;
+}
+
+.monte-o-seu .survey input[type="radio"] {
+    display: none;
+}
+
+.monte-o-seu .survey .radio label {
+    position: relative;
+}
+
+.monte-o-seu .survey .radio-button {
+    width: 20px;
+    height: 20px;
+    background-color: #f5f4f4;
+    border-radius: 50%;
+    border: solid 1px var(--rating-border);
+    margin-right: 10px;
+}
+
+.monte-o-seu .survey input[type="radio"]:checked ~ .radio-button {
+    border-radius: 0;
+    transition: all .5s ease-out;
+    border-color: var(--hyundai-light-blue);
+}
+
+.monte-o-seu .survey input[type="radio"]:checked ~ .radio-button::after {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--hyundai-light-blue);
+    transition: all .5s ease-out;
+}
+
+.monte-o-seu .survey .radio.inline label {
+    display: inline-flex;
+    align-items: center;
+}
+
+.monte-o-seu .survey .mandatory-text {
+    font-size: 13px;
+    line-height: 1;
+    margin-bottom: 25px;
+}
+
+.monte-o-seu .survey input[type="range"] {
+    width: 100%;
+    max-width: 100%;
+    height: 23px;
+    display: inline-block;
+    cursor: pointer;
+    appearance: none;
+    background: linear-gradient(to right,var(--rose-background),var(--orange-background),var(--yellow-background),var(--green-background),var(--blue-background));
+    border: solid 1px var(--rating-border);
+    border-radius: 10px;
+    outline: none;
+    margin: 0;
+    margin-bottom: 18px;
+    padding: 0 3px;
+}
+
+.monte-o-seu .survey input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    transform: translateY(0);
+}
+
+.monte-o-seu .survey .question-rating-content {
+    color: var(--rating-label);
+    font-size: 14px;
+    line-height: 1;
+}
+
+.monte-o-seu .survey .data-list {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    margin-left: 2px;
+}
+
+.monte-o-seu .survey .question-rating-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    height: auto;
+}
+
+.monte-o-seu .survey .question-rating-text > div {
+    white-space: pre-line;
+    line-height: 1.2;
+    height: auto;
+}
+
+.monte-o-seu .survey .question-rating-text > div:last-child {
+    text-align: right;
+}
+
+.monte-o-seu .survey button.send {
+    width: 100%;
+    max-width: 212px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 0 auto;
+    font-size: 14px;
+    background-color: var(--hyundai-blue);
+    border: 0;
+}
+
+.monte-o-seu .survey .survey-success {
+    display: none;
+}
+
