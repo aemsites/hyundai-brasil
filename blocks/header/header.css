@@ -8,6 +8,31 @@ header .nav-wrapper {
   position: fixed;
 }
 
+header nav button {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-family: "HyundaiSansHead-Bold";
+  line-height: 1;
+  position: relative;
+  background-color: transparent;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 0;
+  text-decoration: none;
+  transition: all .4s ease-out;
+}
+
+header nav a.button:hover, header nav a.button:focus, header nav button:hover, header nav button:focus  {
+  background-color: white;
+  cursor: pointer;
+  color: black;
+  transition: all .4s ease-out;
+}
+
 header nav {
   box-sizing: border-box;
   display: grid;
@@ -39,6 +64,54 @@ header .tab-item {
   height: 30rem;
 }
 
+header nav .nav-hamburger button {
+  height: 22px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: inherit;
+  overflow: initial;
+  text-overflow: initial;
+  white-space: initial;
+}
+
+header nav .nav-sections ul > li {
+  font-weight: 700;
+  z-index:1000;
+}
+
+header nav .nav-sections ul > li > ul > li {
+  font-weight: 500;
+}
+
+header nav .nav-sections ul > li:hover,
+header nav .nav-sections ul > li:focus {
+  background-color: white;
+  border-bottom: 4px solid var(--primary-color);
+  transition: all .4s ease-out;
+}
+
+
+header nav .nav-sections ul > li:last-of-type {
+  background-color: var(--primary-color);
+  border: solid 1px var(--primary-color);
+}
+
+header nav .nav-sections ul > li:last-of-type > button {
+  min-width: 166px;
+  color: #fff;
+}
+
+
+header nav .nav-sections ul > li:last-of-type:hover, header nav .nav-sections ul > li:last-of-type > button:hover,
+header nav .nav-sections ul > li:last-of-type:focus, header nav .nav-sections ul > li:last-of-type > button:focus {
+  background-color: #fff;
+  color: var(--primary-color);
+  transition: all .4s ease-out;
+}
+
 @media (width >= 600px) {
   header nav {
     padding: 0 2rem;
@@ -68,43 +141,12 @@ header nav a:any-link {
   color: currentcolor;
 }
 
-header nav button {
-  height: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 16px;
-  font-family: "HyundaiSansHead-Bold";
-  line-height: 1;
-  position: relative;
-  background-color: transparent;
-  padding: 10px 20px;
-  cursor: pointer;
-  border: 0;
-  text-decoration: none;
-  transition: all .4s ease-out;
-}
-
 /* hamburger */
 header nav .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
   display: flex;
   align-items: center;
-}
-
-header nav .nav-hamburger button {
-  height: 22px;
-  margin: 0;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
-  overflow: initial;
-  text-overflow: initial;
-  white-space: initial;
 }
 
 header nav .nav-hamburger-icon,
@@ -203,24 +245,6 @@ header nav .nav-sections ul  {
   font-weight: 500;
 }
 
-header nav .nav-sections ul > li {
-  font-weight: 700;
-}
-
-header nav .nav-sections ul > li > ul > li {
-  font-weight: 500;
-}
-
-header nav .nav-sections ul > li:last-of-type {
-  background-color: #00aad2;
-  border: solid 1px #00aad2;
-}
-
-
-header nav .nav-sections ul > li:last-of-type > button {
-  min-width: 166px;
-  color: #fff;
-}
 
 /* header nav .nav-sections ul > li:last-of-type:hover,
 header nav .nav-sections ul > li:last-of-type:focus
