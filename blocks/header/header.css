@@ -30,6 +30,13 @@ header nav[aria-expanded="true"] {
   min-height: 100vh;
 }
 
+header .tab-item {
+  position: fixed;
+  background: white;
+  width: 100%;
+  height: 30rem;
+}
+
 @media (width >= 600px) {
   header nav {
     padding: 0 2rem;
