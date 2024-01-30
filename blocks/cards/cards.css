@@ -157,9 +157,7 @@
   padding: 12px 10px;
 }
 
-.cards.block.header-content.image.right > ul > li div:first-of-type {
-  border-bottom: 0;
-}
+
 
 .cards.block.header-content.right > ul > li div:empty {
   border-bottom: 0;
@@ -171,6 +169,10 @@
   border-bottom: 2px solid #00aad2;
   transition: opacity 1s linear;
   transform: scale(1.0);
+}
+
+.cards.block.header-content.image.right > ul > li div:first-of-type {
+  border-bottom: 0;
 }
 
 .cards.block.header-content.image.left > ul {
