@@ -51,7 +51,7 @@
 
 .cards.block.header-content > ul > li:hover, 
 .cards.block.header-content > ul > li:focus {
-  background-color: #cccccc;
+  background-color: #ccc;
   transition: opacity 1s linear;
   font-weight: 900;
   transform: scale(1.1);

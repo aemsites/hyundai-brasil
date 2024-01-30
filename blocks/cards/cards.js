@@ -38,8 +38,7 @@ export default function decorate(block) {
     .forEach((img) => {
       if (img.src.includes('icon')) {
         img.replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]));
-      } else
-        img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]))
+      } else img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]));
     });
 
   if (ul.querySelector('a') === null && !block.classList.contains('omit-nolink-styles') && block.closest('.section.cards-container')) {
