@@ -10,8 +10,20 @@
  * governing permissions and limitations under the License.
  */
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 :root {
   /* colors */
+  --hyundai-gray: #ccc;
+  --hyundai-blue: #002c5f;
+  --hyundai-light-blue: #00aad2;
+  --hyundai-lighter-blue: #aed7e6;
+  --hyundai-blue-title: #007fa8;
+  --border: #eee;
+  --scroll-thumb: #999;
+  --scroll-track: #eee;
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
   --background-color: white;
