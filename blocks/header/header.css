@@ -23,6 +23,7 @@ header nav button {
   border: 0;
   text-decoration: none;
   transition: all .4s ease-out;
+  font-family: HyundaiSansHead-Bold, sans-serif;
 }
 
 header nav a.button:hover, header nav a.button:focus, header nav button:hover, header nav button:focus  {
