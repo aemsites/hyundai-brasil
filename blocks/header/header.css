@@ -61,6 +61,12 @@ header .tab-item {
   background: white;
   width: 100%;
   height: 30rem;
+  display: flex;
+  flex-direction: row;
+}
+
+header .tab-item .cards-wrapper {
+  flex-basis: 50%;
 }
 
 header nav .nav-hamburger button {
