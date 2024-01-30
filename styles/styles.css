@@ -31,6 +31,9 @@
   --dark-color: #ccc;
   --text-color: black;
 
+    /* Custom Colors */
+    --primary-color: #00aad2;
+
   /* fonts */
   --body-font-family: roboto, roboto-fallback;
   --heading-font-family: var(--body-font-family);
@@ -59,6 +62,7 @@
   ascent-override: 95%;
   src: local('Arial');
 }
+
 
 @media (width >= 900px) {
   :root {
@@ -161,7 +165,6 @@ a.button:any-link, button {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-radius: 30px;
 }
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
