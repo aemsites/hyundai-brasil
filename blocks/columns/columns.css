@@ -1,6 +1,5 @@
 .columns > div {
-  display: flex;
-  flex-direction: column;
+  display: grid;
 }
 
 .columns img {
@@ -21,13 +20,17 @@
 
 @media (width >= 900px) {
   .columns > div {
-    align-items: center;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: end;
     flex-direction: unset;
     gap: 32px;
   }
 
   .columns > div > div {
-    flex: 1;
     order: unset;
+  }
+
+  .columns > div > div:last-child {
+    margin-left: 30%;
   }
 }
