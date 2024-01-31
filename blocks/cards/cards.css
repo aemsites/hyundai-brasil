@@ -30,23 +30,60 @@
   object-fit: cover;
 }
 
+
 .cards.header-content.block {
   position: relative;
   top: 5rem;
-  left: 15rem;
+  left: 14rem;
+}
+
+.cards.header-content.block.left {
+  position: relative;
+  top: 5rem;
+  left: 2rem;
+}
+
+.cards.header-content.block.right {
+  position: relative;
+  top: 5rem;
+  left: 0;
+}
+
+.cards.header-content.block.right.image {
+  left: 2rem;
+}
+
+.cards.header-content.block.left h2 {
+  font-family: HyundaiSansHead-Regular, sans-serif;
+}
+
+
+.cards.block.header-content > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 16px;
 }
 
 .cards.block.header-content > ul > li {
   background-color: #f6f3f2;
-  height: 10rem;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 1rem;
   border: 0;
   border-radius: 2px;
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
   transition: all 1s;
   transform-origin: 50% 50%;
+  font-family: HyundaiSansHead-Regular, sans-serif;
+}
+
+.cards.block.header-content .icon {
+  height: 45px;
+  width: 45px;
 }
 
 .cards.block.header-content > ul > li:hover, 
@@ -57,38 +94,70 @@
   transform: scale(1.1);
 }
 
+
 .cards.block.header-content > ul > li img {
   position: relative;
-  left: 15rem;
+  left: 11vw;
   top: 1em;
 }
+
+.cards.block.header-content.right.image > ul > li img {
+  position: relative;
+  left: 0;
+  top: 1em;
+  aspect-ratio: 0;
+}
+
+.cards.block.header-content.right > ul > li {
+  background-color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  border-radius: 2px;
+  font-size: var(--body-font-size-xs);
+  transition: all 1s;
+  transform-origin: 50% 50%;
+  font-family: HyundaiSansHead-Regular, sans-serif;
+}
+
+.cards.block.header-content.left.image > ul > li {
+  background-color: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 0;
+  border-radius: 2px;
+  font-size: var(--body-font-size-xs);
+  transition: all 1s;
+  transform-origin: 50% 50%;
+  font-family: HyundaiSansHead-Regular, sans-serif;
+}
+
+.cards.block.header-content.left.image > ul > li img {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: auto;
+}
+
 
 .cards.block.header-content.right > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   grid-gap: 16px;
 }
 
-.cards.block.header-content.right > ul > li {
-  background-color: white;
-  height: 10rem;
-  display: flex;
-  flex-direction: column;
-  border: 0;
-  gap: 4rem;
-  border-radius: 2px;
-  font-size: var(--body-font-size-s);
-  transition: all 1s;
-  transform-origin: 50% 50%;
-  margin-top: 3rem;
+.cards.block.header-content.right > ul > li div {
+  border-bottom: 2px solid #f6f3f2;
+  padding: 12px 10px;
 }
 
-.cards.block.header-content.right > ul > li div {
-  border-bottom: 1px solid #aeaeae;
-}
+
 
 .cards.block.header-content.right > ul > li div:empty {
   border-bottom: 0;
@@ -97,10 +166,61 @@
 
 .cards.block.header-content.right > ul > li div:hover,
 .cards.block.header-content.right > ul > li div:focus {
-  border-bottom: 1px solid #00aad2;
+  border-bottom: 2px solid #00aad2;
   transition: opacity 1s linear;
   transform: scale(1.0);
 }
 
+.cards.block.header-content.image.right > ul > li div:first-of-type {
+  border-bottom: 0;
+}
 
+.cards.block.header-content.image.left > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 16px;
+}
+
+@media (width >= 67rem) {
+  .cards.block.header-content > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    grid-gap: 16px;
+  }
+
+  .cards.block.header-content.right > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-gap: 16px;
+  }
+}
+
+@media (width >= 77rem) {
+  .cards.block.header-content > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    grid-gap: 16px;
+  }
+
+  .cards.block.header-content.image.left > ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 16px;
+  }
+}
 
