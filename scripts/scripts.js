@@ -62,6 +62,70 @@ function buildAutoBlocks(main) {
 }
 
 /**
+ * decorates anchors with video links
+ * for styling updates via CSS
+ * @param {Element}s anchor elements to decorate
+ * @returns {void}
+ */
+ export function decorateVideoLinks(youTubeAnchors) {
+  // currently only youtube links are supported
+  if (youTubeAnchors.length) {
+    youTubeAnchors.forEach((a) => {
+      a.classList.add('video-link');
+      a.classList.add('youtube');
+    });
+  }
+}
+
+/**
+ * decorates external links to open in new window
+ * for styling updates via CSS
+ * @param {Element}s element The element to decorate
+ * @returns {void}
+ */
+ export function decorateExternalAnchors(externalAnchors) {
+  if (externalAnchors.length) {
+    externalAnchors.forEach((a) => {
+      a.target = '_blank';
+    });
+  }
+}
+
+/**
+ * decorates links with download icon as downloadables
+ * @param {Element}s to decorate downloadableLink
+ * @returns {void}
+ */
+ export function decorateDownloadableLinks(downloadableLinks) {
+  if (downloadableLinks.length) {
+    downloadableLinks.forEach((link) => {
+      link.setAttribute('download', '');
+      link.removeAttribute('target');
+    });
+  }
+}
+
+/**
+ * decorates anchors
+ * for styling updates via CSS
+ * @param {Element} element The element to decorate
+ * @returns {void}
+ */
+ export function decorateAnchors(element = document) {
+  const anchors = element.getElementsByTagName('a');
+  decorateVideoLinks(Array.from(anchors).filter(
+    (a) => a.href.includes('youtu'),
+  ));
+  decorateExternalAnchors(Array.from(anchors).filter(
+    (a) => a.href && (!a.href.match(`^http[s]*://${window.location.host}/`)
+      || ['pdf'].includes(getUrlExtension(a.href).toLowerCase())),
+  ));
+  decorateDownloadableLinks(Array.from(anchors).filter(
+    (a) => (a.querySelector('span.icon-download') || a.closest('.download')),
+  ));
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -73,6 +137,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  decorateAnchors(main);
 }
 
 /**
