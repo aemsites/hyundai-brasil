@@ -177,6 +177,7 @@
 }
 
 .monte-o-seu .survey label {
+    display: block;
     margin-bottom: 12px;
 
     /* TODO this is not what the css on the original site says, look closer */
@@ -198,6 +199,7 @@
 }
 
 .monte-o-seu .survey .radio label {
+    position: relative;
     display: flex;
     font-size: 14px;
     font-weight: normal;
@@ -207,17 +209,17 @@
     align-items: flex-start;
     justify-content: left;
     line-height: 1;
+    padding-left: 30px;
 }
 
 .monte-o-seu .survey input[type="radio"] {
     display: none;
 }
 
-.monte-o-seu .survey .radio label {
-    position: relative;
-}
-
 .monte-o-seu .survey .radio-button {
+    position: absolute;
+    top: -4px;
+    left: 0;
     width: 20px;
     height: 20px;
     background-color: #f5f4f4;

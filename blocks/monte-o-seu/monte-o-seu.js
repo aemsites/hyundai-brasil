@@ -124,7 +124,7 @@ export default async function decorate(block) {
         div(
           { class: 'newsletter-text' },
           button({ type: 'button', class: 'newsletter-button' }, 'Se inscreva '),
-          span({}, 'para receber as últimas novidades da Hyundai.'),
+          span('para receber as últimas novidades da Hyundai.'),
         ),
       ),
     ),
