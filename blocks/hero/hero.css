@@ -1,7 +1,7 @@
 main .hero-container > div {
   max-width: unset;
 }
-  
+
 main .hero-container {
   padding: 0;
   position: relative;
@@ -10,11 +10,12 @@ main .hero-container {
 
 .hero {
   position: relative;
-  padding: 32px;
+  padding: var(--nav-height) 15px 32px;
   min-height: 300px;
 }
 
-.hero h1 {
+.hero h1,
+.hero h2 {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
