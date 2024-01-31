@@ -7,13 +7,14 @@ function createRadioEntry(name, text, value) {
   const id = `${name}-${value}`;
   return label(
     { for: id },
-    text,
     input({
       type: 'radio',
       name,
       id,
       value,
     }),
+    span({ class: 'radio-button' }),
+    text,
   );
 }
 
@@ -26,6 +27,10 @@ function getQuestions() {
         { class: 'question-rating-content' },
         div(
           { class: 'question-rating', 'data-rating': '0' },
+          div(
+            { class: 'data-list' },
+            ...Array.from({ length: 11 }, (_, i) => span({ class: 'range-mark' }, i.toString())),
+          ),
           input({
             type: 'range',
             name: 'score',
@@ -34,15 +39,12 @@ function getQuestions() {
             step: '10',
             value: '0',
           }),
-          div(
-            { class: 'data-list' },
-            ...Array.from({ length: 11 }, (_, i) => span({ class: 'range-mark' }, i.toString())),
-          ),
         ),
         div(
           { class: 'question-rating-text' },
-          div({ class: 'rating-min-text' }, '😒 Jamais recomendaria'),
-          div({ class: 'rating-max-text' }, '😊 Com certeza recomendo'),
+          // TODO see if we can avoid adding newlines here
+          div({ class: 'rating-min-text' }, '😒\nJamais\nrecomendaria'),
+          div({ class: 'rating-max-text' }, '😊\nCom certeza\nrecomendo'),
         ),
       ),
     ),
@@ -72,7 +74,7 @@ function getQuestions() {
     div(
       label('Você conseguiu fazer o que pretendia?'),
       div(
-        { class: 'inline-radio' },
+        { class: 'radio inline' },
         createRadioEntry('managedAccomplish', 'Sim', '1'),
         createRadioEntry('managedAccomplish', 'Não', '2'),
       ),
@@ -113,9 +115,7 @@ export default async function decorate(block) {
       getQuestions(),
     ),
     div({ class: 'mandatory-text' }, '*Todos os campos são de preenchimento obrigatório.'),
-    div(
-      button({ type: 'button' }, 'ENVIAR'),
-    ),
+    button({ type: 'button', class: 'send' }, 'ENVIAR'),
     div(
       { class: 'survey-success' },
       div(
@@ -124,7 +124,7 @@ export default async function decorate(block) {
         div(
           { class: 'newsletter-text' },
           button({ type: 'button', class: 'newsletter-button' }, 'Se inscreva '),
-          span({}, 'para receber as últimas novidades da Hyundai.'),
+          span('para receber as últimas novidades da Hyundai.'),
         ),
       ),
     ),
@@ -149,7 +149,10 @@ export default async function decorate(block) {
         a({ class: 'monte-link', href: 'https://www.hyundai.com.br/monte-o-seu.html' }, 'Monte o seu'),
         openSurveyButton,
         closeSurveyButton,
-        a({ class: 'whatsapp', href: 'https://api.whatsapp.com/send?phone=5508007703355&text=Ol%C3%A1!+Entrei+no+site+da+Hyundai+e+gostaria+de+saber+mais.' }, span({ class: 'icon icon-whatsapp' })),
+        a({
+          class: 'whatsapp',
+          href: 'https://api.whatsapp.com/send?phone=5508007703355&text=Ol%C3%A1!+Entrei+no+site+da+Hyundai+e+gostaria+de+saber+mais.',
+        }, span({ class: 'icon icon-whatsapp' })),
       ),
     ),
     surveyContent,
