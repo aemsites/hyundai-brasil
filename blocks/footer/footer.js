@@ -11,7 +11,6 @@ import {
 
 function decorateFooterTop(block) {
   const footerTop = block.querySelector('.footer-top');
-  console.log(footerTop);
   const tempDiv = footerTop.querySelector('.default-content-wrapper');
   const children = [...footerTop.querySelector('.default-content-wrapper').children];
   let index = 0;
@@ -63,10 +62,8 @@ export default async function decorate(block) {
     // decorate footer DOM
     const footer = document.createElement('div');
     footer.innerHTML = html;
-    console.log(footer);
     decorateSections(footer);
     updateSectionsStatus(footer);
-    console.log(footer);
 
     block.append(footer);
 

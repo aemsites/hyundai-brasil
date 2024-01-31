@@ -100,13 +100,13 @@ footer .icon-link-white {
   margin-bottom: 0.313rem;
 }
 
-@media (min-width: 48rem) {
+@media (width >= 48rem) {
   footer .footer-middle p {
     font-size: var(--body-font-size-m);
   }
 }
 
-@media (min-width: 62rem) {
+@media (width >= 62rem) {
   footer {
     padding-top: 3rem;
   }

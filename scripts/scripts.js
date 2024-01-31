@@ -61,13 +61,17 @@ function buildAutoBlocks(main) {
   }
 }
 
+function getUrlExtension(url) {
+  return url.split(/[#?]/)[0].split('.').pop().trim();
+}
+
 /**
  * decorates anchors with video links
  * for styling updates via CSS
  * @param {Element}s anchor elements to decorate
  * @returns {void}
  */
- export function decorateVideoLinks(youTubeAnchors) {
+export function decorateVideoLinks(youTubeAnchors) {
   // currently only youtube links are supported
   if (youTubeAnchors.length) {
     youTubeAnchors.forEach((a) => {
@@ -83,7 +87,7 @@ function buildAutoBlocks(main) {
  * @param {Element}s element The element to decorate
  * @returns {void}
  */
- export function decorateExternalAnchors(externalAnchors) {
+export function decorateExternalAnchors(externalAnchors) {
   if (externalAnchors.length) {
     externalAnchors.forEach((a) => {
       a.target = '_blank';
@@ -96,7 +100,7 @@ function buildAutoBlocks(main) {
  * @param {Element}s to decorate downloadableLink
  * @returns {void}
  */
- export function decorateDownloadableLinks(downloadableLinks) {
+export function decorateDownloadableLinks(downloadableLinks) {
   if (downloadableLinks.length) {
     downloadableLinks.forEach((link) => {
       link.setAttribute('download', '');
@@ -111,7 +115,7 @@ function buildAutoBlocks(main) {
  * @param {Element} element The element to decorate
  * @returns {void}
  */
- export function decorateAnchors(element = document) {
+export function decorateAnchors(element = document) {
   const anchors = element.getElementsByTagName('a');
   decorateVideoLinks(Array.from(anchors).filter(
     (a) => a.href.includes('youtu'),
