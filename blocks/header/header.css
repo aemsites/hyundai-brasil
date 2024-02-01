@@ -26,7 +26,20 @@ header nav button {
   font-family: HyundaiSansHead-Bold, sans-serif;
 }
 
-header nav a.button:hover, header nav a.button:focus, header nav button:hover, header nav button:focus  {
+header nav .nav-hamburger button {
+  height: 22px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: inherit;
+  overflow: initial;
+  text-overflow: initial;
+  white-space: initial;
+}
+
+header nav a.button:not(.onlyclick):hover, header nav a.button:not(.onlyclick):focus, header nav button:not(.onlyclick):hover, header nav button:not(.onlyclick):focus  {
   background-color: white;
   cursor: pointer;
   color: black;
@@ -61,33 +74,25 @@ header .tab-item {
   position: fixed;
   background: white;
   width: 100%;
-  height: 30rem;
+  height: 25rem;
   display: flex;
   flex-direction: row;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgba(0 0 0 / 19%);
 }
 
 header .tab-item:has(.image) {
-  height: 45rem;
+  height: 37rem;
 }
 
+header .tab-item:has(.hamburger) {
+  height: 30rem;
+}
 
 header .tab-item .cards-wrapper {
   flex-basis: 50%;
   padding: 2rem;
 }
 
-header nav .nav-hamburger button {
-  height: 22px;
-  margin: 0;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
-  overflow: initial;
-  text-overflow: initial;
-  white-space: initial;
-}
 
 header nav .nav-sections ul > li {
   font-weight: 700;
@@ -97,14 +102,6 @@ header nav .nav-sections ul > li {
 header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
-
-header nav .nav-sections ul > li:hover,
-header nav .nav-sections ul > li:focus {
-  background-color: white;
-  border-bottom: 4px solid var(--primary-color);
-  transition: all .4s ease-out;
-}
-
 
 header nav .nav-sections ul > li:last-of-type {
   background-color: var(--primary-color);
@@ -116,13 +113,20 @@ header nav .nav-sections ul > li:last-of-type > button {
   color: #fff;
 }
 
-
 header nav .nav-sections ul > li:last-of-type:hover, header nav .nav-sections ul > li:last-of-type > button:hover,
 header nav .nav-sections ul > li:last-of-type:focus, header nav .nav-sections ul > li:last-of-type > button:focus {
   background-color: #fff;
   color: var(--primary-color);
   transition: all .4s ease-out;
 }
+
+header nav .nav-sections ul > li:not(:has(button.onlyclick)):hover,
+header nav .nav-sections ul > li:not(:has(button.onlyclick)):focus {
+  background-color: white;
+  border-bottom: 4px solid var(--primary-color);
+  transition: all .4s ease-out;
+}
+
 
 @media (width >= 600px) {
   header nav {
