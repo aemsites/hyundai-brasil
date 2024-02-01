@@ -52,6 +52,15 @@ footer .footer-top h5 {
   margin-bottom: 1.5rem;
 }
 
+footer .footer-bottom h5 {
+    color: #fff;
+    font-size: 14px;
+    line-height: 1;
+    font-family: HyundaiSansHead-medium, sans-serif;
+    margin-top: 3em;
+    font-weight: bold;
+}
+
 footer .footer-top-item:last-of-type h5 {
   color: var(--white);
   font-weight: var(--font-weight-bold);
@@ -83,7 +92,7 @@ footer .footer-bottom p>a {
 }
 
 footer .footer-bottom p {
-  font-size: var(--body-font-size-xs);
+  font-size: 12px;
   line-height: 1;
 }
 
@@ -111,7 +120,7 @@ footer .icon-hyundai {
 
 @media (width >= 48rem) {
   footer .footer-middle p {
-    font-size: var(--body-font-size-m);
+    font-size: 13px;
   }
 }
 
