@@ -4,15 +4,96 @@
 }
 
 footer {
-  padding: 1rem 1rem 2rem;
+  padding: 20px 7.5% 30px;
   background-color: var(--text-color);
-  font-size: var(--body-font-size-s);
+  font-size: 10px;
   overflow: hidden;
   font-family: HyundaiSansHead-regular, sans-serif;
 }
 
+.footer > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+footer .footer > div.section:first-of-type {
+  grid-column: 1 / -1;
+}
+
 footer .section.disclaimer {
-  margin-bottom: 60px;
+  grid-column: 1 / -1;
+  font-family: HyundaiSansText-Regular, sans-serif;
+  font-size: 13px;
+  margin-bottom: 30px;
+}
+
+footer .section.logo {
+  grid-row: 2 / 3;
+}
+
+footer .section.logo h5 {
+  margin-bottom: 0;
+}
+
+footer .section.logo img {
+  width: 133px;
+  height: 19px;
+}
+
+footer .section.logo p {
+  margin-top: 0;
+  color: #b4b4b4;
+  font-size: 12px;
+}
+
+footer .section.social-icons {
+  grid-row: 2 / 3;
+}
+
+footer .section.social-icons ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 24px;
+  width: 100%;
+}
+
+footer .section.social-icons ul span {
+  display: flex;
+  align-items: flex-end;
+}
+
+footer .section.social-icons li .icon img {
+  max-height: 19px;
+  margin-right: 10px;
+}
+
+footer .section.social-icons li:last-child .icon img {
+  margin-right: 0;
+}
+
+footer .section.hamburger {
+  grid-row: 3 / 5;
+}
+
+footer .section.multilist {
+  grid-row: 3 / 4;
+}
+
+footer .section.legal {
+  grid-row: 4 / 5;
+}
+
+footer .section.revisoes {
+  grid-row: 5 / 6;
+  grid-column: 1 / -1;
+}
+
+footer .section.contact {
+  display: none;
 }
 
 footer .section.disclaimer > div {
@@ -64,15 +145,8 @@ footer h5 {
   font-size: var(--body-font-size-s);
   margin-bottom: 18px;
   margin-top: 0;
-}
-
-footer .footer-bottom h5 {
-    color: #fff;
-    font-size: 14px;
-    line-height: 1;
-    font-family: HyundaiSansHead-medium, sans-serif;
-    margin-top: 3em;
-    font-weight: bold;
+  font-family: HyundaiSansHead-Medium, sans-serif;
+  font-weight: bold;
 }
 
 footer .multilist-item:last-of-type h5 {
@@ -154,9 +228,7 @@ footer .icon-hyundai {
   }
 
   footer .section.disclaimer {
-    grid-column: 1 / -1;
     font-size: 13px;
-    font-family: HyundaiSansText-Regular, sans-serif;
   }
 
   footer .section.hamburger {

@@ -1,7 +1,9 @@
 import {
+  decorateBlock,
+  decorateBlocks,
   decorateButtons, decorateIcons,
   decorateSections,
-  getMetadata,
+  getMetadata, loadBlock, loadBlocks,
   updateSectionsStatus,
 } from '../../scripts/aem.js';
 
@@ -70,6 +72,9 @@ export default async function decorate(block) {
     decorateButtons(block);
     decorateFooter(block);
     decorateAnchors(block);
+    const footerForm = footer.querySelector('.footer-form');
+    decorateBlock(footerForm);
+    loadBlock(footerForm);
     await decorateIcons(block);
   }
 }
