@@ -91,10 +91,10 @@ footer .footer-bottom p:last-of-type {
   margin-top: 1rem;
 }
 
-footer .icon-link-white {
+footer .icon-hamburger {
   height: 1.125rem;
   width: 1.125rem;
-  background-image: url("../../icons/link-white.svg");
+  background-image: url("../../icons/hamburger.svg");
   margin-left: 0.125rem;
   vertical-align: middle;
   margin-bottom: 0.313rem;
