@@ -26,6 +26,7 @@ footer h5 {
 .footer > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-row-gap: 30px;
 }
 
 footer .footer > div.section:first-of-type {
@@ -36,11 +37,14 @@ footer .section.disclaimer {
   grid-column: 1 / -1;
   font-family: HyundaiSansText-Regular, sans-serif;
   font-size: 13px;
-  margin-bottom: 30px;
 }
 
-footer .section.logo {
+footer .section.logo,
+footer .section.social-icons {
   grid-row: 2 / 3;
+}
+footer .section.social-icons {
+  align-items: end;
 }
 
 footer .section.logo h5 {
@@ -58,10 +62,6 @@ footer .section.logo p {
   font-size: 12px;
 }
 
-footer .section.social-icons {
-  grid-row: 2 / 3;
-}
-
 footer .section.social-icons ul {
   display: flex;
   list-style: none;
@@ -76,6 +76,10 @@ footer .section.social-icons ul {
 footer .section.social-icons ul span {
   display: flex;
   align-items: flex-end;
+}
+
+footer .section.social-icons li .icon {
+  width: unset;
 }
 
 footer .section.social-icons li .icon img {
@@ -144,38 +148,12 @@ footer .multilist {
   margin-bottom: 1rem;
 }
 
-footer .multilist ul>li {
+footer .section.multilist ul li {
   display: none;
-}
-
-footer .multilist-item:last-of-type {
-  margin-top: 3rem;
-  margin-bottom: 2rem;
 }
 
 footer .multilist h6 {
   display: none;
-}
-
-footer .multilist-item:last-of-type li {
-  margin: 0;
-  padding: 0;
-  display: block;
-  font-size: var(--body-font-size-m);
-  margin-bottom: 1.5rem;
-}
-
-
-
-footer .multilist-item:last-of-type h5 {
-  color: var(--white);
-  font-weight: bold;
-}
-
-footer .section.multilist ul {
-  margin: 0;
-  padding: 0;
-  margin-bottom: 1.75rem;
 }
 
 footer .footer-middle img {

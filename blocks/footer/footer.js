@@ -1,9 +1,10 @@
 import {
   decorateBlock,
-  decorateBlocks,
-  decorateButtons, decorateIcons,
+  decorateButtons,
+  decorateIcons,
   decorateSections,
-  getMetadata, loadBlock, loadBlocks,
+  getMetadata,
+  loadBlock,
   updateSectionsStatus,
 } from '../../scripts/aem.js';
 
