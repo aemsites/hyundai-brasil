@@ -1,9 +1,16 @@
 export function createTabs(block, navFragment) {
+  let title = 0;
+  console.log(block.innerHTML);
   const ul = block.querySelector('ul');
+  console.log(ul);
   if (!ul) return null;
 
   const tabs = [...ul.querySelectorAll('li')].map((li) => {
-    const title = li.textContent;
+    if (!li.textContent) { title = li.querySelector('img').getAttribute('data-icon-name'); } 
+    else title = li.textContent;
+    console.log(title);
+    // console.log(li.querySelector('img').getAttribute('data-icon-name'));
+    // const title = li.textContent;
     const name = title.toLowerCase().trim();
     return {
       title,
@@ -51,12 +58,17 @@ export function createTabs(block, navFragment) {
 
 export function addTabs(tabs, block, navFragment) {
   const navPanel = navFragment.querySelector('.section.nav-sections').parentElement;
+  console.log(navPanel);
   tabs.forEach((tab) => {
     const button = document.createElement('button');
     const { tabButton, title } = tab;
     button.textContent = title.split(',');
+    console.log(button.textContent);
+    if (button.textContent === "hamburger") {
+      button.innerHTML='<span class="icon icon-hamburger"><img data-icon-name="hamburger" src="/icons/hamburger.svg" alt="" loading="lazy"></span>'
+    }
     button.classList.add('tab');
-
+    
     tabButton.replaceChildren(button);
 
     tabButton.addEventListener('mouseover', () => {
@@ -67,6 +79,7 @@ export function addTabs(tabs, block, navFragment) {
         // add active class to parent li
         tabButton.classList.add('active');
         if (tab.content) {
+          console.log(tab.content);
           tab.content.classList.add('active');
           navPanel.after(tab.content);
           navPanel.nextSibling.classList.add('tab-active');
@@ -98,14 +111,14 @@ export function addTabs(tabs, block, navFragment) {
       }
     });
 
-    tabButton.addEventListener('mouseout', () => {
-      const activeButton = block.querySelector('button.active');
-      activeButton.classList.remove('active');
-      activeButton.parentElement.classList.remove('active');
-      if (tab.content) {
-        tab.content.classList.remove('active');
-        navPanel.nextSibling.remove();
-      }
-    });
+    // tabButton.addEventListener('mouseout', () => {
+    //   const activeButton = block.querySelector('button.active');
+    //   activeButton.classList.remove('active');
+    //   activeButton.parentElement.classList.remove('active');
+    //   if (tab.content) {
+    //     tab.content.classList.remove('active');
+    //     navPanel.nextSibling.remove();
+    //   }
+    // });
   });
 }
