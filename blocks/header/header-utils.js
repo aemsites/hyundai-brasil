@@ -56,6 +56,48 @@ export function createTabs(block, navFragment) {
   return tabs;
 }
 
+export function enableHover(tabButton) {
+  tabButton.addEventListener('mouseover', () => {
+    const activeButton = block.querySelector('button.active');
+
+    if (!activeButton) {
+      button.classList.add('active');
+      // add active class to parent li
+      tabButton.classList.add('active');
+      if (tab.content) {
+        console.log(tab.content);
+        tab.content.classList.add('active');
+        navPanel.after(tab.content);
+        navPanel.nextSibling.classList.add('tab-active');
+      }
+      // navPanel.nextSibling.addEventListener('mouseout', () => {
+      //   const activeButton = block.querySelector('button.active');
+      //   activeButton.classList.remove('active');
+      //   activeButton.parentElement.classList.remove('active');
+      //   if (tab.content) {
+      //     tab.content.classList.remove('active');
+      //     navPanel.nextSibling.remove();
+      //   }
+      // });
+    } else if (activeButton !== tabButton) {
+      activeButton.classList.remove('active');
+      // remove active class from parent li
+      activeButton.parentElement.classList.remove('active');
+      if (tab.content) {
+        tab.content.classList.remove('active');
+        navPanel.nextSibling.remove();
+      }
+      button.classList.add('active');
+      // add active class to parent li
+      tabButton.classList.add('active');
+      if (tab.content) {
+        tab.content.classList.add('active');
+        navPanel.after(tab.content);
+      }
+    }
+  });
+}
+
 export function addTabs(tabs, block, navFragment) {
   const navPanel = navFragment.querySelector('.section.nav-sections').parentElement;
   console.log(navPanel);
@@ -71,46 +113,7 @@ export function addTabs(tabs, block, navFragment) {
     button.classList.add('tab');
     
     tabButton.replaceChildren(button);
-
-    tabButton.addEventListener('mouseover', () => {
-      const activeButton = block.querySelector('button.active');
-
-      if (!activeButton) {
-        button.classList.add('active');
-        // add active class to parent li
-        tabButton.classList.add('active');
-        if (tab.content) {
-          console.log(tab.content);
-          tab.content.classList.add('active');
-          navPanel.after(tab.content);
-          navPanel.nextSibling.classList.add('tab-active');
-        }
-        // navPanel.nextSibling.addEventListener('mouseout', () => {
-        //   const activeButton = block.querySelector('button.active');
-        //   activeButton.classList.remove('active');
-        //   activeButton.parentElement.classList.remove('active');
-        //   if (tab.content) {
-        //     tab.content.classList.remove('active');
-        //     navPanel.nextSibling.remove();
-        //   }
-        // });
-      } else if (activeButton !== tabButton) {
-        activeButton.classList.remove('active');
-        // remove active class from parent li
-        activeButton.parentElement.classList.remove('active');
-        if (tab.content) {
-          tab.content.classList.remove('active');
-          navPanel.nextSibling.remove();
-        }
-        button.classList.add('active');
-        // add active class to parent li
-        tabButton.classList.add('active');
-        if (tab.content) {
-          tab.content.classList.add('active');
-          navPanel.after(tab.content);
-        }
-      }
-    });
+    enableHover(tabButton);
 
     // tabButton.addEventListener('mouseout', () => {
     //   const activeButton = block.querySelector('button.active');
