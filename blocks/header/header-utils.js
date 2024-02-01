@@ -66,6 +66,7 @@ export function addTabs(tabs, block, navFragment) {
     console.log(button.textContent);
     if (button.textContent === "hamburger") {
       button.innerHTML='<span class="icon icon-hamburger"><img data-icon-name="hamburger" src="/icons/hamburger.svg" alt="" loading="lazy"></span>'
+      button.classList.add('onlyclick');
     }
     button.classList.add('tab');
     

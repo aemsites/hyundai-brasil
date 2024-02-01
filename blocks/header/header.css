@@ -26,7 +26,7 @@ header nav button {
   font-family: HyundaiSansHead-Bold, sans-serif;
 }
 
-header nav a.button:hover, header nav a.button:focus, header nav button:hover, header nav button:focus  {
+header nav a.button:not(.onlyclick):hover, header nav a.button:not(.onlyclick):focus, header nav button:not(.onlyclick):hover, header nav button:not(.onlyclick):focus  {
   background-color: white;
   cursor: pointer;
   color: black;
@@ -98,8 +98,8 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
-header nav .nav-sections ul > li:hover,
-header nav .nav-sections ul > li:focus {
+header nav .nav-sections ul > li:not(:has(button.onlyclick)):hover,
+header nav .nav-sections ul > li:not(:has(button.onlyclick)):focus {
   background-color: white;
   border-bottom: 4px solid var(--primary-color);
   transition: all .4s ease-out;

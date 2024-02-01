@@ -205,7 +205,7 @@ a.button:any-link, button {
   text-overflow: ellipsis;
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
+a.button:not(.onlyclick):hover, a.button:not(.onlyclick):focus, button:not(.onlyclick):hover, button:not(.onlyclick):focus  {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
