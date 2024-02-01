@@ -1,8 +1,3 @@
-/* TODO remove before merge */
-.nav-tools {
-  display: none;
-}
-
 footer {
   padding: 20px 7.5% 0;
   background-color: var(--text-color);
@@ -27,6 +22,10 @@ footer h5 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 30px;
+}
+
+footer div.section:last-child {
+  display: none;
 }
 
 footer .footer > div.section:first-of-type {
@@ -154,10 +153,6 @@ footer .section.revisoes > div {
   justify-content: flex-start;
 }
 
-footer div.section:last-child {
-  display: none;
-}
-
 footer .section.revisoes p:last-child {
   color: black;
   font-size: 12px;
@@ -196,34 +191,6 @@ footer .section.multilist ul li {
 
 footer .multilist h6 {
   display: none;
-}
-
-footer .footer-middle img {
-  max-width: 10rem;
-  max-height: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-footer .footer-middle {
-  margin-bottom: 2rem;
-}
-
-footer .footer-middle p {
-  font-size: var(--body-font-size-s);
-}
-
-footer .footer-bottom p>a {
-  color: var(--white);
-  margin-right: 1rem;
-}
-
-footer .footer-bottom p {
-  font-size: 12px;
-  line-height: 1;
-}
-
-footer .footer-bottom p:last-of-type {
-  margin-top: 1rem;
 }
 
 footer .icon-hamburger {
@@ -276,6 +243,17 @@ footer .icon-hyundai {
     align-items: flex-start;
   }
 
+  footer ul > li {
+    margin: 0;
+    padding: 0;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  footer .multilist ul > li {
+    display: block;
+  }
+
   footer .section.hamburger li {
     width: 110px;
   }
@@ -304,22 +282,6 @@ footer .icon-hyundai {
   footer .multilist > div {
     display: flex;
     justify-content: space-between;
-  }
-
-  footer .footer-bottom>div>div {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  footer ul > li {
-    margin: 0;
-    padding: 0;
-    display: block;
-    margin-bottom: 8px;
-  }
-
-  footer .multilist ul > li {
-    display: block;
   }
 
   footer .multilist-item:last-of-type li {
