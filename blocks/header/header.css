@@ -71,6 +71,9 @@ header .tab-item:has(.image) {
   height: 37rem;
 }
 
+header .tab-item:has(.hamburger) {
+  height: 30rem;
+}
 
 header .tab-item .cards-wrapper {
   flex-basis: 50%;
