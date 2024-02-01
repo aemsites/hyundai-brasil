@@ -4,7 +4,7 @@
 }
 
 footer {
-  padding: 20px 7.5% 30px;
+  padding: 20px 7.5% 0;
   background-color: var(--text-color);
   font-size: 10px;
   overflow: hidden;
@@ -41,8 +41,9 @@ footer .section.disclaimer {
 
 footer .section.logo,
 footer .section.social-icons {
-  grid-row: 2 / 3;
+  grid-row: 3 / 4;
 }
+
 footer .section.social-icons {
   align-items: end;
 }
@@ -92,7 +93,7 @@ footer .section.social-icons li:last-child .icon img {
 }
 
 footer .section.hamburger {
-  grid-row: 3 / 5;
+  grid-row: 4 / 6;
   font-size: 12px;
 }
 
@@ -112,16 +113,57 @@ footer .section.hamburger ul li {
 }
 
 footer .section.multilist {
-  grid-row: 3 / 4;
-}
-
-footer .section.legal {
   grid-row: 4 / 5;
 }
 
-footer .section.revisoes {
+footer .section.multilist h5::before {
+  content: "+";
+  color: white;
+  display: inline-block;
+  padding-right: 5px;
+  transition: transform .3s ease-out;
+}
+
+footer .section.legal {
   grid-row: 5 / 6;
+}
+
+footer .section.legal ul {
+  padding: 0;
+  font-size: 12px;
+  font-family: HyundaiSansText-Regular, sans-serif;
+  line-height: 1.2;
+}
+
+footer .section.legal ul li {
+  margin-bottom: 8px;
+}
+
+footer .section.revisoes {
+  grid-row: 6 / 7;
   grid-column: 1 / -1;
+  background-color: white;
+
+  /* Ignore lateral padding */
+  margin: 0 calc(-1vw * 7.5);
+}
+
+footer .section.revisoes > div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+footer div.section:last-child {
+  display: none;
+}
+
+footer .section.revisoes p:last-child {
+  color: black;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: left;
+  font-family: HyundaiSansText-Regular, sans-serif;
 }
 
 footer .section.contact {
@@ -267,10 +309,6 @@ footer .icon-hyundai {
   footer .footer-bottom>div>div {
     display: flex;
     justify-content: space-between;
-  }
-
-  footer .multilist-item:last-of-type {
-    margin-top: 0;
   }
 
   footer ul > li {
