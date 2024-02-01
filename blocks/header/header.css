@@ -61,13 +61,14 @@ header .tab-item {
   position: fixed;
   background: white;
   width: 100%;
-  height: 30rem;
+  height: 25rem;
   display: flex;
   flex-direction: row;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 header .tab-item:has(.image) {
-  height: 45rem;
+  height: 37rem;
 }
 
 
