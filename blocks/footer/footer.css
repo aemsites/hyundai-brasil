@@ -100,6 +100,15 @@ footer .icon-hamburger {
   margin-bottom: 0.313rem;
 }
 
+footer .icon-hyundai {
+  height: 1.125rem;
+  width: 8.655rem;
+  background-image: url("../../icons/hyundai.svg");
+  margin-left: 0.125rem;
+  vertical-align: middle;
+  margin-bottom: 0.313rem;
+}
+
 @media (width >= 48rem) {
   footer .footer-middle p {
     font-size: var(--body-font-size-m);
