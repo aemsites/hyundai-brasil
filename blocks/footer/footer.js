@@ -1,5 +1,5 @@
 import {
-  decorateButtons,
+  decorateButtons, decorateIcons,
   decorateSections,
   getMetadata,
   updateSectionsStatus,
@@ -10,7 +10,7 @@ import {
 } from '../../scripts/scripts.js';
 
 function decorateFooterTop(block) {
-  const footerTop = block.querySelector('.footer-top');
+  const footerTop = block.querySelector('.multilist');
   const tempDiv = footerTop.querySelector('.default-content-wrapper');
   const children = [...footerTop.querySelector('.default-content-wrapper').children];
   let index = 0;
@@ -18,7 +18,7 @@ function decorateFooterTop(block) {
 
   while (index < children.length) {
     const topItem = document.createElement('div');
-    topItem.classList.add('footer-top-item');
+    topItem.classList.add('multilist-item');
     topItem.appendChild(children[index]);
     index += 1;
 
@@ -53,7 +53,7 @@ export default async function decorate(block) {
 
   // fetch footer content
   const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta.footer || '/footer';
+  const footerPath = footerMeta.footer || '/drafts/footer2';
   const resp = await fetch(`${footerPath}.plain.html`, window.location.pathname.endsWith('/footer') ? { cache: 'reload' } : {});
 
   if (resp.ok) {
@@ -70,5 +70,6 @@ export default async function decorate(block) {
     decorateButtons(block);
     decorateFooter(block);
     decorateAnchors(block);
+    await decorateIcons(block);
   }
 }
