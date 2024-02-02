@@ -24,6 +24,16 @@
   font-style: normal;
 }
 
+
+@font-face {
+  font-family: HyundaiSansHead-Bold, sans-serif;
+  src: url('../fonts/HyundaiSansHead-Bold.woff2') format('woff2');
+  font-display: swap;
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 @font-face {
   font-family: HyundaiSansText-Regular, sans-serif;
   src: url('../fonts/HyundaiSansText-Regular.woff2') format('woff2');
