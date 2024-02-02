@@ -1,11 +1,10 @@
 header nav {
   background-color: white;
   color: black;
-  box-sizing: border-box;
   display: grid;
   align-items: center;
-  gap: 0 2em;
-  margin: auto;
+  justify-content: start;
+  grid-gap: 0 2em;
   height: var(--nav-height);
   padding: 0 1rem;
   font-family: var(--body-font-family);
@@ -148,22 +147,10 @@ header nav .nav-sections ul > li:not(:has(button.onlyclick)):focus {
 @media (width >= 900px) {
   header nav {
     box-sizing: border-box;
-    display: grid;
-    grid-template:
-    'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr / auto 1fr auto;
-    align-items: center;
     gap: 0 2em;
     margin: auto;
-    max-width: 1264px;
-    height: var(--nav-height);
     padding: 0 1rem;
-    font-family: var(--body-font-family);
-  }
-
-  header nav {
     display: flex;
-    justify-content: space-between;
     background-color: unset;
   }
 
@@ -302,6 +289,14 @@ header nav .nav-sections ul > li > ul {
   margin-top: 0;
 }
 
+/* TODO use as default config - temp workaround to work faster */
+@media (width < 900px) {
+  header nav[aria-expanded="false"] {
+    grid-template:
+        'hamburger brand tools' var(--nav-height)
+        'sections sections sections' 1fr / auto 1fr auto;
+  }
+}
 
 @media (width >= 900px) {
   header nav button {
@@ -320,6 +315,14 @@ header nav .nav-sections ul > li > ul {
     display: block;
     visibility: visible;
     white-space: nowrap;
+  }
+
+  header nav .nav-sections ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    margin: 0;
+    font-size: var(--body-font-size-xs);
   }
 
   header nav[aria-expanded="true"] .nav-sections {
@@ -352,11 +355,8 @@ header nav .nav-sections ul > li > ul {
     transform: rotate(315deg);
   }
 
-  header nav .nav-sections ul {
-    display: flex;
-    gap: 2em;
-    margin: 0;
-    font-size: var(--body-font-size-xs);
+  header nav .nav-sections ul li:last-child {
+    order: unset;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
