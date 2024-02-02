@@ -304,6 +304,7 @@ header nav .nav-sections ul > li > ul {
 
   header nav .nav-sections nav {
     display: flex;
+    padding: 0;
   }
 
   header nav .nav-sections ul {
@@ -320,6 +321,7 @@ header nav .nav-sections ul > li > ul {
 
   header nav .nav-sections ul li button {
     justify-content: flex-start;
+    font-size: 18px;
   }
 
   header nav .nav-sections ul li:first-child {
