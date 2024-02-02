@@ -53,6 +53,23 @@ export function createTabs(block, navFragment) {
 }
 
 export function enableHover(tabButton, block, button, tab, navPanel) {
+  function disableHoverEffect(activeButton) {
+    activeButton.classList.remove('active');
+    // remove active class from parent li
+    activeButton.parentElement.classList.remove('active');
+    if (tab.content) {
+      tab.content.classList.remove('active');
+      navPanel.nextSibling.remove();
+    }
+  }
+
+  document.body.querySelector('main').addEventListener('mouseover', () => {
+    const activeButton = block.querySelector('button.active');
+    if (activeButton && !activeButton.querySelector('.icon-hamburger')) {
+      disableHoverEffect(activeButton);
+    }
+  });
+
   tabButton.addEventListener('mouseover', () => {
     const activeButton = block.querySelector('button.active');
 
@@ -75,13 +92,7 @@ export function enableHover(tabButton, block, button, tab, navPanel) {
       //   }
       // });
     } else if (activeButton !== tabButton) {
-      activeButton.classList.remove('active');
-      // remove active class from parent li
-      activeButton.parentElement.classList.remove('active');
-      if (tab.content) {
-        tab.content.classList.remove('active');
-        navPanel.nextSibling.remove();
-      }
+      disableHoverEffect(activeButton);
       button.classList.add('active');
       // add active class to parent li
       tabButton.classList.add('active');
