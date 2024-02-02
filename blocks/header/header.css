@@ -114,7 +114,6 @@ header nav .nav-sections ul > li > ul > li {
 }
 
 header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
-  order: -3;
   background-color: var(--primary-color);
   border: solid 1px var(--primary-color);
 }
@@ -275,6 +274,10 @@ header nav .nav-sections ul > li > ul {
 
 /* TODO use as default config - temp workaround to work faster */
 @media (width < 900px) {
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
+    order: -3;
+  }
+
   header nav[aria-expanded="false"] {
     grid-template:
         'hamburger brand tools' var(--nav-height)
