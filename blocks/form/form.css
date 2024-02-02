@@ -28,11 +28,6 @@
   margin-bottom: 18px;
 }
 
-.form.header-right.block .radio-container {
-  display: flex;
-  flex-direction: column;
-}
-
 .form input,
 .form select,
 .form textarea {
@@ -72,12 +67,9 @@
   height: 0;
 }
 
-.form.header-right.block .radio-container input {
+.form.header-right.block fieldset input {
     width: 20px;
     height: 20px;
-    border-color: #00aad2;
-    border: solid 2px #d3d3d3;
-    border-radius: 50%;
 }
 
 .form .field-wrapper > label {
@@ -88,7 +80,7 @@
   order: 1;
 }
 
-.form.header-right.block .radio-container label {
+.form.header-right.block fieldset label {
   color: #747474;
 }
 
@@ -97,14 +89,6 @@
   background-color: #b7b7b7;
   border: solid 1px #707070;
 }
-
-@media (width >= 600px) {
-  .form.header-right.block .radio-container {
-    display: flex;
-    flex-direction: row;
-  }
-}
-
 
 @media (width >= 900px) {
   .form fieldset {

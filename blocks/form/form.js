@@ -108,9 +108,4 @@ export default async function decorate(block) {
       }
     }
   });
-  // Logic for containerizing all radio buttons DIV in one container for Header form
-  const radioButtonDiv = document.createElement('div');
-  block.querySelectorAll('.form.header-right.block .radio-wrapper').forEach((x) => { radioButtonDiv.append(x); });
-  block.querySelector('.form.header-right.block .heading-wrapper').after(radioButtonDiv);
-  radioButtonDiv.classList.add('radio-container');
 }
