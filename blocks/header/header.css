@@ -97,10 +97,11 @@ header .tab-item .cards-wrapper {
 header nav .nav-sections ul {
   display: flex;
   flex-direction: column;
-}
-
-header nav .nav-sections ul li:last-child {
-  order: -3;
+  width: 100%;
+  list-style: none;
+  padding-left: 0;
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
 }
 
 
@@ -111,6 +112,10 @@ header nav .nav-sections ul > li {
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
+}
+
+header nav .nav-sections ul li:last-child {
+  order: -3;
 }
 
 header nav .nav-sections ul > li:last-of-type {
@@ -268,23 +273,6 @@ header nav[aria-expanded="true"] .nav-sections {
   align-self: start;
 }
 
-header nav .nav-sections ul  {
-  list-style: none;
-  padding-left: 0;
-  font-size: var(--body-font-size-s);
-  font-weight: 500;
-}
-
-
-/* header nav .nav-sections ul > li:last-of-type:hover,
-header nav .nav-sections ul > li:last-of-type:focus
-{
-  color: #00aad2;
-  background-color: #fff;
-} */
-
-
-
 header nav .nav-sections ul > li > ul {
   margin-top: 0;
 }
@@ -307,16 +295,12 @@ header nav .nav-sections ul > li > ul {
     padding: 0;
   }
 
-  header nav .nav-sections ul {
-    width: 100%;
-  }
-
   header nav .nav-sections ul li {
     width: 100%;
-  }
-
-  header nav .nav-sections ul li {
     border-bottom: solid 1px #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   header nav .nav-sections ul li button {
@@ -330,12 +314,6 @@ header nav .nav-sections ul > li > ul {
 
   header nav .nav-sections ul li:nth-child(4) {
     order: -2;
-  }
-
-  header nav .nav-sections ul li {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
 
   header nav .nav-sections ul li span.icon {
@@ -376,6 +354,7 @@ header nav .nav-sections ul > li > ul {
   header nav .nav-sections ul {
     display: flex;
     flex-direction: row;
+    width: auto;
     gap: 2em;
     margin: 0;
     font-size: var(--body-font-size-xs);
