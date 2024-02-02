@@ -12,7 +12,7 @@ import {
   decorateAnchors,
 } from '../../scripts/scripts.js';
 
-function decorateFooterTop(block) {
+function decorateFooterMultilist(block) {
   const footerTop = block.querySelector('.multilist');
   const tempDiv = footerTop.querySelector('.default-content-wrapper');
   const children = [...footerTop.querySelector('.default-content-wrapper').children];
@@ -21,7 +21,6 @@ function decorateFooterTop(block) {
 
   while (index < children.length) {
     const topItem = document.createElement('div');
-    topItem.classList.add('multilist-item');
     topItem.appendChild(children[index]);
     index += 1;
 
@@ -43,7 +42,7 @@ function decorateFooterTop(block) {
 }
 
 function decorateFooter(block) {
-  decorateFooterTop(block);
+  decorateFooterMultilist(block);
   block.parentElement.classList.add('appear');
 }
 
@@ -56,7 +55,7 @@ export default async function decorate(block) {
 
   // fetch footer content
   const footerMeta = getMetadata('footer');
-  const footerPath = footerMeta.footer || '/drafts/footer2';
+  const footerPath = footerMeta.footer || '/footer';
   const resp = await fetch(`${footerPath}.plain.html`, window.location.pathname.endsWith('/footer') ? { cache: 'reload' } : {});
 
   if (resp.ok) {
