@@ -7,6 +7,71 @@ footer {
   color: white;
 }
 
+footer .form-wrapper {
+  max-width: 75vw;
+  margin: auto;
+}
+
+footer .form h2 {
+  font-size: 13px;
+  font-family: HyundaiSansHead-Bold, sans-serif;
+}
+
+footer .form input[type="text"],
+footer .form input[type="tel"],
+footer .form input[type="email"] {
+  background-color: #ccc;
+}
+
+footer .form input::placeholder {
+  color: white;
+  font-size: 13px;
+  font-family: HyundaiSansHead-Medium, sans-serif;
+}
+
+footer .form .field-wrapper {
+  padding: 0;
+}
+
+footer .form .field-wrapper #form-personal-info {
+  gap: 0;
+  margin-bottom: 1rem;
+}
+
+footer .form .fieldset-wrapper {
+  margin-bottom: 1rem;
+}
+
+footer .form fieldset > legend {
+  font-size: 12px;
+  font-family: HyundaiSansHead-Bold, sans-serif;
+  margin-bottom: 12px;
+}
+
+footer .form .submit-wrapper {
+  justify-content: end;
+}
+
+footer .form button.button {
+  background-color: #ccc;
+  height: 35px;
+  font-size: 13px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer .form .field-wrapper.checkbox-wrapper  {
+  gap: 0;
+  align-items: start;
+}
+
+footer .form .field-wrapper.checkbox-wrapper label {
+  font-size: 12px;
+  font-weight: 400;
+}
+
 footer p {
   color: var(--white);
 }
@@ -23,6 +88,10 @@ footer h5 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 30px;
+}
+
+.footer > div > div.section.form-container {
+  grid-column: 1 / -1;
 }
 
 footer div.section:last-child {

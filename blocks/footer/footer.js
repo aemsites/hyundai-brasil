@@ -72,7 +72,7 @@ export default async function decorate(block) {
     decorateButtons(block);
     decorateFooter(block);
     decorateAnchors(block);
-    const footerForm = footer.querySelector('.footer-form');
+    const footerForm = footer.querySelector('.form');
     decorateBlock(footerForm);
     await loadBlock(footerForm);
     await decorateIcons(block);
