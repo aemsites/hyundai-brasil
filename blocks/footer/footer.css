@@ -223,8 +223,6 @@ footer .icon-hyundai {
 
   .footer > div {
     display: grid;
-
-    /* grid-template-columns: 1fr 5fr fit-content(340px); */
     grid-template-columns: 1fr 5fr 2fr;
     grid-row-gap: 0;
   }
@@ -330,11 +328,55 @@ footer .icon-hyundai {
 }
 
 @media (width >= 992px) {
-  footer .section.multilist {
-    width: calc(1300px - 170px);
+  footer {
+    max-width: 1300px;
+  }
+
+  footer h5 {
+    font-size: 16px;
+    font-family: HyundaiSansText-Bold, sans-serif;
+  }
+
+  .footer > div {
+    grid-template-columns: 1fr 5fr fit-content(340px);
+  }
+
+  .section > div {
+    max-width: unset;
   }
 
   footer .section.hamburger li {
     width: 170px;
+  }
+
+  footer .section.revisoes > div {
+    padding: 6.7px 15px 10.7px 11.4px;
+    flex-wrap: nowrap;
+  }
+
+  footer .section.revisoes p {
+    margin: 0;
+  }
+
+  footer .section.logo p {
+    margin-bottom: 0;
+  }
+
+  footer .section.revisoes p:last-child {
+    font-size: 12px;
+    font-family: HyundaiSansText-Regular, sans-serif;
+  }
+
+  footer .section.logo > div {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  footer .section.logo > div > * {
+    width: 50%;
+  }
+
+  footer .section.social-icons ul {
+    justify-content: flex-start;
   }
 }
