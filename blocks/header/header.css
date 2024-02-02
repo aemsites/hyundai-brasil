@@ -113,11 +113,6 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
-header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
-  background-color: var(--primary-color);
-  border: solid 1px var(--primary-color);
-}
-
 header nav .nav-sections ul > li:last-of-type > button {
   min-width: 166px;
   color: #fff;
@@ -137,6 +132,10 @@ header nav .nav-sections ul > li:not(:has(button.onlyclick)):focus {
   transition: all .4s ease-out;
 }
 
+header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
+  background-color: var(--primary-color);
+  border: solid 1px var(--primary-color);
+}
 
 @media (width >= 600px) {
   header nav {
@@ -274,10 +273,6 @@ header nav .nav-sections ul > li > ul {
 
 /* TODO use as default config - temp workaround to work faster */
 @media (width < 900px) {
-  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
-    order: -3;
-  }
-
   header nav[aria-expanded="false"] {
     grid-template:
         'hamburger brand tools' var(--nav-height)
@@ -298,10 +293,6 @@ header nav .nav-sections ul > li > ul {
     width: 100%;
   }
 
-  header nav .nav-sections ul li button {
-    font-weight: 600;
-  }
-
   header nav .nav-sections ul li {
     width: 100%;
     border-bottom: solid 1px #e5e5e5;
@@ -310,7 +301,19 @@ header nav .nav-sections ul > li > ul {
     justify-content: space-between;
   }
 
+  header nav .nav-sections .main-tab ul li {
+    padding: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    font-weight: 400;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
+    order: -3;
+  }
+
   header nav .nav-sections ul li button {
+    font-weight: 600;
     justify-content: flex-start;
     font-size: 18px;
   }
@@ -332,15 +335,9 @@ header nav .nav-sections ul > li > ul {
     width: 25px;
     height: 25px;
   }
+
   header nav .nav-sections .main-tab {
     width: 100%;
-  }
-
-  header nav .nav-sections .main-tab ul li {
-    padding: 10px;
-    display: flex;
-    flex-direction: row-reverse;
-    font-weight: 400;
   }
 
   header nav .nav-sections .main-tab ul li .icon {
