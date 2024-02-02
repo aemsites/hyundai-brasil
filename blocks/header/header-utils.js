@@ -122,7 +122,6 @@ export function enableClick(tabButton, block, button, tab, navPanel) {
       }
     } else {
       button.classList.remove('active');
-      // add active class to parent li
       tabButton.classList.remove('active');
       if (tab.content) {
         tab.content.classList.remove('active');
