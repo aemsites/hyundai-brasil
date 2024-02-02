@@ -1,6 +1,6 @@
 footer {
   padding: 20px 7.5% 0;
-  background-color: var(--text-color);
+  background-color: black;
   font-size: 10px;
   overflow: hidden;
   font-family: HyundaiSansHead-regular, sans-serif;
@@ -328,8 +328,9 @@ footer .icon-hyundai {
 }
 
 @media (width >= 992px) {
-  footer {
+  footer .footer {
     max-width: 1300px;
+    margin: auto;
   }
 
   footer h5 {
@@ -341,7 +342,7 @@ footer .icon-hyundai {
     grid-template-columns: 1fr 5fr fit-content(340px);
   }
 
-  .section > div {
+  .footer .section > div {
     max-width: unset;
   }
 
