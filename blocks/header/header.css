@@ -284,16 +284,18 @@ header nav .nav-sections ul > li > ul {
   header nav {
     height: auto;
   }
-
   header nav .nav-sections nav {
     display: flex;
     padding: 0;
     flex-wrap: wrap;
-    overflow-y: scroll;
   }
 
   header nav .nav-sections ul {
     width: 100%;
+  }
+
+  header nav .nav-sections ul li button {
+    font-weight: 600;
   }
 
   header nav .nav-sections ul li {
@@ -326,11 +328,15 @@ header nav .nav-sections ul > li > ul {
     width: 25px;
     height: 25px;
   }
+  header nav .nav-sections .main-tab {
+    width: 100%;
+  }
 
   header nav .nav-sections .main-tab ul li {
     padding: 10px;
     display: flex;
     flex-direction: row-reverse;
+    font-weight: 400;
   }
 
   header nav .nav-sections .main-tab ul li .icon {

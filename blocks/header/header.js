@@ -132,7 +132,7 @@ export default async function decorate(block) {
 
   const clonedTab = tabs.find((t) => t.name === 'hamburger').content.cloneNode(true);
   const mobileHamburgerSection = div({ class: 'mobile-only main-tab' }, ...clonedTab.querySelectorAll('ul'));
-  navSections.querySelector('.hero-horiz-tabs-nav').append(mobileHamburgerSection);
+  navSections.querySelector('.hero-horiz-tabs-nav').after(mobileHamburgerSection);
 
   const hyundaiBlueSpan = span({ class: 'icon icon-hyundai-blue' });
   nav.querySelector('span.icon-hyundai').after(hyundaiBlueSpan);
