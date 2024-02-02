@@ -63,12 +63,12 @@ export function enableHover(tabButton, block, button, tab, navPanel) {
     }
   }
 
-  document.body.querySelector('main').addEventListener('mouseover', () => {
-    const activeButton = block.querySelector('button.active');
-    if (activeButton && !activeButton.querySelector('.icon-hamburger')) {
-      disableHoverEffect(activeButton);
-    }
-  });
+  // document.body.querySelector('main').addEventListener('mouseover', () => {
+  //   const activeButton = block.querySelector('button.active');
+  //   if (activeButton === tabButton && !activeButton.querySelector('.icon-hamburger')) {
+  //     disableHoverEffect(activeButton);
+  //   }
+  // });
 
   tabButton.addEventListener('mouseover', () => {
     const activeButton = block.querySelector('button.active');
