@@ -4,6 +4,7 @@ footer {
   font-size: 10px;
   overflow: hidden;
   font-family: HyundaiSansHead-regular, sans-serif;
+  color: white;
 }
 
 footer p {
@@ -107,7 +108,11 @@ footer .section.hamburger ul {
   flex-direction: column;
 }
 
-footer .section.hamburger ul li {
+footer .section.multilist li {
+  display: none;
+}
+
+footer .section.hamburger li {
   margin-bottom: 8px;
 }
 
@@ -185,10 +190,6 @@ footer .multilist {
   margin-bottom: 1rem;
 }
 
-footer .section.multilist ul li {
-  display: none;
-}
-
 footer .multilist h6 {
   display: none;
 }
@@ -209,27 +210,22 @@ footer .icon-hyundai {
   margin-bottom: 0.313rem;
 }
 
-@media (width >= 48rem) {
-  footer .footer-middle p {
-    font-size: 13px;
-  }
-}
-
 @media (width >= 768px) {
   footer {
-    padding-top: 3rem;
+    padding: 3rem 2.5%;
     font-size: 10px;
   }
 
   footer .footer {
-    max-width: 75rem;
     margin-left: auto;
     margin-right: auto;
   }
 
   .footer > div {
     display: grid;
-    grid-template-columns: 1fr 5fr fit-content(340px);
+    /*grid-template-columns: 1fr 5fr fit-content(340px);*/
+    grid-template-columns: 1fr 5fr 2fr;
+    grid-row-gap: 0;
   }
 
   footer .section.disclaimer {
@@ -238,16 +234,30 @@ footer .icon-hyundai {
 
   footer .section.hamburger {
     width: 100%;
-    grid-row: 2 / 4;
+    grid-row: 3 / 7;
     display: flex;
     align-items: flex-start;
   }
 
-  footer ul > li {
+  footer h5 {
+    font-size: 12px;
+  }
+
+  footer .section.hamburger h5 {
+    display: block;
+  }
+
+  footer ul,
+  footer .section.hamburger ul {
+    padding: 0;
     margin: 0;
+  }
+
+  footer li {
     padding: 0;
     display: block;
-    margin-bottom: 8px;
+    margin: 0 0 5px;
+    font-size: 10px;
   }
 
   footer .multilist ul > li {
@@ -259,14 +269,51 @@ footer .icon-hyundai {
   }
 
   footer .section.multilist {
-    grid-row: 2 / 6;
+    grid-row: 3 / 7;
+  }
+
+  footer .section.multilist h5::before {
+    content: "";
+  }
+
+  footer .section.multilist li {
+    display: block;
   }
 
   footer .section.logo,
   footer .section.legal,
   footer .section.contact,
+  footer .section.social-icons,
   footer .section.revisoes {
     grid-column: -1 / -2;
+    grid-row: unset;
+  }
+
+  footer .section.social-icons {
+    padding-bottom: 14px;
+    border-bottom: solid 1px #d3d3d3;
+    margin-bottom: 13px;
+  }
+
+  footer .section.revisoes {
+    margin: 0;
+    padding: 8px;
+  }
+
+  footer .section.revisoes p:last-child {
+    font-size: 10px;
+    line-height: 12px;
+    text-align: left;
+  }
+
+  footer .section.revisoes > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  footer .section.contact {
+    display: block;
   }
 
   footer .multilist h6 {
@@ -275,38 +322,13 @@ footer .icon-hyundai {
     display: block;
   }
 
-  footer h5 {
-    font-weight: bold;
-  }
-
   footer .multilist > div {
     display: flex;
     justify-content: space-between;
   }
 
-  footer .multilist-item:last-of-type li {
-    margin-bottom: 0.625rem;
-    font-size: 0.813rem;
-  }
-
-  footer .multilist .multilist-item {
-    width: 10rem;
-    min-width: 10rem;
-  }
-
   footer .footer-bottom p:last-of-type {
     margin-top: 0;
-  }
-}
-
-@media (width >= 77rem) {
-  footer .multilist>div>div {
-    gap: 3rem;
-  }
-
-  footer .multilist .multilist-item {
-    width: 12.5rem;
-    min-width: 12.5rem;
   }
 }
 
