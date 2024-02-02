@@ -284,6 +284,7 @@ header nav .nav-sections ul > li > ul {
   header nav {
     height: auto;
   }
+
   header nav .nav-sections nav {
     display: flex;
     padding: 0;
