@@ -80,12 +80,13 @@ header .tab-item {
   box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgba(0 0 0 / 19%);
 }
 
+
 header .tab-item:has(.image) {
   height: 37rem;
 }
 
 header .tab-item:has(.hamburger) {
-  height: 30rem;
+  height: 35rem;
 }
 
 header .tab-item .cards-wrapper {
@@ -135,6 +136,15 @@ header nav .nav-sections ul > li:not(:has(button.onlyclick)):focus {
 }
 
 @media (width >= 900px) {
+  header .tab-item {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+
+  header .tab-item:has(.form-wrapper) {
+    justify-content: center;
+  }
+
   header nav {
     display: flex;
     justify-content: space-between;
