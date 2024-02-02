@@ -1,6 +1,7 @@
-import { getMetadata } from '../../scripts/aem.js';
+import { decorateIcons, getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import { createTabs, addTabs } from './header-utils.js';
+import { div, img, span } from '../../scripts/dom-helpers.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -116,23 +117,33 @@ export default async function decorate(block) {
   }
 
   const navSections = nav.querySelector('.nav-sections');
-  if (navSections) {
-    const tabs = createTabs(navSections, nav);
-
-    if (tabs) {
-      addTabs(tabs, block, nav);
-    }
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
-      });
+  const tabs = createTabs(navSections, nav);
+  addTabs(tabs, block, nav);
+  navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
+    if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+    navSection.addEventListener('click', () => {
+      if (isDesktop.matches) {
+        const expanded = navSection.getAttribute('aria-expanded') === 'true';
+        toggleAllNavSections(navSections);
+        navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+      }
     });
-  }
+  });
+
+  const clonedTab = tabs.find((t) => t.name === 'hamburger').content.cloneNode(true);
+  const mobileHamburgerSection = div({ class: 'mobile-only main-tab' }, ...clonedTab.querySelectorAll('ul'));
+  navSections.querySelector('.hero-horiz-tabs-nav').after(mobileHamburgerSection);
+
+  const hyundaiBlueSpan = span({ class: 'icon icon-hyundai-blue' });
+  nav.querySelector('span.icon-hyundai').after(hyundaiBlueSpan);
+
+  nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul > li:not(:last-child)').forEach((li) => {
+    li.append(span({ class: 'icon icon-arrow' }));
+  });
+  nav.querySelector('nav.hero-horiz-tabs-nav > ul > li:last-child').append(img(
+    { class: 'icon-ofertas', src: '/icons/ofertas.avif', alt: 'Icon ofertas' },
+  ));
+  decorateIcons(nav);
 
   // hamburger for mobile
   const hamburger = document.createElement('div');
@@ -140,7 +151,10 @@ export default async function decorate(block) {
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
       <span class="nav-hamburger-icon"></span>
     </button>`;
-  hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
+  hamburger.addEventListener('click', () => {
+    document.body.classList.toggle('nav-open');
+    toggleMenu(nav, navSections);
+  });
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
   // prevent mobile nav behavior on window resize

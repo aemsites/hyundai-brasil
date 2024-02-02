@@ -419,7 +419,10 @@ function decorateIcon(span, prefix = '', alt = '') {
 function decorateIcons(element, prefix = '') {
   const icons = [...element.querySelectorAll('span.icon')];
   icons.forEach((span) => {
-    decorateIcon(span, prefix);
+    // TODO look for alternative or contribute to boilerplate
+    if (!span.hasChildNodes()) {
+      decorateIcon(span, prefix);
+    }
   });
 }
 

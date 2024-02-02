@@ -3,6 +3,10 @@
     font-family: HyundaiSansHead-Medium, sans-serif;
 }
 
+body.nav-open .monte-o-seu {
+    display: none;
+}
+
 .monte-o-seu > div:first-child {
     transition: transform .5s ease-out;
     display: flex;

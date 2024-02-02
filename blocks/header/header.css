@@ -1,8 +1,24 @@
+header nav {
+  background-color: white;
+  color: black;
+  display: grid;
+  align-items: center;
+  justify-content: start;
+  grid-gap: 0 2em;
+  height: var(--nav-height);
+  padding: 0 1rem;
+  font-family: var(--body-font-family);
+}
+
+header nav span.icon-hyundai {
+  display: none;
+}
+
 /* header and nav layout */
 header .nav-wrapper {
   background-color: transparent;
   box-shadow: none;
-  background-image: linear-gradient(rgba(0 0 0 61%),rgba(0 0 0 0%));
+  background-image: linear-gradient(rgba(0 0 0 / 61%),rgba(0 0 0 / 0%));
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -13,7 +29,7 @@ header nav button {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: black;
   font-size: 16px;
   line-height: 1;
   position: relative;
@@ -44,21 +60,6 @@ header nav a.button:not(.onlyclick):hover, header nav a.button:not(.onlyclick):f
   cursor: pointer;
   color: black;
   transition: all .4s ease-out;
-}
-
-header nav {
-  box-sizing: border-box;
-  display: grid;
-  grid-template:
-    'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr / auto 1fr auto;
-  align-items: center;
-  gap: 0 2em;
-  margin: auto;
-  max-width: 1264px;
-  height: var(--nav-height);
-  padding: 0 1rem;
-  font-family: var(--body-font-family);
 }
 
 header nav[aria-expanded="true"] {
@@ -93,6 +94,15 @@ header .tab-item .cards-wrapper {
   padding: 2rem;
 }
 
+header nav .nav-sections ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  padding-left: 0;
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+}
 
 header nav .nav-sections ul > li {
   font-weight: 700;
@@ -101,11 +111,6 @@ header nav .nav-sections ul > li {
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
-}
-
-header nav .nav-sections ul > li:last-of-type {
-  background-color: var(--primary-color);
-  border: solid 1px var(--primary-color);
 }
 
 header nav .nav-sections ul > li:last-of-type > button {
@@ -127,6 +132,10 @@ header nav .nav-sections ul > li:not(:has(button.onlyclick)):focus {
   transition: all .4s ease-out;
 }
 
+header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
+  background-color: var(--primary-color);
+  border: solid 1px var(--primary-color);
+}
 
 @media (width >= 600px) {
   header nav {
@@ -136,8 +145,12 @@ header nav .nav-sections ul > li:not(:has(button.onlyclick)):focus {
 
 @media (width >= 900px) {
   header nav {
+    box-sizing: border-box;
+    gap: 0 2em;
+    margin: auto;
+    padding: 0 1rem;
     display: flex;
-    justify-content: space-between;
+    background-color: unset;
   }
 
   header nav[aria-expanded="true"] {
@@ -254,33 +267,116 @@ header nav[aria-expanded="true"] .nav-sections {
   align-self: start;
 }
 
-header nav .nav-sections ul  {
-  list-style: none;
-  padding-left: 0;
-  font-size: var(--body-font-size-s);
-  font-weight: 500;
-}
-
-
-/* header nav .nav-sections ul > li:last-of-type:hover,
-header nav .nav-sections ul > li:last-of-type:focus
-{
-  color: #00aad2;
-  background-color: #fff;
-} */
-
-
-
 header nav .nav-sections ul > li > ul {
   margin-top: 0;
 }
 
+/* TODO use as default config - temp workaround to work faster */
+@media (width < 900px) {
+  header nav[aria-expanded="false"] {
+    grid-template:
+        'hamburger brand tools' var(--nav-height)
+        'sections sections sections' 1fr / auto 1fr auto;
+  }
+
+  header nav {
+    height: auto;
+  }
+
+  header nav .nav-sections nav {
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  header nav .nav-sections ul {
+    width: 100%;
+  }
+
+  header nav .nav-sections ul li {
+    width: 100%;
+    border-bottom: solid 1px #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header nav .nav-sections .main-tab ul li {
+    padding: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    font-weight: 400;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
+    order: -3;
+  }
+
+  header nav .nav-sections ul li button {
+    font-weight: 600;
+    justify-content: flex-start;
+    font-size: 18px;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:first-child {
+    display: none;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:nth-child(4) {
+    order: -2;
+  }
+
+  header nav .nav-sections ul li span.icon {
+    width: 10px;
+    height: 13px;
+  }
+
+  header nav .nav-sections ul li:last-child .icon-ofertas {
+    width: 25px;
+    height: 25px;
+  }
+
+  header nav .nav-sections .main-tab {
+    width: 100%;
+  }
+
+  header nav .nav-sections .main-tab ul li .icon {
+    width: 25px;
+    height: 25px;
+  }
+}
 
 @media (width >= 900px) {
+  header .icon-ofertas,
+  header .icon-arrow {
+    display: none;
+  }
+
+  header nav button {
+    color: #fff;
+  }
+
+  header nav span.icon-hyundai {
+    display: inline-block;
+  }
+
+  header nav span.icon-hyundai-blue {
+    display: none;
+  }
+
   header nav .nav-sections {
     display: block;
     visibility: visible;
     white-space: nowrap;
+  }
+
+  header nav .nav-sections ul {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    gap: 2em;
+    margin: 0;
+    font-size: var(--body-font-size-xs);
   }
 
   header nav[aria-expanded="true"] .nav-sections {
@@ -313,11 +409,8 @@ header nav .nav-sections ul > li > ul {
     transform: rotate(315deg);
   }
 
-  header nav .nav-sections ul {
-    display: flex;
-    gap: 2em;
-    margin: 0;
-    font-size: var(--body-font-size-xs);
+  header nav .nav-sections ul li:last-child {
+    order: unset;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {
