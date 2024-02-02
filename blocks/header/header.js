@@ -1,6 +1,7 @@
-import { getMetadata } from '../../scripts/aem.js';
+import { decorateIcons, getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import { createTabs, addTabs } from './header-utils.js';
+import { div, span } from '../../scripts/dom-helpers.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -133,6 +134,13 @@ export default async function decorate(block) {
       });
     });
   }
+
+  const hyundaiBlueSpan = span({ class: 'icon icon-hyundai-blue' });
+  const wrapper = div(span);
+  console.log('wrapper', wrapper);
+  console.log('hyundaiBlueSpan', hyundaiBlueSpan);
+  nav.querySelector('span.icon-hyundai').after(hyundaiBlueSpan);
+  decorateIcons(nav);
 
   // hamburger for mobile
   const hamburger = document.createElement('div');

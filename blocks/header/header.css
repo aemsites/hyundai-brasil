@@ -1,8 +1,25 @@
+header nav {
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  gap: 0 2em;
+  margin: auto;
+  height: var(--nav-height);
+  padding: 0 1rem;
+  font-family: var(--body-font-family);
+}
+
+header nav span.icon-hyundai {
+  display: none;
+}
+
 /* header and nav layout */
 header .nav-wrapper {
   background-color: transparent;
   box-shadow: none;
-  background-image: linear-gradient(rgba(0 0 0 61%),rgba(0 0 0 0%));
+  background-image: linear-gradient(rgba(0 0 0 / 61%),rgba(0 0 0 / 0%));
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -13,7 +30,7 @@ header nav button {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: black;
   font-size: 16px;
   line-height: 1;
   position: relative;
@@ -46,21 +63,6 @@ header nav a.button:not(.onlyclick):hover, header nav a.button:not(.onlyclick):f
   transition: all .4s ease-out;
 }
 
-header nav {
-  box-sizing: border-box;
-  display: grid;
-  grid-template:
-    'hamburger brand tools' var(--nav-height)
-    'sections sections sections' 1fr / auto 1fr auto;
-  align-items: center;
-  gap: 0 2em;
-  margin: auto;
-  max-width: 1264px;
-  height: var(--nav-height);
-  padding: 0 1rem;
-  font-family: var(--body-font-family);
-}
-
 header nav[aria-expanded="true"] {
   grid-template:
     'hamburger brand' var(--nav-height)
@@ -91,6 +93,15 @@ header .tab-item:has(.hamburger) {
 header .tab-item .cards-wrapper {
   flex-basis: 50%;
   padding: 2rem;
+}
+
+header nav .nav-sections ul {
+  display: flex;
+  flex-direction: column;
+}
+
+header nav .nav-sections ul li:last-child {
+  order: -1;
 }
 
 
@@ -136,8 +147,24 @@ header nav .nav-sections ul > li:not(:has(button.onlyclick)):focus {
 
 @media (width >= 900px) {
   header nav {
+    box-sizing: border-box;
+    display: grid;
+    grid-template:
+    'hamburger brand tools' var(--nav-height)
+    'sections sections sections' 1fr / auto 1fr auto;
+    align-items: center;
+    gap: 0 2em;
+    margin: auto;
+    max-width: 1264px;
+    height: var(--nav-height);
+    padding: 0 1rem;
+    font-family: var(--body-font-family);
+  }
+
+  header nav {
     display: flex;
     justify-content: space-between;
+    background-color: unset;
   }
 
   header nav[aria-expanded="true"] {
@@ -277,6 +304,18 @@ header nav .nav-sections ul > li > ul {
 
 
 @media (width >= 900px) {
+  header nav button {
+    color: #fff;
+  }
+
+  header nav span.icon-hyundai {
+    display: inline-block;
+  }
+
+  header nav span.icon-hyundai-blue {
+    display: none;
+  }
+
   header nav .nav-sections {
     display: block;
     visibility: visible;
