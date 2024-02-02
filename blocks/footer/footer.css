@@ -223,7 +223,8 @@ footer .icon-hyundai {
 
   .footer > div {
     display: grid;
-    /*grid-template-columns: 1fr 5fr fit-content(340px);*/
+
+    /* grid-template-columns: 1fr 5fr fit-content(340px); */
     grid-template-columns: 1fr 5fr 2fr;
     grid-row-gap: 0;
   }
@@ -306,6 +307,11 @@ footer .icon-hyundai {
     text-align: left;
   }
 
+  footer .multilist > div {
+    display: flex;
+    justify-content: space-between;
+  }
+
   footer .section.revisoes > div {
     display: flex;
     flex-wrap: wrap;
@@ -320,15 +326,6 @@ footer .icon-hyundai {
     text-transform: uppercase;
     color: #89d1e1;
     display: block;
-  }
-
-  footer .multilist > div {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  footer .footer-bottom p:last-of-type {
-    margin-top: 0;
   }
 }
 
