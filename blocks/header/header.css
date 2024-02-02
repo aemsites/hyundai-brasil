@@ -104,7 +104,6 @@ header nav .nav-sections ul {
   font-weight: 500;
 }
 
-
 header nav .nav-sections ul > li {
   font-weight: 700;
   z-index:1000;
@@ -114,11 +113,8 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
-header nav .nav-sections ul li:last-child {
+header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
   order: -3;
-}
-
-header nav .nav-sections ul > li:last-of-type {
   background-color: var(--primary-color);
   border: solid 1px var(--primary-color);
 }
@@ -286,13 +282,18 @@ header nav .nav-sections ul > li > ul {
   }
 
   header nav {
-    overflow-y: scroll;
     height: auto;
   }
 
   header nav .nav-sections nav {
     display: flex;
     padding: 0;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+  }
+
+  header nav .nav-sections ul {
+    width: 100%;
   }
 
   header nav .nav-sections ul li {
@@ -308,11 +309,11 @@ header nav .nav-sections ul > li > ul {
     font-size: 18px;
   }
 
-  header nav .nav-sections ul li:first-child {
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:first-child {
     display: none;
   }
 
-  header nav .nav-sections ul li:nth-child(4) {
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:nth-child(4) {
     order: -2;
   }
 
@@ -322,6 +323,17 @@ header nav .nav-sections ul > li > ul {
   }
 
   header nav .nav-sections ul li:last-child .icon-ofertas {
+    width: 25px;
+    height: 25px;
+  }
+
+  header nav .nav-sections .main-tab ul li {
+    padding: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  header nav .nav-sections .main-tab ul li .icon {
     width: 25px;
     height: 25px;
   }

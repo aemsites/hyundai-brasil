@@ -250,6 +250,10 @@ main .section {
 }
 
 @media (width >= 900px) {
+  .mobile-only {
+    display: none !important;
+  }
+
   .section > div {
     max-width: 1200px;
     margin: auto;
