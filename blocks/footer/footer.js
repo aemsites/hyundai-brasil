@@ -1,7 +1,10 @@
 import {
+  decorateBlock,
   decorateButtons,
+  decorateIcons,
   decorateSections,
   getMetadata,
+  loadBlock,
   updateSectionsStatus,
 } from '../../scripts/aem.js';
 
@@ -9,8 +12,8 @@ import {
   decorateAnchors,
 } from '../../scripts/scripts.js';
 
-function decorateFooterTop(block) {
-  const footerTop = block.querySelector('.footer-top');
+function decorateFooterMultilist(block) {
+  const footerTop = block.querySelector('.multilist');
   const tempDiv = footerTop.querySelector('.default-content-wrapper');
   const children = [...footerTop.querySelector('.default-content-wrapper').children];
   let index = 0;
@@ -18,7 +21,6 @@ function decorateFooterTop(block) {
 
   while (index < children.length) {
     const topItem = document.createElement('div');
-    topItem.classList.add('footer-top-item');
     topItem.appendChild(children[index]);
     index += 1;
 
@@ -40,7 +42,7 @@ function decorateFooterTop(block) {
 }
 
 function decorateFooter(block) {
-  decorateFooterTop(block);
+  decorateFooterMultilist(block);
   block.parentElement.classList.add('appear');
 }
 
@@ -70,5 +72,9 @@ export default async function decorate(block) {
     decorateButtons(block);
     decorateFooter(block);
     decorateAnchors(block);
+    const footerForm = footer.querySelector('.footer-form');
+    decorateBlock(footerForm);
+    await loadBlock(footerForm);
+    await decorateIcons(block);
   }
 }
