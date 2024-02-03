@@ -52,14 +52,14 @@ export function createTabs(block, navFragment) {
   return tabs;
 }
 
-export function enableHover(tabButton, block, button, tab, navPanel) {
+export function enableHover(tabButton, block, button, tab, navPanel, navFragment) {
   function disableHoverEffect(activeButton) {
     activeButton.classList.remove('active');
     // remove active class from parent li
     activeButton.parentElement.classList.remove('active');
     if (tab.content) {
       tab.content.classList.remove('active');
-      navPanel.nextSibling.remove();
+      if (navPanel.nextSibling) navPanel.nextSibling.remove();
     }
   }
 
@@ -69,6 +69,20 @@ export function enableHover(tabButton, block, button, tab, navPanel) {
   //     disableHoverEffect(activeButton);
   //   }
   // });
+
+  document.querySelector('main .section.columns-container').addEventListener('mouseover', () => {
+    const activeButton = block.querySelector('button.active');
+    if (activeButton) {
+      disableHoverEffect(activeButton);
+    }
+  });
+
+  navFragment.querySelector('div:not(.section.nav-sections').addEventListener('mouseover', () => {
+    const activeButton = block.querySelector('button.active');
+    if (activeButton) {
+      disableHoverEffect(activeButton);
+    }
+  });
 
   tabButton.addEventListener('mouseover', () => {
     const activeButton = block.querySelector('button.active');
@@ -82,15 +96,6 @@ export function enableHover(tabButton, block, button, tab, navPanel) {
         navPanel.after(tab.content);
         navPanel.nextSibling.classList.add('tab-active');
       }
-      // navPanel.nextSibling.addEventListener('mouseout', () => {
-      //   const activeButton = block.querySelector('button.active');
-      //   activeButton.classList.remove('active');
-      //   activeButton.parentElement.classList.remove('active');
-      //   if (tab.content) {
-      //     tab.content.classList.remove('active');
-      //     navPanel.nextSibling.remove();
-      //   }
-      // });
     } else if (activeButton !== tabButton) {
       disableHoverEffect(activeButton);
       button.classList.add('active');
@@ -158,16 +163,7 @@ export function addTabs(tabs, block, navFragment) {
     } else {
       button.classList.add('tab');
       tabButton.replaceChildren(button);
-      enableHover(tabButton, block, button, tab, navPanel);
+      enableHover(tabButton, block, button, tab, navPanel, navFragment);
     }
-    // tabButton.addEventListener('mouseout', () => {
-    //   const activeButton = block.querySelector('button.active');
-    //   activeButton.classList.remove('active');
-    //   activeButton.parentElement.classList.remove('active');
-    //   if (tab.content) {
-    //     tab.content.classList.remove('active');
-    //     navPanel.nextSibling.remove();
-    //   }
-    // });
   });
 }
