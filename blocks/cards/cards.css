@@ -194,7 +194,7 @@
   .cards.header-content.block {
     position: relative;
     top: 5rem;
-    left: 3rem;
+    left: 0;
   }
 
   .cards.block.header-content > ul {
@@ -229,12 +229,12 @@
   .cards.header-content.block {
     position: relative;
     top: 5rem;
-    left: 7rem;
+    left: 0;
   }
 
   .cards.block.header-content > ul > li img {
     position: relative;
-    left: 11vw;
+    left: 10vw;
     top: 1em;
   }
 
@@ -258,6 +258,12 @@
 }
 
 @media (width >= 1800px) {
+  .cards.header-content.block {
+    position: relative;
+    top: 5rem;
+    left: 7rem;
+  }
+
   .cards.block.header-content > ul > li img {
     position: relative;
     left: 8vw;

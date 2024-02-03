@@ -13,22 +13,19 @@
   padding: 0;
 }
 
-@media (width >= 900px) {
-  .form fieldset {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
+.form.header-right.block {
+  margin-top: 4rem;
 }
 
-.form fieldset > legend {
-  font-weight: 700;
-  font-size: var(--heading-font-size-xs);
-}
-
-.form label {
-  font-weight: 700;
-  font-size: var(--body-font-size-xs);
-  margin-bottom: 0.25em;
+.form.header-right.block form h2 {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: #000;
+  font-size: 18px;
+  font-family: HyundaiSansHead-Regular, sans-serif;
+  line-height: 1.2;
+  margin-bottom: 18px;
 }
 
 .form input,
@@ -46,12 +43,14 @@
   background-color: var(--background-color);
 }
 
-.form textarea {
-  resize: vertical;
-}
-
 .form .selection-wrapper input {
   width: 16px;
+}
+
+.form label {
+  font-weight: 700;
+  font-size: var(--body-font-size-xs);
+  margin-bottom: 0.25em;
 }
 
 .form .selection-wrapper label {
@@ -60,6 +59,51 @@
 
 .form input:hover {
   border: 1px solid var(--text-color);
+}
+
+.form .toggle-wrapper input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.form.header-right.block fieldset input {
+    width: 20px;
+    height: 20px;
+}
+
+.form .field-wrapper > label {
+  order: -1;
+}
+
+.form .field-wrapper.selection-wrapper > label {
+  order: 1;
+}
+
+.form.header-right.block fieldset label {
+  color: #747474;
+}
+
+.form.header-right.block select {
+  color: #fff;
+  background-color: #b7b7b7;
+  border: solid 1px #707070;
+}
+
+@media (width >= 900px) {
+  .form fieldset {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+.form fieldset > legend {
+  font-weight: 700;
+  font-size: var(--heading-font-size-xs);
+}
+
+.form textarea {
+  resize: vertical;
 }
 
 .form .button {
@@ -74,25 +118,11 @@
   gap: 16px;
 }
 
-.form .field-wrapper > label {
-  order: -1;
-}
-
-.form .field-wrapper.selection-wrapper > label {
-  order: 1;
-}
-
 .form .toggle-wrapper .switch {
   position: relative;
   display: inline-block;
   width: 48px;
   height: 24px;
-}
-
-.form .toggle-wrapper input {
-  opacity: 0;
-  width: 0;
-  height: 0;
 }
 
 .form .toggle-wrapper .slider {
