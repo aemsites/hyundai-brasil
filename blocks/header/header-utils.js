@@ -153,6 +153,7 @@ export function addTabs(tabs, block, navFragment) {
     const button = document.createElement('button');
     const { tabButton, title } = tab;
     button.textContent = title.split(',');
+    console.log(button.textContent);
     if (button.textContent === 'hamburger') {
     // eslint-disable-next-line
       button.innerHTML='<span class="icon icon-hamburger"><img data-icon-name="hamburger" src="/icons/hamburger.svg" alt="" loading="lazy"></span>';
@@ -160,6 +161,12 @@ export function addTabs(tabs, block, navFragment) {
       button.classList.add('tab');
       tabButton.replaceChildren(button);
       enableClick(tabButton, block, button, tab, navPanel);
+    } else if (button.textContent === 'hyundai') {
+      // eslint-disable-next-line
+      button.innerHTML='<span class="icon icon-hyundai"><img data-icon-name="hyundai" src="/icons/hyundai.svg" alt="" loading="lazy"></span>';
+      button.classList.add('onlyclick');
+      button.classList.add('tab');
+      tabButton.replaceChildren(button);
     } else {
       button.classList.add('tab');
       tabButton.replaceChildren(button);
