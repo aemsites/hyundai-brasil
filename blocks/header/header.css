@@ -146,8 +146,6 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
 }
 
 @media (width >= 900px) {
-
-
   header .tab-item {
     padding-left: 5rem;
     padding-right: 5rem;
