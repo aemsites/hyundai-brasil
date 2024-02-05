@@ -75,6 +75,10 @@ html {
   src: local('Arial');
 }
 
+.noDisplay {
+  display: none;
+}
+
 
 @media (width >= 900px) {
   :root {

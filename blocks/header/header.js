@@ -145,6 +145,17 @@ export default async function decorate(block) {
   ));
   decorateIcons(nav);
 
+  // if (isDesktop.matches) {
+  //   const leftNavSection = document.createElement('div');
+  //   const rightNavSection = document.createElement('div');
+  //   const leftLi= nav.querySelectorAll('.section.nav-sections .hero-horiz-tabs-nav ul > li:has(button.onlyclick)');
+  //   leftNavSection.append(leftLi);
+  //   const rightLi = nav.querySelectorAll('.section.nav-sections .hero-horiz-tabs-nav ul > li:not(:has(button.onlyclick))');
+  //   rightNavSection.append(rightLi);
+  //   nav.querySelector('.section.nav-sections .hero-horiz-tabs-nav ul').append(leftNavSection);
+  //   nav.querySelector('.section.nav-sections .hero-horiz-tabs-nav ul').append(rightNavSection);
+  // }
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');

@@ -146,6 +146,8 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
 }
 
 @media (width >= 900px) {
+
+
   header .tab-item {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -367,12 +369,18 @@ header nav .nav-sections ul > li > ul {
     color: #fff;
   }
 
-  header nav span.icon-hyundai {
+  header nav .section.nav-sections span.icon-hyundai {
     display: inline-block;
+    width: 128px;
+    height: auto;
   }
 
   header nav span.icon-hyundai-blue {
     display: none;
+  }
+
+  header nav .section.nav-sections button:has(.icon-hamburger) {
+    border-right: solid 1px #fff;
   }
 
   header nav .nav-sections {

@@ -153,7 +153,6 @@ export function addTabs(tabs, block, navFragment) {
     const button = document.createElement('button');
     const { tabButton, title } = tab;
     button.textContent = title.split(',');
-    console.log(button.textContent);
     if (button.textContent === 'hamburger') {
     // eslint-disable-next-line
       button.innerHTML='<span class="icon icon-hamburger"><img data-icon-name="hamburger" src="/icons/hamburger.svg" alt="" loading="lazy"></span>';
