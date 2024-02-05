@@ -333,7 +333,9 @@ header nav .nav-sections ul > li > ul {
 
   header nav .nav-sections .main-tab {
     border-top: solid 1px #999;
+    width: 100%;
   }
+
 
   header nav .nav-sections .main-tab ul li {
     padding: 10px;
@@ -392,10 +394,6 @@ header nav .nav-sections ul > li > ul {
   header nav .nav-sections ul li:last-child .icon-ofertas {
     width: 25px;
     height: 25px;
-  }
-
-  header nav .nav-sections .main-tab {
-    width: 100%;
   }
 
   header nav .nav-sections .main-tab ul li .icon {
