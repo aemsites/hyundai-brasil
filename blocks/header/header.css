@@ -302,7 +302,8 @@ header nav .nav-sections ul > li > ul {
   header nav .nav-sections {
     overflow-y: auto;
     height: calc(100vh - var(--nav-height));
-    box-shadow: 0 3px 10px 0 rgb(216 209 200 / 40%)
+    box-shadow: 0 3px 10px 0 rgb(216 209 200 / 40%);
+    line-height: 1.5;
   }
 
   header nav .nav-sections nav {
@@ -327,7 +328,13 @@ header nav .nav-sections ul > li > ul {
     justify-content: space-between;
   }
 
-  header nav .nav-sections ul li:nth-last-child(2) {
+  header nav .nav-sections .main-tab ul li {
+    padding: 10px;
+    display: flex;
+    font-weight: 400;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav ul li:nth-last-child(2) {
     border-bottom: none;
   }
 
@@ -336,26 +343,32 @@ header nav .nav-sections ul > li > ul {
     width: 100%;
   }
 
-
-  header nav .nav-sections .main-tab ul li {
-    padding: 10px;
-    display: flex;
-    font-weight: 400;
-  }
-
   header nav .nav-sections .main-tab ul:first-child li {
     flex-direction: row-reverse;
   }
 
+  header nav .nav-sections .main-tab ul:first-child li > div {
+    height: 25px;
+  }
+
   header nav .nav-sections .main-tab ul:last-child li {
     display: block;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
     border: none;
   }
 
   header nav .nav-sections .main-tab ul:last-child li > div {
     border-bottom: solid 1px #e5e5e5;
+    padding: 12px 10px;
+  }
+
+  header nav .nav-sections .main-tab ul:last-child li:last-child > div {
+    border-bottom: none;
+  }
+
+  header nav .nav-sections .main-tab ul:last-child li:last-child > div:last-child {
+    height: 10px;
+    padding: 0;
   }
 
   header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li {
