@@ -356,6 +356,12 @@ header nav .nav-sections ul > li > ul {
     padding-left: 20px;
   }
 
+  header nav .nav-sections ul li button {
+    font-weight: 600;
+    justify-content: flex-start;
+    font-size: inherit;
+  }
+
   header nav .nav-sections ul:first-child li button {
     padding-left: 10px;
   }
@@ -397,12 +403,6 @@ header nav .nav-sections ul > li > ul {
     margin-top: 16px;
     height: 60px;
     font-size: 18px;
-  }
-
-  header nav .nav-sections ul li button {
-    font-weight: 600;
-    justify-content: flex-start;
-    font-size: inherit;
   }
 
   header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:first-child {
