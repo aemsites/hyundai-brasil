@@ -118,7 +118,7 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
   const tabs = createTabs(navSections, nav);
-  addTabs(tabs, block, nav);
+  addTabs(tabs, block, nav, isDesktop);
   navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
     if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
     navSection.addEventListener('click', () => {

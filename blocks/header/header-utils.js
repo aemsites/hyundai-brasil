@@ -1,3 +1,5 @@
+import { div } from '../../scripts/dom-helpers.js';
+
 export function createTabs(block, navFragment) {
   let title = 0;
   const ul = block.querySelector('ul');
@@ -52,7 +54,7 @@ export function createTabs(block, navFragment) {
   return tabs;
 }
 
-export function enableHover(tabButton, block, button, tab, navPanel, navFragment) {
+export function enableHover(tabButton, block, button, tab, navPanel, navFragment, isDesktop) {
   function disableHoverEffect(activeButton) {
     activeButton.classList.remove('active');
     // remove active class from parent li
@@ -63,13 +65,6 @@ export function enableHover(tabButton, block, button, tab, navPanel, navFragment
     }
   }
 
-  // document.body.querySelector('main').addEventListener('mouseover', () => {
-  //   const activeButton = block.querySelector('button.active');
-  //   if (activeButton === tabButton && !activeButton.querySelector('.icon-hamburger')) {
-  //     disableHoverEffect(activeButton);
-  //   }
-  // });
-
   document.querySelector('main .section.columns-container').addEventListener('mouseover', () => {
     const activeButton = block.querySelector('button.active');
     if (activeButton) {
@@ -77,14 +72,53 @@ export function enableHover(tabButton, block, button, tab, navPanel, navFragment
     }
   });
 
-  navFragment.querySelector('div:not(.section.nav-sections').addEventListener('mouseover', () => {
+  navFragment.querySelector('div:not(.section.nav-sections)').addEventListener('mouseover', () => {
     const activeButton = block.querySelector('button.active');
     if (activeButton) {
       disableHoverEffect(activeButton);
     }
   });
 
+  tabButton.addEventListener('click', () => {
+    if (isDesktop.matches) {
+      return;
+    }
+
+    console.log('registered click event', tabButton, button);
+
+    if (!tab.content) {
+      // TODO implement ofertas logic
+      console.warn('No content for tab', tabButton);
+    }
+
+    const navSections = tabButton.closest('.section.nav-sections');
+    const mobileSectionHeader = div(
+      { class: 'item-mobile-header' },
+      tab.title,
+    );
+
+    mobileSectionHeader.addEventListener('click', () => {
+      navPanel.classList.remove('show-mobile-section');
+    });
+
+    navSections.nextSibling.replaceWith(
+      div(
+        { class: 'section mobile' },
+        mobileSectionHeader,
+        div(
+          { class: 'item-mobile-body' },
+          ...tab.content.children,
+        ),
+      ),
+    );
+
+    navPanel.classList.add('show-mobile-section');
+  });
+
   tabButton.addEventListener('mouseover', () => {
+    if (!isDesktop.matches) {
+      return;
+    }
     const activeButton = block.querySelector('button.active');
 
     if (!activeButton) {
@@ -147,15 +181,15 @@ export function enableClick(tabButton, block, button, tab, navPanel) {
   });
 }
 
-export function addTabs(tabs, block, navFragment) {
+export function addTabs(tabs, block, navFragment, isDesktop) {
   const navPanel = navFragment.querySelector('.section.nav-sections').parentElement;
   tabs.forEach((tab) => {
     const button = document.createElement('button');
     const { tabButton, title } = tab;
     button.textContent = title.split(',');
     if (button.textContent === 'hamburger') {
-    // eslint-disable-next-line
-      button.innerHTML='<span class="icon icon-hamburger"><img data-icon-name="hamburger" src="/icons/hamburger.svg" alt="" loading="lazy"></span>';
+      // eslint-disable-next-line
+      button.innerHTML = '<span class="icon icon-hamburger"><img data-icon-name="hamburger" src="/icons/hamburger.svg" alt="" loading="lazy"></span>';
       button.classList.add('onlyclick');
       button.classList.add('tab');
       tabButton.replaceChildren(button);
@@ -163,7 +197,7 @@ export function addTabs(tabs, block, navFragment) {
     } else {
       button.classList.add('tab');
       tabButton.replaceChildren(button);
-      enableHover(tabButton, block, button, tab, navPanel, navFragment);
+      enableHover(tabButton, block, button, tab, navPanel, navFragment, isDesktop);
     }
   });
 }

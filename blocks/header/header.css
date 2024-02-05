@@ -299,11 +299,27 @@ header nav .nav-sections ul > li > ul {
     height: auto;
   }
 
-  header nav .nav-sections {
+  header nav .nav-sections,
+  header nav .section.mobile {
     overflow-y: auto;
     height: calc(100vh - var(--nav-height));
     box-shadow: 0 3px 10px 0 rgb(216 209 200 / 40%);
     line-height: 1.5;
+    transition: transform .5s ease-out;
+  }
+
+  header nav.show-mobile-section .nav-sections {
+    transform: translateX(-100%);
+  }
+
+  header nav .section.mobile {
+    transition: transform .5s ease-out;
+    transform: translateX(100%);
+  }
+
+  header nav.show-mobile-section .section.mobile-section {
+    transform: translateX(0);
+    background-color: pink;
   }
 
   header nav .nav-sections nav {
@@ -326,6 +342,10 @@ header nav .nav-sections ul > li > ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  header nav .nav-sections ul li:hover {
+    border-bottom: solid 1px #e5e5e5 !important;
   }
 
   header nav .nav-sections .main-tab ul li {
