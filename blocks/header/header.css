@@ -284,6 +284,10 @@ header nav .nav-sections ul > li > ul {
 
 /* TODO use as default config - temp workaround to work faster */
 @media (width < 900px) {
+  header nav[aria-expanded="true"] {
+    padding-right: 0;
+  }
+
   header nav[aria-expanded="false"] {
     grid-template:
         'hamburger brand tools' var(--nav-height)
@@ -294,6 +298,16 @@ header nav .nav-sections ul > li > ul {
     height: auto;
   }
 
+  header nav .nav-sections {
+    overflow-y: auto;
+    height: calc(100vh - var(--nav-height));
+  }
+
+  header nav .section.nav-sections {
+    padding-right: 16px;
+  }
+
+
   header nav .nav-sections nav {
     display: flex;
     padding: 0;
@@ -302,6 +316,7 @@ header nav .nav-sections ul > li > ul {
 
   header nav .nav-sections ul {
     width: 100%;
+    margin-bottom: 0;
   }
 
   header nav .nav-sections ul li {
@@ -312,21 +327,53 @@ header nav .nav-sections ul > li > ul {
     justify-content: space-between;
   }
 
+  header nav .nav-sections ul li:nth-last-child(2) {
+    border-bottom: none;
+  }
+
+  header nav .nav-sections .main-tab {
+    border-top: solid 1px #999;
+  }
+
   header nav .nav-sections .main-tab ul li {
     padding: 10px;
     display: flex;
-    flex-direction: row-reverse;
     font-weight: 400;
   }
 
+  header nav .nav-sections .main-tab ul:first-child li {
+    flex-direction: row-reverse;
+  }
+
+  header nav .nav-sections .main-tab ul:last-child li {
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+  }
+
+  header nav .nav-sections .main-tab ul:last-child li > div {
+    border-bottom: solid 1px #e5e5e5;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li {
+    padding: 10px 10px 10px 0;
+    height: 48px;
+    font-size: 16px;
+  }
+
+  /* Ofertas element */
   header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
     order: -3;
+    margin-bottom: 20px;
+    height: 60px;
+    font-size: 18px;
   }
 
   header nav .nav-sections ul li button {
     font-weight: 600;
     justify-content: flex-start;
-    font-size: 18px;
+    font-size: inherit;
   }
 
   header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:first-child {
