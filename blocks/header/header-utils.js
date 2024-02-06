@@ -1,4 +1,5 @@
 import { div } from '../../scripts/dom-helpers.js';
+import { toClassName } from '../../scripts/aem.js';
 
 export function createTabs(block, navFragment) {
   let title = 0;
@@ -84,8 +85,6 @@ export function enableHover(tabButton, block, button, tab, navPanel, navFragment
       return;
     }
 
-    console.log('registered click event', tabButton, button);
-
     if (!tab.content) {
       // TODO implement ofertas logic
       console.warn('No content for tab', tabButton);
@@ -93,7 +92,16 @@ export function enableHover(tabButton, block, button, tab, navPanel, navFragment
 
     const mobileSectionHeader = document.querySelector('.item-mobile-header > span:last-child');
     mobileSectionHeader.textContent = tab.title;
-    document.querySelector('.item-mobile-body').replaceChildren(...tab.content.cloneNode(true).children);
+    const mobileBody = document.querySelector('.item-mobile-body');
+
+    // remove diacritics
+    const normalizedTitle = tab.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const sanitizedTitle = toClassName(normalizedTitle);
+
+    mobileBody.replaceWith(div(
+      { class: `item-mobile-body ${sanitizedTitle}` },
+      ...tab.content.cloneNode(true).children,
+    ));
 
     navPanel.classList.add('show-mobile-section');
   });

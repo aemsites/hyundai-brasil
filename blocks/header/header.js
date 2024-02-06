@@ -1,6 +1,6 @@
 import { decorateIcons, getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
-import { createTabs, addTabs } from './header-utils.js';
+import { addTabs, createTabs } from './header-utils.js';
 import { div, img, span } from '../../scripts/dom-helpers.js';
 
 // media query match that indicates mobile/tablet width
@@ -123,7 +123,6 @@ export default async function decorate(block) {
     span({ class: 'icon icon-arrow inverted' }),
     span('Placeholder header'),
   );
-
   const navPanel = nav.querySelector('.section.nav-sections').parentElement;
   mobileSectionHeader.addEventListener('click', () => {
     navPanel.classList.remove('show-mobile-section');
@@ -143,7 +142,6 @@ export default async function decorate(block) {
   );
 
   addTabs(tabs, block, nav, isDesktop);
-
 
   navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
     if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
