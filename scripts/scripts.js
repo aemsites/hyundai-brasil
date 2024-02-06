@@ -20,9 +20,21 @@ const LCP_BLOCKS = []; // add your LCP blocks to the list
  * @param {Element} main The container element
  */
 function buildHeroBlock(main) {
+  const firstDiv = main.querySelector(':scope > div:first-child');
+  const pictures = firstDiv.querySelectorAll('picture');
+  const firstPicture = pictures[0] ?? null;
+  if (pictures.length === 2) {
+    const secondPicture = pictures[1];
+    const secondSource = secondPicture.querySelector('source:last-of-type');
+    secondSource.setAttribute('media', '(min-width: 1024px)');
+
+    firstPicture.prepend(secondSource);
+  }
+
+  const picture = firstPicture;
+
   const h1 = main.querySelector('h1');
 
-  const picture = main.querySelector('picture');
   // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
     const elems = [picture, h1];
