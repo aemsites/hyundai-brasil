@@ -314,6 +314,26 @@ header nav .nav-sections ul > li > ul {
   header nav .section.mobile {
     left: 100vw;
     transition: transform .5s ease-out;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  header nav .section.mobile .item-mobile-header {
+    display: flex;
+    gap: 13px;
+    width: 100%;
+    padding: 22px 27.175px;
+    /*align-items: center;*/
+    justify-content: flex-start;
+    border-bottom: solid 1px #999;
+    line-height: 1.2;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  header nav .section.mobile .item-mobile-header .icon {
+    width: 10px;
+    height: 13px;
   }
 
   header nav.show-mobile-section .nav-sections,

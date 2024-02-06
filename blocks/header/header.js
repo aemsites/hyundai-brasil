@@ -120,7 +120,8 @@ export default async function decorate(block) {
 
   const mobileSectionHeader = div(
     { class: 'item-mobile-header' },
-    'Placeholder header',
+    span({ class: 'icon icon-arrow inverted' }),
+    span('Placeholder header'),
   );
 
   const navPanel = nav.querySelector('.section.nav-sections').parentElement;

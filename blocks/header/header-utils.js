@@ -91,7 +91,7 @@ export function enableHover(tabButton, block, button, tab, navPanel, navFragment
       console.warn('No content for tab', tabButton);
     }
 
-    const mobileSectionHeader = document.querySelector('.item-mobile-header');
+    const mobileSectionHeader = document.querySelector('.item-mobile-header > span:last-child');
     mobileSectionHeader.textContent = tab.title;
     document.querySelector('.item-mobile-body').replaceChildren(...tab.content.cloneNode(true).children);
 
