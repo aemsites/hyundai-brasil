@@ -99,6 +99,16 @@
   font-weight: 900;
 }
 
+.cards.block.header-content.right:not(.single-line-div) > ul > li:hover,
+.cards.block.header-content.right:not(.single-line-div) > ul > li:focus {
+  font-weight: inherit;
+}
+
+.cards.block.header-content.right > ul > li > div:hover,
+.cards.block.header-content.right > ul > li > div:focus {
+  font-weight: 900;
+}
+
 .cards.block.header-content > ul > li > a:any-link {
     text-decoration: none;
     color: inherit;
@@ -160,6 +170,15 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   grid-gap: 16px;
+}
+
+.cards.underline > ul > li > div {
+  border-bottom: 2px solid #f6f3f2;
+}
+
+.cards.underline > ul > li > div:hover,
+.cards.underline > ul > li > div:focus {
+  border-color: #00aad2;
 }
 
 .cards.block.header-content.right > ul > li div {
