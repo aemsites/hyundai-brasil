@@ -117,8 +117,33 @@ export default async function decorate(block) {
   }
 
   const navSections = nav.querySelector('.nav-sections');
+
+  const mobileSectionHeader = div(
+    { class: 'item-mobile-header' },
+    'Placeholder header',
+  );
+
+  const navPanel = nav.querySelector('.section.nav-sections').parentElement;
+  mobileSectionHeader.addEventListener('click', () => {
+    navPanel.classList.remove('show-mobile-section');
+  });
+
   const tabs = createTabs(navSections, nav);
+
+  navSections.nextSibling.replaceWith(
+    div(
+      { class: 'section mobile' },
+      mobileSectionHeader,
+      div(
+        { class: 'item-mobile-body' },
+        span('Placeholder body'),
+      ),
+    ),
+  );
+
   addTabs(tabs, block, nav, isDesktop);
+
+
   navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
     if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
     navSection.addEventListener('click', () => {

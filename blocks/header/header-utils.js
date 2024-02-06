@@ -91,26 +91,9 @@ export function enableHover(tabButton, block, button, tab, navPanel, navFragment
       console.warn('No content for tab', tabButton);
     }
 
-    const navSections = tabButton.closest('.section.nav-sections');
-    const mobileSectionHeader = div(
-      { class: 'item-mobile-header' },
-      tab.title,
-    );
-
-    mobileSectionHeader.addEventListener('click', () => {
-      navPanel.classList.remove('show-mobile-section');
-    });
-
-    navSections.nextSibling.replaceWith(
-      div(
-        { class: 'section mobile' },
-        mobileSectionHeader,
-        div(
-          { class: 'item-mobile-body' },
-          ...tab.content.children,
-        ),
-      ),
-    );
+    const mobileSectionHeader = document.querySelector('.item-mobile-header');
+    mobileSectionHeader.textContent = tab.title;
+    document.querySelector('.item-mobile-body').replaceChildren(...tab.content.cloneNode(true).children);
 
     navPanel.classList.add('show-mobile-section');
   });
