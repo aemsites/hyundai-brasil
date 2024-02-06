@@ -24,6 +24,10 @@ header .nav-wrapper {
   position: fixed;
 }
 
+header .section.nav-brand {
+  display: block;
+}
+
 header nav button {
   height: inherit;
   display: flex;
@@ -53,13 +57,6 @@ header nav .nav-hamburger button {
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
-}
-
-header nav a.button:not(.onlyclick):hover, header nav a.button:not(.onlyclick):focus, header nav button:not(.onlyclick):hover, header nav button:not(.onlyclick):focus  {
-  background-color: white;
-  cursor: pointer;
-  color: black;
-  transition: all .4s ease-out;
 }
 
 header nav[aria-expanded="true"] {
@@ -113,28 +110,34 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
-header nav .nav-sections .hero-horiz-tabs-nav ul > li:last-of-type > button {
+header nav .nav-sections ul:last-of-type > li:last-of-type > button {
   min-width: 166px;
   color: #fff;
   margin: 0;
   padding: 26px 20px;
 }
 
-header nav .nav-sections ul > li:last-of-type:hover, header nav .nav-sections ul > li:last-of-type > button:hover,
-header nav .nav-sections ul > li:last-of-type:focus, header nav .nav-sections ul > li:last-of-type > button:focus {
+header nav .nav-sections ul:last-of-type > li:not(:last-of-type):hover, header nav .nav-sections ul:last-of-type > li:not(:last-of-type) > button:hover,
+header nav .nav-sections ul:last-of-type > li:not(:last-of-type):focus, header nav .nav-sections ul:last-of-type > li:not(:last-of-type) > button:focus {
+  background-color: white;
+  transition: all .4s ease-out;
+  color: black;
+  cursor: pointer;
+}
+
+header nav .nav-sections ul:last-of-type > li:last-of-type:hover, header nav .nav-sections ul:last-of-type > li:last-of-type > button:hover,
+header nav .nav-sections ul:last-of-type > li:last-of-type:focus, header nav .nav-sections ul:last-of-type > li:last-of-type > button:focus {
   background-color: #fff;
   color: var(--primary-color);
   transition: all .4s ease-out;
+  cursor: pointer;
 }
 
-header nav .nav-sections ul > li:not(:has(button.onlyclick)):hover,
-header nav .nav-sections ul > li:not(:has(button.onlyclick)):focus {
-  background-color: white;
-  border-bottom: 4px solid var(--primary-color);
-  transition: all .4s ease-out;
+header nav .nav-sections .hero-horiz-tabs-nav {
+  gap:10vw;
 }
 
-header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child li:last-child {
   background-color: var(--primary-color);
   border: solid 1px var(--primary-color);
 }
@@ -146,6 +149,10 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
 }
 
 @media (width >= 900px) {
+  header .section.nav-brand {
+    display: none;
+  }
+
   header .tab-item {
     padding-left: 5rem;
     padding-right: 5rem;
