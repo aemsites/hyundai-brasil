@@ -176,8 +176,17 @@ export default async function decorate(block) {
       <span class="nav-hamburger-icon"></span>
     </button>`;
   hamburger.addEventListener('click', () => {
-    document.body.classList.toggle('nav-open');
-    toggleMenu(nav, navSections);
+    function toggleNav() {
+      document.body.classList.toggle('nav-open');
+      toggleMenu(nav, navSections);
+    }
+
+    if (navPanel.classList.contains('show-mobile-section')) {
+      navPanel.classList.remove('show-mobile-section');
+      setTimeout(toggleNav, 500);
+    } else {
+      toggleNav();
+    }
   });
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');

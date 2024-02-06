@@ -335,9 +335,41 @@ header nav .nav-sections ul > li > ul {
     height: 25px;
   }
 
+  header nav[aria-expanded="false"] .section.nav-sections,
+  header nav[aria-expanded="false"] .section.mobile {
+    display: none;
+  }
+
   header nav .section.mobile .item-mobile-header .icon {
     width: 10px;
     height: 13px;
+  }
+
+  header nav .nav-sections ul {
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  header nav .nav-sections .main-tab ul:first-child {
+    margin: auto;
+    max-width: 90%;
+    padding: 0;
+  }
+
+  header nav .nav-sections .main-tab ul:first-child li > div {
+    height: 25px;
+  }
+
+  header nav .nav-sections .main-tab ul:last-child li > div {
+    border-bottom: solid 1px #e5e5e5;
+    padding: 12px 10px;
+  }
+
+  header nav .nav-sections .main-tab ul:last-child li:last-child > div {
+    border-bottom: none;
   }
 
   header nav .section.mobile .item-mobile-body.veiculos > div:first-child {
@@ -368,13 +400,7 @@ header nav .nav-sections ul > li > ul {
     flex-wrap: wrap;
   }
 
-  header nav .nav-sections ul {
-    width: 100%;
-    padding-right: 16px;
-    padding-left: 16px;
-    margin-bottom: 0;
-    margin-top: 0;
-  }
+
 
   header nav .nav-sections ul li {
     width: 100%;
@@ -403,12 +429,6 @@ header nav .nav-sections ul > li > ul {
     width: 100%;
   }
 
-  header nav .nav-sections .main-tab ul:first-child {
-    margin: auto;
-    max-width: 90%;
-    padding: 0;
-  }
-
   header nav .nav-sections .main-tab ul:first-child li {
     flex-direction: row-reverse;
     font-family: HyundaiSansHead-Regular, sans-serif;
@@ -426,23 +446,11 @@ header nav .nav-sections ul > li > ul {
     padding-left: 10px;
   }
 
-  header nav .nav-sections .main-tab ul:first-child li > div {
-    height: 25px;
-  }
 
   header nav .nav-sections .main-tab ul:last-child li {
     display: block;
     padding: 0;
     border: none;
-  }
-
-  header nav .nav-sections .main-tab ul:last-child li > div {
-    border-bottom: solid 1px #e5e5e5;
-    padding: 12px 10px;
-  }
-
-  header nav .nav-sections .main-tab ul:last-child li:last-child > div {
-    border-bottom: none;
   }
 
   header nav .nav-sections .main-tab ul:last-child li:last-child > div:last-child {
