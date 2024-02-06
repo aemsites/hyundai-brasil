@@ -113,7 +113,7 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
-header nav .nav-sections ul > li:last-of-type > button {
+header nav .nav-sections .hero-horiz-tabs-nav ul > li:last-of-type > button {
   min-width: 166px;
   color: #fff;
   margin: 0;
