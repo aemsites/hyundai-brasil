@@ -313,7 +313,7 @@ header nav .nav-sections ul > li > ul {
     height: calc(100vh - var(--nav-height));
     box-shadow: 0 3px 10px 0 rgb(216 209 200 / 40%);
     line-height: 1.5;
-    transition: all 10s ease-out;
+    transition: transform .5s ease-out, height 1s ease-in, visibility 1s ease-in;
   }
 
   header nav .section.mobile {
