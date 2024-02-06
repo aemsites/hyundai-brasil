@@ -284,6 +284,16 @@ header nav .nav-sections ul > li > ul {
 
 /* TODO use as default config - temp workaround to work faster */
 @media (width < 900px) {
+  header nav {
+    padding: 0;
+    height: auto;
+  }
+
+  header nav .nav-sections {
+    background-color: white;
+    transition: transform .5s ease-out, height 5s ease-out;
+  }
+
   header nav[aria-expanded="true"] {
     padding-right: 0;
     padding-left: 0;
@@ -295,10 +305,6 @@ header nav .nav-sections ul > li > ul {
         'sections sections sections' 1fr / auto 1fr auto;
   }
 
-  header nav {
-    height: auto;
-  }
-
   header nav .nav-sections,
   header nav .section.mobile {
     overflow-y: auto;
@@ -308,7 +314,6 @@ header nav .nav-sections ul > li > ul {
     height: calc(100vh - var(--nav-height));
     box-shadow: 0 3px 10px 0 rgb(216 209 200 / 40%);
     line-height: 1.5;
-    transition: transform .5s ease-out;
   }
 
   header nav .section.mobile {
@@ -335,9 +340,10 @@ header nav .nav-sections ul > li > ul {
     height: 25px;
   }
 
-  header nav[aria-expanded="false"] .section.nav-sections,
-  header nav[aria-expanded="false"] .section.mobile {
-    display: none;
+  header nav[aria-expanded="false"] .section.nav-sections {
+    height: 0;
+    display: block;
+    transition: transform .5s ease-out, height 5s ease-out;
   }
 
   header nav .section.mobile .item-mobile-header .icon {
