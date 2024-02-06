@@ -291,7 +291,6 @@ header nav .nav-sections ul > li > ul {
 
   header nav .nav-sections {
     background-color: white;
-    transition: transform .5s ease-out, height 5s ease-out;
   }
 
   header nav[aria-expanded="true"] {
@@ -314,6 +313,7 @@ header nav .nav-sections ul > li > ul {
     height: calc(100vh - var(--nav-height));
     box-shadow: 0 3px 10px 0 rgb(216 209 200 / 40%);
     line-height: 1.5;
+    transition: all 10s ease-out;
   }
 
   header nav .section.mobile {
@@ -340,10 +340,10 @@ header nav .nav-sections ul > li > ul {
     height: 25px;
   }
 
-  header nav[aria-expanded="false"] .section.nav-sections {
+  header nav[aria-expanded="false"] .section.nav-sections,
+  header nav[aria-expanded="false"] .section.mobile {
     height: 0;
     display: block;
-    transition: transform .5s ease-out, height 5s ease-out;
   }
 
   header nav .section.mobile .item-mobile-header .icon {

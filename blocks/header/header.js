@@ -178,6 +178,10 @@ export default async function decorate(block) {
   hamburger.addEventListener('click', () => {
     function toggleNav() {
       document.body.classList.toggle('nav-open');
+      if (!isDesktop.matches) {
+        // navPanel.classList.toggle('show');
+        /* wait for 2 seconds */
+      }
       toggleMenu(nav, navSections);
     }
 
