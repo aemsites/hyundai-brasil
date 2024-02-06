@@ -44,7 +44,7 @@ header nav button {
 
 header nav .nav-hamburger button {
   height: 22px;
-  margin: 0;
+  margin: 0 0 0 16px;
   border: 0;
   border-radius: 0;
   padding: 0;
@@ -284,14 +284,120 @@ header nav .nav-sections ul > li > ul {
 
 /* TODO use as default config - temp workaround to work faster */
 @media (width < 900px) {
+  header nav {
+    padding: 0;
+    height: auto;
+  }
+
+  header nav .nav-sections {
+    background-color: white;
+  }
+
+  header nav[aria-expanded="true"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
   header nav[aria-expanded="false"] {
     grid-template:
         'hamburger brand tools' var(--nav-height)
         'sections sections sections' 1fr / auto 1fr auto;
   }
 
-  header nav {
-    height: auto;
+  header nav .nav-sections,
+  header nav .section.mobile {
+    overflow-y: auto;
+    position: fixed;
+    top: var(--nav-height);
+    width: 100vw;
+    height: calc(100vh - var(--nav-height));
+    box-shadow: 0 3px 10px 0 rgb(216 209 200 / 40%);
+    line-height: 1.5;
+    transition: transform .5s ease-out, height 1s ease-in, visibility 1s ease-in;
+  }
+
+  header nav .section.mobile {
+    left: 100vw;
+    transition: transform .5s ease-out;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  header nav .section.mobile .item-mobile-header {
+    display: flex;
+    gap: 13px;
+    width: 100%;
+    padding: 22px 27.175px;
+    justify-content: flex-start;
+    border-bottom: solid 1px #999;
+    line-height: 1.2;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  header nav .nav-sections .main-tab ul li .icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  header nav[aria-expanded="false"] .section.nav-sections,
+  header nav[aria-expanded="false"] .section.mobile {
+    height: 0;
+    display: block;
+  }
+
+  header nav .section.mobile .item-mobile-header .icon {
+    width: 10px;
+    height: 13px;
+  }
+
+  header nav .nav-sections ul {
+    width: 100%;
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  header nav .nav-sections .main-tab ul:first-child {
+    margin: auto;
+    max-width: 90%;
+    padding: 0;
+  }
+
+  header nav .nav-sections .main-tab ul:first-child li > div {
+    height: 25px;
+  }
+
+  header nav .nav-sections .main-tab ul:last-child li > div {
+    border-bottom: solid 1px #e5e5e5;
+    padding: 12px 10px;
+  }
+
+  header nav .nav-sections .main-tab ul:last-child li:last-child > div {
+    border-bottom: none;
+  }
+
+  header nav .section.mobile .item-mobile-body.veiculos > div:first-child {
+    display: none;
+  }
+
+  header nav .section.mobile .item-mobile-body.veiculos .cards {
+    position: static;
+    text-align: center;
+  }
+
+  header nav .section.mobile .item-mobile-body.veiculos .cards ul {
+    grid-template-columns: 1fr;
+  }
+
+  header nav .section.mobile .item-mobile-body.veiculos .cards ul li div {
+    border: none;
+  }
+
+  header nav.show-mobile-section .nav-sections,
+  header nav.show-mobile-section .section.mobile {
+    transform: translateX(-100vw);
   }
 
   header nav .nav-sections nav {
@@ -300,9 +406,7 @@ header nav .nav-sections ul > li > ul {
     flex-wrap: wrap;
   }
 
-  header nav .nav-sections ul {
-    width: 100%;
-  }
+
 
   header nav .nav-sections ul li {
     width: 100%;
@@ -312,20 +416,66 @@ header nav .nav-sections ul > li > ul {
     justify-content: space-between;
   }
 
+  header nav .nav-sections ul li:hover {
+    border-bottom: solid 1px #e5e5e5 !important;
+  }
+
   header nav .nav-sections .main-tab ul li {
     padding: 10px;
     display: flex;
-    flex-direction: row-reverse;
     font-weight: 400;
   }
 
-  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
-    order: -3;
+  header nav .nav-sections .hero-horiz-tabs-nav ul li:nth-last-child(2) {
+    border-bottom: none;
+  }
+
+  header nav .nav-sections .main-tab {
+    border-top: solid 1px #999;
+    width: 100%;
+  }
+
+  header nav .nav-sections .main-tab ul:first-child li {
+    flex-direction: row-reverse;
+    font-family: HyundaiSansHead-Regular, sans-serif;
+    line-height: 1.3;
+    padding-left: 20px;
   }
 
   header nav .nav-sections ul li button {
     font-weight: 600;
     justify-content: flex-start;
+    font-size: inherit;
+  }
+
+  header nav .nav-sections ul:first-child li button {
+    padding-left: 10px;
+  }
+
+
+  header nav .nav-sections .main-tab ul:last-child li {
+    display: block;
+    padding: 0;
+    border: none;
+  }
+
+  header nav .nav-sections .main-tab ul:last-child li:last-child > div:last-child {
+    height: 10px;
+    padding: 0;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li {
+    padding: 10px 10px 10px 0;
+    height: 48px;
+    font-size: 16px;
+  }
+
+  /* Ofertas element */
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
+    order: -3;
+    margin-bottom: 20px;
+    margin-top: 16px;
+    height: 60px;
     font-size: 18px;
   }
 
@@ -343,15 +493,6 @@ header nav .nav-sections ul > li > ul {
   }
 
   header nav .nav-sections ul li:last-child .icon-ofertas {
-    width: 25px;
-    height: 25px;
-  }
-
-  header nav .nav-sections .main-tab {
-    width: 100%;
-  }
-
-  header nav .nav-sections .main-tab ul li .icon {
     width: 25px;
     height: 25px;
   }

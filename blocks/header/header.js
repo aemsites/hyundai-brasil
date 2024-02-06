@@ -1,6 +1,6 @@
 import { decorateIcons, getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
-import { createTabs, addTabs } from './header-utils.js';
+import { addTabs, createTabs } from './header-utils.js';
 import { div, img, span } from '../../scripts/dom-helpers.js';
 
 // media query match that indicates mobile/tablet width
@@ -117,8 +117,32 @@ export default async function decorate(block) {
   }
 
   const navSections = nav.querySelector('.nav-sections');
+
+  const mobileSectionHeader = div(
+    { class: 'item-mobile-header' },
+    span({ class: 'icon icon-arrow inverted' }),
+    span('Placeholder header'),
+  );
+  const navPanel = nav.querySelector('.section.nav-sections').parentElement;
+  mobileSectionHeader.addEventListener('click', () => {
+    navPanel.classList.remove('show-mobile-section');
+  });
+
   const tabs = createTabs(navSections, nav);
-  addTabs(tabs, block, nav);
+
+  navSections.nextSibling.replaceWith(
+    div(
+      { class: 'section mobile' },
+      mobileSectionHeader,
+      div(
+        { class: 'item-mobile-body' },
+        span('Placeholder body'),
+      ),
+    ),
+  );
+
+  addTabs(tabs, block, nav, isDesktop);
+
   navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
     if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
     navSection.addEventListener('click', () => {
@@ -152,8 +176,21 @@ export default async function decorate(block) {
       <span class="nav-hamburger-icon"></span>
     </button>`;
   hamburger.addEventListener('click', () => {
-    document.body.classList.toggle('nav-open');
-    toggleMenu(nav, navSections);
+    function toggleNav() {
+      document.body.classList.toggle('nav-open');
+      if (!isDesktop.matches) {
+        // navPanel.classList.toggle('show');
+        /* wait for 2 seconds */
+      }
+      toggleMenu(nav, navSections);
+    }
+
+    if (navPanel.classList.contains('show-mobile-section')) {
+      navPanel.classList.remove('show-mobile-section');
+      setTimeout(toggleNav, 500);
+    } else {
+      toggleNav();
+    }
   });
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');

@@ -238,6 +238,10 @@ main img {
   width: 100%;
 }
 
+.icon.inverted img {
+  transform: rotate(180deg);
+}
+
 /* sections */
 main .section {
   padding: 0 15px;
