@@ -132,7 +132,7 @@ export default async function decorate(block) {
 
   navSections.nextSibling.replaceWith(
     div(
-      { class: 'section mobile' },
+      { class: 'section mobile mobile-only' },
       mobileSectionHeader,
       div(
         { class: 'item-mobile-body' },
