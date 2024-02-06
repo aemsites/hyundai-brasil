@@ -340,6 +340,23 @@ header nav .nav-sections ul > li > ul {
     height: 13px;
   }
 
+  header nav .section.mobile .item-mobile-body.veiculos > div:first-child {
+    display: none;
+  }
+
+  header nav .section.mobile .item-mobile-body.veiculos .cards {
+    position: static;
+    text-align: center;
+  }
+
+  header nav .section.mobile .item-mobile-body.veiculos .cards ul {
+    grid-template-columns: 1fr;
+  }
+
+  header nav .section.mobile .item-mobile-body.veiculos .cards ul li div {
+    border: none;
+  }
+
   header nav.show-mobile-section .nav-sections,
   header nav.show-mobile-section .section.mobile {
     transform: translateX(-100vw);
