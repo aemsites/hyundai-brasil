@@ -10,6 +10,10 @@ header nav {
   font-family: var(--body-font-family);
 }
 
+header nav a:any-link {
+  color: currentcolor;
+}
+
 header nav .hamburger-tab.tab-item {
   display: none;
 }
@@ -17,6 +21,82 @@ header nav .hamburger-tab.tab-item {
 body.nav-open header nav .hamburger-tab.tab-item {
   display: flex;
   left: 0;
+}
+
+
+header nav .nav-sections ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  padding-left: 0;
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+}
+
+header nav .nav-sections ul > li > ul {
+  margin-top: 0;
+}
+
+header nav .nav-sections ul > li > ul > li {
+  font-weight: 500;
+}
+
+header nav .tab-item > div.default-content-wrapper > ul > li {
+  border-bottom: 1px solid #f6f3f2;
+  padding: 12px 10px;
+  font-family: HyundaiSansHead-Regular, sans-serif;
+  font-size: var(--body-font-size-s);
+}
+
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li {
+  display: flex;
+  height: var(--nav-height);
+  padding-top: 0;
+  padding-bottom: 0;
+  align-items: center;
+}
+
+header nav .tab-item {
+  display: flex;
+  padding: 60px 0;
+  justify-content: center;
+  position: fixed;
+  background: white;
+  left: 0;
+  top: var(--nav-height);
+  width: 100vw;
+  height: 25rem;
+  flex-direction: row;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgba(0 0 0 / 19%);
+}
+
+header nav .tab-item > div {
+  max-width: 475px;
+  flex-basis: 50%;
+}
+
+header nav .tab-item > div.cards-wrapper {
+  margin-right: 56px;
+}
+
+header nav .tab-item > div.cards-wrapper > .cards {
+  position: unset !important;
+}
+
+header nav .tab-item > div.default-content-wrapper > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px 13px;
+}
+
+header nav .tab-item > div.default-content-wrapper > ul > li:hover {
+  border-color: var(--hyundai-light-blue);
+  font-family: HyundaiSansHead-Medium, sans-serif;
+}
+
+header nav .tab-item > div.default-content-wrapper > ul > li > a {
+  text-decoration: none;
 }
 
 header nav span.icon-hyundai {
@@ -77,55 +157,8 @@ header nav[aria-expanded="true"] {
   min-height: 100vh;
 }
 
-header .tab-item {
-  position: fixed;
-  background: white;
-  left: 0;
-  top: var(--nav-height);
-  width: 100vw;
-  height: 25rem;
-  display: flex;
-  flex-direction: row;
-  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgba(0 0 0 / 19%);
-}
-
 header .tab-item:has(.image) {
   height: 37rem;
-}
-
-header .tab-item:has(.hamburger) {
-  height: 35rem;
-}
-
-header .tab-item .cards-wrapper {
-  flex-basis: 50%;
-  padding: 2rem;
-}
-
-header nav .nav-sections ul {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  list-style: none;
-  padding-left: 0;
-  font-size: var(--body-font-size-s);
-  font-weight: 500;
-}
-
-header nav .nav-sections ul > li {
-  font-weight: 700;
-}
-
-header nav .nav-sections ul > li > ul > li {
-  font-weight: 500;
-}
-
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li {
-  display: flex;
-  height: var(--nav-height);
-  padding-top: 0;
-  padding-bottom: 0;
-  align-items: center;
 }
 
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:last-child {
@@ -212,10 +245,6 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:hover > .tab-
 header nav p {
   margin: 0;
   line-height: 1;
-}
-
-header nav a:any-link {
-  color: currentcolor;
 }
 
 /* hamburger */
@@ -315,10 +344,6 @@ header nav[aria-expanded="true"] .nav-sections {
   align-self: start;
 }
 
-header nav .nav-sections ul > li > ul {
-  margin-top: 0;
-}
-
 /* TODO use as default config - temp workaround to work faster */
 @media (width < 992px) {
   header nav {
@@ -396,7 +421,7 @@ header nav .nav-sections ul > li > ul {
     margin-top: 0;
   }
 
-  header nav .nav-sections .main-tab ul:first-child {
+  header nav .nav-sections .main-tab ul {
     margin: auto;
     max-width: 90%;
     padding: 0;
@@ -420,17 +445,8 @@ header nav .nav-sections ul > li > ul {
     font-size: 16px;
   }
 
-  header nav .nav-sections .main-tab ul:first-child li > div {
+  header nav .nav-sections .main-tab ul li > div {
     height: 25px;
-  }
-
-  header nav .nav-sections .main-tab ul:last-child li > div {
-    border-bottom: solid 1px #e5e5e5;
-    padding: 12px 10px;
-  }
-
-  header nav .nav-sections .main-tab ul:last-child li:last-child > div {
-    border-bottom: none;
   }
 
   header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child {
@@ -466,21 +482,24 @@ header nav .nav-sections ul > li > ul {
   }
 
   header nav .nav-sections .main-tab ul li {
-    padding: 10px;
     display: flex;
     font-weight: 400;
+    font-family: var(--body-font-family);
+    line-height: 1.3;
+    padding: 10px 10px 10px 20px;
   }
+
 
   header nav .nav-sections .main-tab {
     border-top: solid 1px #999;
     width: 100%;
   }
 
-  header nav .nav-sections .main-tab ul:first-child li {
+  header nav .nav-sections .main-tab ul:first-child li a {
+    display: flex;
     flex-direction: row-reverse;
-    font-family: HyundaiSansHead-Regular, sans-serif;
-    line-height: 1.3;
-    padding-left: 20px;
+    justify-content: space-between;
+    flex-basis: 100%;
   }
 
   header nav .nav-sections ul li button {
@@ -496,12 +515,6 @@ header nav .nav-sections ul > li > ul {
 
   header nav .nav-sections ul:first-child li button {
     padding-left: 10px;
-  }
-
-  header nav .nav-sections .main-tab ul:last-child li {
-    display: block;
-    padding: 0;
-    border: none;
   }
 
   header nav .nav-sections .main-tab ul:last-child li:last-child > div:last-child {
