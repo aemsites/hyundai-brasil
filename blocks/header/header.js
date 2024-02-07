@@ -4,7 +4,7 @@ import { addTabs, createTabs } from './header-utils.js';
 import { div, img, span } from '../../scripts/dom-helpers.js';
 
 // media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
+const isDesktop = window.matchMedia('(min-width: 992px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -141,6 +141,40 @@ export default async function decorate(block) {
     ),
   );
 
+  const hamburgerTab = tabs.find((t) => t.title === 'hamburger');
+  tabs.splice(tabs.indexOf(hamburgerTab), 1);
+
+  const heroHorizTabsNav = navSections.querySelector('.hero-horiz-tabs-nav');
+
+  // hamburger tab logic
+  {
+    const button = document.createElement('button');
+    const { tabButton, content } = hamburgerTab;
+    const clonedContent = content.cloneNode(true);
+    clonedContent.classList.add('hamburger-tab', 'desktop-only');
+    heroHorizTabsNav.after(clonedContent);
+
+    button.textContent = 'hamburger';
+    // eslint-disable-next-line
+    button.innerHTML = '<span class="icon icon-hamburger"><img data-icon-name="hamburger" src="/icons/hamburger.svg" alt="" loading="lazy"></span>';
+    button.classList.add('onlyclick');
+    button.classList.add('tab');
+    tabButton.replaceChildren(button);
+    button.addEventListener('click', () => {
+      function toggleNav() {
+        document.body.classList.toggle('nav-open');
+        toggleMenu(nav, navSections);
+      }
+
+      if (navPanel.classList.contains('show-mobile-section')) {
+        navPanel.classList.remove('show-mobile-section');
+        setTimeout(toggleNav, 500);
+      } else {
+        toggleNav();
+      }
+    });
+  }
+
   addTabs(tabs, block, nav, isDesktop);
 
   navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
@@ -154,30 +188,27 @@ export default async function decorate(block) {
     });
   });
 
-  const clonedTab = tabs.find((t) => t.name === 'hamburger').content.cloneNode(true);
+  const clonedTab = hamburgerTab.content.cloneNode(true);
   const mobileHamburgerSection = div({ class: 'mobile-only main-tab' }, ...clonedTab.querySelectorAll('ul'));
-  navSections.querySelector('.hero-horiz-tabs-nav').after(mobileHamburgerSection);
+  heroHorizTabsNav.after(mobileHamburgerSection);
 
   const hyundaiBlueSpan = span({ class: 'icon icon-hyundai-blue' });
   nav.querySelector('span.icon-hyundai').after(hyundaiBlueSpan);
 
   nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul > li:not(:last-child)').forEach((li) => {
-    li.append(span({ class: 'icon icon-arrow' }));
+    li.append(span({ class: 'icon icon-arrow mobile-only' }));
   });
   nav.querySelector('nav.hero-horiz-tabs-nav > ul > li:last-child').append(img(
-    { class: 'icon-ofertas', src: '/icons/ofertas.avif', alt: 'Icon ofertas' },
+    { class: 'icon-ofertas mobile-only', src: '/icons/ofertas.avif', alt: 'Icon ofertas' },
   ));
   decorateIcons(nav);
 
-  if (isDesktop.matches) {
-    const rightNavSection = document.createElement('ul');
-    nav.querySelectorAll('.section.nav-sections .hero-horiz-tabs-nav ul > li:not(:has(button.onlyclick))');
-    nav.querySelectorAll('.section.nav-sections .hero-horiz-tabs-nav ul > li:not(:has(button.onlyclick))').forEach((x) => {
-      rightNavSection.appendChild(x);
-    });
-    const parent = nav.querySelector('.section.nav-sections .hero-horiz-tabs-nav');
-    parent.appendChild(rightNavSection);
-  }
+  const rightNavSection = document.createElement('ul');
+  nav.querySelectorAll('.section.nav-sections .hero-horiz-tabs-nav > ul > li:not(:has(button.onlyclick))').forEach((x) => {
+    rightNavSection.appendChild(x);
+  });
+  const parent = nav.querySelector('.section.nav-sections .hero-horiz-tabs-nav');
+  parent.appendChild(rightNavSection);
 
   // hamburger for mobile
   const hamburger = document.createElement('div');
@@ -188,10 +219,6 @@ export default async function decorate(block) {
   hamburger.addEventListener('click', () => {
     function toggleNav() {
       document.body.classList.toggle('nav-open');
-      if (!isDesktop.matches) {
-        // navPanel.classList.toggle('show');
-        /* wait for 2 seconds */
-      }
       toggleMenu(nav, navSections);
     }
 

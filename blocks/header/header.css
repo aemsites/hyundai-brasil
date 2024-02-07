@@ -10,6 +10,15 @@ header nav {
   font-family: var(--body-font-family);
 }
 
+header nav .hamburger-tab.tab-item {
+  display: none;
+}
+
+body.nav-open header nav .hamburger-tab.tab-item {
+  display: flex;
+  left: 0;
+}
+
 header nav span.icon-hyundai {
   display: none;
 }
@@ -71,13 +80,13 @@ header nav[aria-expanded="true"] {
 header .tab-item {
   position: fixed;
   background: white;
-  width: 100%;
+  left: 0;
+  width: 100vw;
   height: 25rem;
   display: flex;
   flex-direction: row;
   box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgba(0 0 0 / 19%);
 }
-
 
 header .tab-item:has(.image) {
   height: 37rem;
@@ -110,6 +119,11 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:last-child {
+  background-color: var(--primary-color);
+  border: solid 1px var(--primary-color);
+}
+
 header nav .nav-sections ul:last-of-type > li:last-of-type > button {
   min-width: 166px;
   color: #fff;
@@ -117,16 +131,16 @@ header nav .nav-sections ul:last-of-type > li:last-of-type > button {
   padding: 26px 20px;
 }
 
-header nav .nav-sections ul:last-of-type > li:not(:last-of-type):hover, header nav .nav-sections ul:last-of-type > li:not(:last-of-type) > button:hover,
-header nav .nav-sections ul:last-of-type > li:not(:last-of-type):focus, header nav .nav-sections ul:last-of-type > li:not(:last-of-type) > button:focus {
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type):hover, header nav .nav-sections ul:last-of-type > li:not(:last-of-type) > button:hover,
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type):focus, header nav .nav-sections ul:last-of-type > li:not(:last-of-type) > button:focus {
   background-color: white;
   transition: all .4s ease-out;
   color: black;
   cursor: pointer;
 }
 
-header nav .nav-sections ul:last-of-type > li:last-of-type:hover, header nav .nav-sections ul:last-of-type > li:last-of-type > button:hover,
-header nav .nav-sections ul:last-of-type > li:last-of-type:focus, header nav .nav-sections ul:last-of-type > li:last-of-type > button:focus {
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:hover, header nav .nav-sections ul:last-of-type > li:last-of-type > button:hover,
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:focus, header nav .nav-sections ul:last-of-type > li:last-of-type > button:focus {
   background-color: #fff;
   color: var(--primary-color);
   transition: all .4s ease-out;
@@ -137,9 +151,12 @@ header nav .nav-sections .hero-horiz-tabs-nav {
   gap:10vw;
 }
 
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child li:last-child {
-  background-color: var(--primary-color);
-  border: solid 1px var(--primary-color);
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li > .tab-item {
+  display: none;
+}
+
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:hover > .tab-item {
+  display: flex;
 }
 
 @media (width >= 600px) {
@@ -148,7 +165,7 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child li:last-child {
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 992px) {
   header .section.nav-brand {
     display: none;
   }
@@ -249,7 +266,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   transform: rotate(-45deg);
 }
 
-@media (width >= 900px) {
+@media (width >= 992px) {
   header nav .nav-hamburger {
     display: none;
     visibility: hidden;
@@ -290,7 +307,7 @@ header nav .nav-sections ul > li > ul {
 }
 
 /* TODO use as default config - temp workaround to work faster */
-@media (width < 900px) {
+@media (width < 992px) {
   header nav {
     padding: 0;
     height: auto;
@@ -320,7 +337,7 @@ header nav .nav-sections ul > li > ul {
     height: calc(100vh - var(--nav-height));
     box-shadow: 0 3px 10px 0 rgb(216 209 200 / 40%);
     line-height: 1.5;
-    transition: transform .5s ease-out, height 1s ease-in, visibility 1s ease-in;
+    transition: transform .5s ease-out, height .5s ease-in, visibility .5s ease-in;
   }
 
   header nav .section.mobile {
@@ -459,10 +476,14 @@ header nav .nav-sections ul > li > ul {
     font-size: inherit;
   }
 
+  /* Undo desktop style */
+  a.button:not(.onlyclick):hover, a.button:not(.onlyclick):focus, button:not(.onlyclick):hover, button:not(.onlyclick):focus {
+    background-color: inherit;
+  }
+
   header nav .nav-sections ul:first-child li button {
     padding-left: 10px;
   }
-
 
   header nav .nav-sections .main-tab ul:last-child li {
     display: block;
@@ -503,7 +524,7 @@ header nav .nav-sections ul > li > ul {
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 992px) {
   header .icon-ofertas,
   header .icon-arrow {
     display: none;

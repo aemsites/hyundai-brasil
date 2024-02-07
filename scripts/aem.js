@@ -175,6 +175,8 @@ function init() {
 function toClassName(name) {
   return typeof name === 'string'
     ? name
+      // extra logic to convert diacritics
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       .toLowerCase()
       .replace(/[^0-9a-z]/gi, '-')
       .replace(/-+/g, '-')

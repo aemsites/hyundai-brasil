@@ -55,31 +55,7 @@ export function createTabs(block, navFragment) {
   return tabs;
 }
 
-export function enableHover(tabButton, block, button, tab, navPanel, navFragment, isDesktop) {
-  function disableHoverEffect(activeButton) {
-    activeButton.classList.remove('active');
-    // remove active class from parent li
-    activeButton.parentElement.classList.remove('active');
-    if (tab.content) {
-      tab.content.classList.remove('active');
-      if (navPanel.nextSibling) navPanel.nextSibling.remove();
-    }
-  }
-
-  document.querySelector('main .section.columns-container').addEventListener('mouseover', () => {
-    const activeButton = block.querySelector('button.active');
-    if (activeButton) {
-      disableHoverEffect(activeButton);
-    }
-  });
-
-  navFragment.querySelector('div:not(.section.nav-sections)').addEventListener('mouseover', () => {
-    const activeButton = block.querySelector('button.active');
-    if (activeButton) {
-      disableHoverEffect(activeButton);
-    }
-  });
-
+export function setUpTabListeners(tabButton, block, button, tab, navPanel, navFragment, isDesktop) {
   tabButton.addEventListener('click', () => {
     if (isDesktop.matches) {
       return;
@@ -94,12 +70,8 @@ export function enableHover(tabButton, block, button, tab, navPanel, navFragment
     mobileSectionHeader.textContent = tab.title;
     const mobileBody = document.querySelector('.item-mobile-body');
 
-    // remove diacritics
-    const normalizedTitle = tab.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    const sanitizedTitle = toClassName(normalizedTitle);
-
     mobileBody.replaceWith(div(
-      { class: `item-mobile-body ${sanitizedTitle}` },
+      { class: `item-mobile-body ${toClassName(tab.title)}` },
       ...tab.content.cloneNode(true).children,
     ));
 
@@ -110,65 +82,8 @@ export function enableHover(tabButton, block, button, tab, navPanel, navFragment
     if (!isDesktop.matches) {
       return;
     }
-    const activeButton = block.querySelector('button.active');
 
-    if (!activeButton) {
-      button.classList.add('active');
-      // add active class to parent li
-      tabButton.classList.add('active');
-      if (tab.content) {
-        tab.content.classList.add('active');
-        navPanel.after(tab.content);
-        navPanel.nextSibling.classList.add('tab-active');
-      }
-    } else if (activeButton !== tabButton) {
-      disableHoverEffect(activeButton);
-      button.classList.add('active');
-      // add active class to parent li
-      tabButton.classList.add('active');
-      if (tab.content) {
-        tab.content.classList.add('active');
-        navPanel.after(tab.content);
-      }
-    }
-  });
-}
-
-export function enableClick(tabButton, block, button, tab, navPanel) {
-  tabButton.addEventListener('click', () => {
-    const activeButton = block.querySelector('button.active');
-    if (!activeButton) {
-      button.classList.add('active');
-      // add active class to parent li
-      tabButton.classList.add('active');
-      if (tab.content) {
-        tab.content.classList.add('active');
-        navPanel.after(tab.content);
-        navPanel.nextSibling.classList.add('tab-active');
-      }
-    } else if (activeButton !== tabButton.firstChild) {
-      activeButton.classList.remove('active');
-      // remove active class from parent li
-      activeButton.parentElement.classList.remove('active');
-      if (tab.content) {
-        tab.content.classList.remove('active');
-        navPanel.nextSibling.remove();
-      }
-      button.classList.add('active');
-      // add active class to parent li
-      tabButton.classList.add('active');
-      if (tab.content) {
-        tab.content.classList.add('active');
-        navPanel.after(tab.content);
-      }
-    } else {
-      button.classList.remove('active');
-      tabButton.classList.remove('active');
-      if (tab.content) {
-        tab.content.classList.remove('active');
-        navPanel.nextSibling.remove();
-      }
-    }
+    document.body.classList.remove('nav-open');
   });
 }
 
@@ -179,13 +94,13 @@ export function addTabs(tabs, block, navFragment, isDesktop) {
     const { tabButton, title } = tab;
     button.textContent = title.split(',');
     if (button.textContent === 'hamburger') {
-      // eslint-disable-next-line
-      button.innerHTML = '<span class="icon icon-hamburger"><img data-icon-name="hamburger" src="/icons/hamburger.svg" alt="" loading="lazy"></span>';
-      button.classList.add('onlyclick');
-      button.classList.add('tab');
-      tabButton.replaceChildren(button);
-      enableClick(tabButton, block, button, tab, navPanel);
-    } else if (button.textContent === 'hyundai') {
+      console.error('Hamburger tab should have already been handled', tab);
+      return;
+    }
+
+    tabButton.classList.add(toClassName(title));
+
+    if (button.textContent === 'hyundai') {
       // eslint-disable-next-line
       button.innerHTML='<span class="icon icon-hyundai"><img data-icon-name="hyundai" src="/icons/hyundai.svg" alt="" loading="lazy"></span>';
       button.classList.add('onlyclick');
@@ -194,7 +109,12 @@ export function addTabs(tabs, block, navFragment, isDesktop) {
     } else {
       button.classList.add('tab');
       tabButton.replaceChildren(button);
-      enableHover(tabButton, block, button, tab, navPanel, navFragment, isDesktop);
+      // TODO handle "Ofertas" tab
+      if (tab.content) {
+        tab.content.classList.add('desktop-only');
+        button.after(tab.content);
+      }
+      setUpTabListeners(tabButton, block, button, tab, navPanel, navFragment, isDesktop);
     }
   });
 }

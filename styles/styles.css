@@ -75,7 +75,7 @@ html {
   src: local('Arial');
 }
 
-@media (width >= 900px) {
+@media (width >= 992px) {
   :root {
     --heading-font-size-xxl: 39px;
     --heading-font-size-xl: 22px;
@@ -255,6 +255,12 @@ main .section {
 @media (width >= 600px) {
   main .section {
     padding: 64px 32px;
+  }
+}
+
+@media (width < 992px) {
+  .desktop-only {
+    display: none !important;
   }
 }
 
