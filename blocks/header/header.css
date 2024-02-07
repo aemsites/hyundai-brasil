@@ -10,6 +10,10 @@ header nav {
   font-family: var(--body-font-family);
 }
 
+header nav a:any-link {
+  color: currentcolor;
+}
+
 header nav .hamburger-tab.tab-item {
   display: none;
 }
@@ -19,10 +23,52 @@ body.nav-open header nav .hamburger-tab.tab-item {
   left: 0;
 }
 
+
+header nav .nav-sections ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  padding-left: 0;
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+}
+
+header nav .nav-sections ul > li > ul {
+  margin-top: 0;
+}
+
+header nav .nav-sections ul > li > ul > li {
+  font-weight: 500;
+}
+
+header nav .tab-item > div.default-content-wrapper > ul > li {
+  border-bottom: 1px solid #f6f3f2;
+  padding: 12px 10px;
+  font-family: HyundaiSansHead-Regular, sans-serif;
+  font-size: var(--body-font-size-s);
+}
+
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li {
+  display: flex;
+  height: var(--nav-height);
+  padding-top: 0;
+  padding-bottom: 0;
+  align-items: center;
+}
+
 header nav .tab-item {
   display: flex;
   padding: 60px 0;
   justify-content: center;
+  position: fixed;
+  background: white;
+  left: 0;
+  top: var(--nav-height);
+  width: 100vw;
+  height: 25rem;
+  flex-direction: row;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgba(0 0 0 / 19%);
 }
 
 header nav .tab-item > div {
@@ -42,13 +88,6 @@ header nav .tab-item > div.default-content-wrapper > ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 15px 13px;
-}
-
-header nav .tab-item > div.default-content-wrapper > ul > li {
-  border-bottom: 1px solid #f6f3f2;
-  padding: 12px 10px;
-  font-family: HyundaiSansHead-Regular, sans-serif;
-  font-size: var(--body-font-size-s);
 }
 
 header nav .tab-item > div.default-content-wrapper > ul > li:hover {
@@ -118,42 +157,8 @@ header nav[aria-expanded="true"] {
   min-height: 100vh;
 }
 
-header .tab-item {
-  position: fixed;
-  background: white;
-  left: 0;
-  top: var(--nav-height);
-  width: 100vw;
-  height: 25rem;
-  display: flex;
-  flex-direction: row;
-  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgba(0 0 0 / 19%);
-}
-
 header .tab-item:has(.image) {
   height: 37rem;
-}
-
-header nav .nav-sections ul {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  list-style: none;
-  padding-left: 0;
-  font-size: var(--body-font-size-s);
-  font-weight: 500;
-}
-
-header nav .nav-sections ul > li > ul > li {
-  font-weight: 500;
-}
-
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li {
-  display: flex;
-  height: var(--nav-height);
-  padding-top: 0;
-  padding-bottom: 0;
-  align-items: center;
 }
 
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:last-child {
@@ -240,10 +245,6 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:hover > .tab-
 header nav p {
   margin: 0;
   line-height: 1;
-}
-
-header nav a:any-link {
-  color: currentcolor;
 }
 
 /* hamburger */
@@ -341,10 +342,6 @@ header nav[aria-expanded="true"] .nav-sections {
   display: block;
   visibility: visible;
   align-self: start;
-}
-
-header nav .nav-sections ul > li > ul {
-  margin-top: 0;
 }
 
 /* TODO use as default config - temp workaround to work faster */
@@ -498,8 +495,11 @@ header nav .nav-sections ul > li > ul {
     width: 100%;
   }
 
-  header nav .nav-sections .main-tab ul:first-child li {
+  header nav .nav-sections .main-tab ul:first-child li a {
+    display: flex;
     flex-direction: row-reverse;
+    justify-content: space-between;
+    flex-basis: 100%;
   }
 
   header nav .nav-sections ul li button {
