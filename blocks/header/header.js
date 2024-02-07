@@ -1,6 +1,6 @@
 import { decorateIcons, getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
-import { addTabs, createTabs, enableClick } from './header-utils.js';
+import { addTabs, createTabs } from './header-utils.js';
 import { div, img, span } from '../../scripts/dom-helpers.js';
 
 // media query match that indicates mobile/tablet width
@@ -144,17 +144,36 @@ export default async function decorate(block) {
   const hamburgerTab = tabs.find((t) => t.title === 'hamburger');
   tabs.splice(tabs.indexOf(hamburgerTab), 1);
 
+  const heroHorizTabsNav = navSections.querySelector('.hero-horiz-tabs-nav');
+
   console.log('found hamburger tab', hamburgerTab);
   {
     const button = document.createElement('button');
-    const { tabButton } = hamburgerTab;
+    const { tabButton, content } = hamburgerTab;
+    const clonedContent = content.cloneNode(true);
+    clonedContent.classList.add('hamburger-tab', 'desktop-only');
+    heroHorizTabsNav.after(clonedContent);
+
     button.textContent = 'hamburger';
     // eslint-disable-next-line
     button.innerHTML = '<span class="icon icon-hamburger"><img data-icon-name="hamburger" src="/icons/hamburger.svg" alt="" loading="lazy"></span>';
     button.classList.add('onlyclick');
     button.classList.add('tab');
     tabButton.replaceChildren(button);
-    enableClick(tabButton, block, button, hamburgerTab, navPanel);
+    // enableClick(tabButton, block, button, hamburgerTab, navPanel);
+    button.addEventListener('click', () => {
+      function toggleNav() {
+        document.body.classList.toggle('nav-open');
+        toggleMenu(nav, navSections);
+      }
+
+      if (navPanel.classList.contains('show-mobile-section')) {
+        navPanel.classList.remove('show-mobile-section');
+        setTimeout(toggleNav, 500);
+      } else {
+        toggleNav();
+      }
+    });
   }
 
   addTabs(tabs, block, nav, isDesktop);
@@ -172,7 +191,7 @@ export default async function decorate(block) {
 
   const clonedTab = hamburgerTab.content.cloneNode(true);
   const mobileHamburgerSection = div({ class: 'mobile-only main-tab' }, ...clonedTab.querySelectorAll('ul'));
-  navSections.querySelector('.hero-horiz-tabs-nav').after(mobileHamburgerSection);
+  heroHorizTabsNav.after(mobileHamburgerSection);
 
   const hyundaiBlueSpan = span({ class: 'icon icon-hyundai-blue' });
   nav.querySelector('span.icon-hyundai').after(hyundaiBlueSpan);

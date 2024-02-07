@@ -112,6 +112,7 @@ export function enableHover(tabButton, block, button, tab, navPanel, navFragment
     }
     const activeButton = block.querySelector('button.active');
 
+    document.body.classList.remove('nav-open');
     if (!activeButton) {
       button.classList.add('active');
       // add active class to parent li

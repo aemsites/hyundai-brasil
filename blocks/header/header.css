@@ -10,6 +10,15 @@ header nav {
   font-family: var(--body-font-family);
 }
 
+header nav .hamburger-tab.tab-item {
+  display: none;
+}
+
+body.nav-open header nav .hamburger-tab.tab-item {
+  display: flex;
+  left: 0;
+}
+
 header nav span.icon-hyundai {
   display: none;
 }
