@@ -81,6 +81,7 @@ header .tab-item {
   position: fixed;
   background: white;
   left: 0;
+  top: var(--nav-height);
   width: 100vw;
   height: 25rem;
   display: flex;
@@ -124,6 +125,18 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:last-child {
   border: solid 1px var(--primary-color);
 }
 
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li {
+  display: flex;
+  height: var(--nav-height);
+  padding-top: 0;
+  padding-bottom: 0;
+  align-items: center;
+}
+
+header nav .nav-sections ul:last-of-type > li > button {
+  height: var(--nav-height);
+}
+
 header nav .nav-sections ul:last-of-type > li:last-of-type > button {
   min-width: 166px;
   color: #fff;
@@ -131,8 +144,8 @@ header nav .nav-sections ul:last-of-type > li:last-of-type > button {
   padding: 26px 20px;
 }
 
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type):hover, header nav .nav-sections ul:last-of-type > li:not(:last-of-type) > button:hover,
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type):focus, header nav .nav-sections ul:last-of-type > li:not(:last-of-type) > button:focus {
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type):hover, header nav .nav-sections ul:last-of-type > li:not(:last-of-type):hover > button,
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type):focus, header nav .nav-sections ul:last-of-type > li:not(:last-of-type):focus > button {
   background-color: white;
   transition: all .4s ease-out;
   color: black;
