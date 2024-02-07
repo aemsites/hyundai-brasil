@@ -215,11 +215,6 @@ button:disabled, button:disabled:hover {
   cursor: unset;
 }
 
-a.button:not(.onlyclick):hover, a.button:not(.onlyclick):focus, button:not(.onlyclick):hover, button:not(.onlyclick):focus  {
-  background-color: var(--link-hover-color);
-  cursor: pointer;
-}
-
 a.button.secondary, button.secondary {
   background-color: unset;
   border: 2px solid currentcolor;

@@ -177,14 +177,6 @@ header nav .nav-sections ul:last-of-type > li:last-of-type > button {
   padding: 26px 20px;
 }
 
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type):hover, header nav .nav-sections ul:last-of-type > li:not(:last-of-type):hover > button,
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type):focus, header nav .nav-sections ul:last-of-type > li:not(:last-of-type):focus > button {
-  background-color: white;
-  transition: all .4s ease-out;
-  color: black;
-  cursor: pointer;
-}
-
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:hover, header nav .nav-sections ul:last-of-type > li:last-of-type > button:hover,
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:focus, header nav .nav-sections ul:last-of-type > li:last-of-type > button:focus {
   background-color: #fff;
@@ -211,7 +203,56 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:hover > .tab-
   }
 }
 
-@media (width >= 992px) {
+@media (width >=992px) {
+  /* header and nav layout */
+  header .nav-wrapper {
+    background-color: transparent;
+    box-shadow: none;
+    background-image: linear-gradient(rgba(0 0 0 / 61%), rgba(0 0 0 / 0%));
+    width: 100%;
+    z-index: 2;
+    position: fixed;
+  }
+
+  header .nav-wrapper.on-hover {
+    background-color: white;
+    background-image: none;
+    transition: all .4s ease-out;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button.on-hover {
+    transition: all .4s ease-out;
+    color: black;
+    cursor: pointer;
+  }
+
+  header nav .section.nav-sections span.icon-hyundai.on-hover {
+    display: none;
+    transition: all .4s ease-out;
+  }
+
+  header nav .section.nav-sections span.icon-hyundai-blue.on-hover {
+    display: block;
+    transition: all .4s ease-out;
+  }
+
+  header nav .section.nav-sections span.icon-hamburger.on-hover {
+    display: none;
+    transition: all .4s ease-out;
+  }
+
+  header nav .section.nav-sections span.icon-hamburger-black.on-hover {
+    display: block;
+    transition: all .4s ease-out;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:first-of-type > button.on-hover {
+    border-right: solid 1px black;
+    transition: all .4s ease-out;
+  }
+
+
+
   header .section.nav-brand {
     display: none;
   }
@@ -567,6 +608,16 @@ header nav[aria-expanded="true"] .nav-sections {
   }
 
   header nav span.icon-hyundai-blue {
+    display: none;
+  }
+
+  header nav .section.nav-sections span.icon-hyundai-blue {
+    width: 128px;
+    height: auto;
+    display: none;
+  }
+
+  header nav .section.nav-sections span.icon-hamburger-black {
     display: none;
   }
 
