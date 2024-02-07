@@ -18,12 +18,16 @@
   display: block;
 }
 
-@media (width >= 900px) {
+@media (width >= 992px) {
   .columns > div {
     grid-template-columns: 2fr 1fr 1fr;
     align-items: end;
     flex-direction: unset;
     gap: 32px;
+  }
+
+  h4 {
+    max-width: unset;
   }
 
   .columns > div > div {

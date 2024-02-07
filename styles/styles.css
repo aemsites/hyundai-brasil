@@ -133,6 +133,7 @@ h3 {
 h4 {
   font-size: var(--heading-font-size-m);
   line-height: 26px;
+  max-width: 66%;
 }
 h5 { font-size: var(--heading-font-size-s) }
 h6 { font-size: var(--heading-font-size-xs) }
@@ -142,8 +143,13 @@ p, dl, ol, ul, pre, blockquote {
   margin-bottom: 1em;
 }
 
+main {
+  padding-bottom: 81px;
+}
+
 main p {
   padding-top: 20px;
+  margin-top: 0;
   margin-bottom: 15px;
 }
 
@@ -252,7 +258,7 @@ main .section {
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 992px) {
   .mobile-only {
     display: none !important;
   }
@@ -260,6 +266,16 @@ main .section {
   .section > div {
     max-width: 1200px;
     margin: auto;
+  }
+
+  main p {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .section.columns-container {
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
