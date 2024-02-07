@@ -22,6 +22,7 @@ export default function decorate(block) {
       const aContent = a.innerHTML;
       const cardTitleDiv = document.createElement('div');
       cardTitleDiv.innerHTML = aContent;
+      a.className = '';
       a.replaceWith(cardTitleDiv);
       a.innerHTML = '';
       a.append(...li.children);

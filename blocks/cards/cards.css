@@ -92,26 +92,11 @@
   width: 45px;
 }
 
-.cards.block.header-content > ul > li:hover, 
+.cards.block.header-content > ul > li:hover,
 .cards.block.header-content > ul > li:focus {
   background-color: #ccc;
   transition: opacity 1s linear;
   font-weight: 900;
-  transform: scale(1.1);
-}
-
-
-.cards.block.header-content > ul > li img {
-  position: relative;
-  left: 11vw;
-  top: 1em;
-}
-
-.cards.block.header-content.right.image > ul > li img {
-  position: relative;
-  left: 0;
-  top: 1em;
-  aspect-ratio: 0;
 }
 
 .cards.block.header-content.right > ul > li {
@@ -141,6 +126,50 @@
   font-family: HyundaiSansHead-Regular, sans-serif;
 }
 
+.cards.block.header-content.right:not(.single-line-div) > ul > li:hover,
+.cards.block.header-content.right:not(.single-line-div) > ul > li:focus {
+  font-weight: inherit;
+}
+
+.cards.underline > ul > li > div {
+  border-bottom: 2px solid #f6f3f2;
+}
+
+.cards.underline > ul > li > div:hover,
+.cards.underline > ul > li > div:focus {
+  border-color: #00aad2;
+}
+
+.cards.block.header-content.right > ul > li div {
+  padding: 12px 10px;
+}
+
+.cards.block.header-content.right > ul > li > div:hover,
+.cards.block.header-content.right > ul > li > div:focus {
+  transition: opacity 1s linear;
+  transform: scale(1.0);
+  font-weight: 900;
+}
+
+.cards.block.header-content > ul > li > a:any-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.cards.block.header-content > ul > li img {
+  position: relative;
+  left: 11vw;
+  top: 1em;
+}
+
+.cards.block.header-content.right.image > ul > li img {
+  position: relative;
+  left: 0;
+  top: 1em;
+  aspect-ratio: 0;
+}
+
 .cards.block.header-content.left.image > ul > li img {
   position: relative;
   left: 0;
@@ -158,23 +187,8 @@
   grid-gap: 16px;
 }
 
-.cards.block.header-content.right > ul > li div {
-  border-bottom: 2px solid #f6f3f2;
-  padding: 12px 10px;
-}
-
-
-
 .cards.block.header-content.right > ul > li div:empty {
   border-bottom: 0;
-}
-  
-
-.cards.block.header-content.right > ul > li div:hover,
-.cards.block.header-content.right > ul > li div:focus {
-  border-bottom: 2px solid #00aad2;
-  transition: opacity 1s linear;
-  transform: scale(1.0);
 }
 
 .cards.block.header-content.image.right > ul > li div:first-of-type {
