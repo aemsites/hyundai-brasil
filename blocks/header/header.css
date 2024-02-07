@@ -372,6 +372,24 @@ header nav .nav-sections ul > li > ul {
     padding: 0;
   }
 
+  header nav .nav-sections ul li {
+    width: 100%;
+    border-bottom: solid 1px #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header nav .nav-sections ul li:hover {
+    border-bottom: solid 1px #e5e5e5 !important;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav > ul li {
+    padding: 10px 10px 10px 0;
+    height: 48px;
+    font-size: 16px;
+  }
+
   header nav .nav-sections .main-tab ul:first-child li > div {
     height: 25px;
   }
@@ -383,6 +401,10 @@ header nav .nav-sections ul > li > ul {
 
   header nav .nav-sections .main-tab ul:last-child li:last-child > div {
     border-bottom: none;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child {
+    display: none;
   }
 
   header nav .section.mobile .item-mobile-body.veiculos > div:first-child {
@@ -413,28 +435,10 @@ header nav .nav-sections ul > li > ul {
     flex-wrap: wrap;
   }
 
-
-
-  header nav .nav-sections ul li {
-    width: 100%;
-    border-bottom: solid 1px #e5e5e5;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  header nav .nav-sections ul li:hover {
-    border-bottom: solid 1px #e5e5e5 !important;
-  }
-
   header nav .nav-sections .main-tab ul li {
     padding: 10px;
     display: flex;
     font-weight: 400;
-  }
-
-  header nav .nav-sections .hero-horiz-tabs-nav ul li:nth-last-child(2) {
-    border-bottom: none;
   }
 
   header nav .nav-sections .main-tab {
@@ -471,14 +475,12 @@ header nav .nav-sections ul > li > ul {
     padding: 0;
   }
 
-  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li {
-    padding: 10px 10px 10px 0;
-    height: 48px;
-    font-size: 16px;
+  header nav .nav-sections .hero-horiz-tabs-nav > ul li:nth-last-child(2) {
+    border-bottom: none;
   }
 
   /* Ofertas element */
-  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:last-child {
+  header nav .nav-sections .hero-horiz-tabs-nav > ul li:last-child {
     order: -3;
     margin-bottom: 20px;
     margin-top: 16px;
@@ -486,11 +488,7 @@ header nav .nav-sections ul > li > ul {
     font-size: 18px;
   }
 
-  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:first-child {
-    display: none;
-  }
-
-  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-child li:nth-child(4) {
+  header nav .nav-sections .hero-horiz-tabs-nav > ul li:nth-child(3) {
     order: -2;
   }
 
