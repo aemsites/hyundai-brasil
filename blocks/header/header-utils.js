@@ -55,7 +55,7 @@ export function createTabs(block, navFragment) {
   return tabs;
 }
 
-export function enableHover(tabButton, block, button, tab, navPanel, navFragment, isDesktop) {
+export function setUpTabListeners(tabButton, block, button, tab, navPanel, navFragment, isDesktop) {
   tabButton.addEventListener('click', () => {
     if (isDesktop.matches) {
       return;
@@ -87,44 +87,6 @@ export function enableHover(tabButton, block, button, tab, navPanel, navFragment
   });
 }
 
-export function enableClick(tabButton, block, button, tab, navPanel) {
-  tabButton.addEventListener('click', () => {
-    const activeButton = block.querySelector('button.active');
-    if (!activeButton) {
-      button.classList.add('active');
-      // add active class to parent li
-      tabButton.classList.add('active');
-      if (tab.content) {
-        tab.content.classList.add('active');
-        navPanel.after(tab.content);
-        navPanel.nextSibling.classList.add('tab-active');
-      }
-    } else if (activeButton !== tabButton.firstChild) {
-      activeButton.classList.remove('active');
-      // remove active class from parent li
-      activeButton.parentElement.classList.remove('active');
-      if (tab.content) {
-        tab.content.classList.remove('active');
-        navPanel.nextSibling.remove();
-      }
-      button.classList.add('active');
-      // add active class to parent li
-      tabButton.classList.add('active');
-      if (tab.content) {
-        tab.content.classList.add('active');
-        navPanel.after(tab.content);
-      }
-    } else {
-      button.classList.remove('active');
-      tabButton.classList.remove('active');
-      if (tab.content) {
-        tab.content.classList.remove('active');
-        navPanel.nextSibling.remove();
-      }
-    }
-  });
-}
-
 export function addTabs(tabs, block, navFragment, isDesktop) {
   const navPanel = navFragment.querySelector('.section.nav-sections').parentElement;
   tabs.forEach((tab) => {
@@ -152,7 +114,7 @@ export function addTabs(tabs, block, navFragment, isDesktop) {
         tab.content.classList.add('desktop-only');
         button.after(tab.content);
       }
-      enableHover(tabButton, block, button, tab, navPanel, navFragment, isDesktop);
+      setUpTabListeners(tabButton, block, button, tab, navPanel, navFragment, isDesktop);
     }
   });
 }
