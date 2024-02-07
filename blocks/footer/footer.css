@@ -325,6 +325,7 @@ footer .icon-hyundai {
 
   footer .section.disclaimer {
     font-size: 13px;
+    margin-bottom: 60px;
   }
 
   footer .section.hamburger {
@@ -365,10 +366,11 @@ footer .icon-hyundai {
 
   footer .section.multilist {
     grid-row: 3 / 7;
+    margin-right: 32px
   }
 
   footer .section.multilist h5::before {
-    content: "";
+    content: unset;
   }
 
   footer .section.multilist li {
@@ -393,6 +395,19 @@ footer .icon-hyundai {
   footer .section.revisoes {
     margin: 0;
     padding: 8px;
+  }
+
+  footer .section.contact p {
+    margin: 0;
+    font-size: 12px;
+  }
+
+  footer .section.contact p:nth-of-type(4) {
+    margin-bottom: 10px;
+  }
+
+  footer .section.contact h5 {
+    margin-bottom: 0;
   }
 
   footer .section.revisoes p:last-child {
@@ -475,5 +490,15 @@ footer .icon-hyundai {
 
   footer .section.social-icons ul {
     justify-content: flex-start;
+  }
+}
+
+@media (width >= 992px) {
+  footer .form h2 {
+    font-size: 24px;
+  }
+
+  footer .form fieldset > legend {
+    font-size: 18px;
   }
 }
