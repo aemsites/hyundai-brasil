@@ -144,13 +144,13 @@ header nav .nav-sections ul:last-of-type > li:last-of-type > button {
   padding: 26px 20px;
 }
 
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type):hover, header nav .nav-sections ul:last-of-type > li:not(:last-of-type):hover > button,
+/* header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type):hover, header nav .nav-sections ul:last-of-type > li:not(:last-of-type):hover > button,
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type):focus, header nav .nav-sections ul:last-of-type > li:not(:last-of-type):focus > button {
   background-color: white;
   transition: all .4s ease-out;
   color: black;
   cursor: pointer;
-}
+} */
 
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:hover, header nav .nav-sections ul:last-of-type > li:last-of-type > button:hover,
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:focus, header nav .nav-sections ul:last-of-type > li:last-of-type > button:focus {
@@ -178,11 +178,44 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:hover > .tab-
   }
 }
 
-@media (width >= 992px) {
+@media (width >=992px) {
+
+  /* header and nav layout */
+  header .nav-wrapper {
+    background-color: transparent;
+    box-shadow: none;
+    background-image: linear-gradient(rgba(0 0 0 / 61%), rgba(0 0 0 / 0%));
+    width: 100%;
+    z-index: 2;
+    position: fixed;
+  }
+
+  header .nav-wrapper.onHover {
+    background-color: white;
+    background-image: none;
+    transition: all .4s ease-out;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button.onHover {
+    transition: all .4s ease-out;
+    color: black;
+    cursor: pointer;
+  }
+
+  header nav .section.nav-sections span.icon-hyundai.onHover {
+    display: none;
+    transition: all .4s ease-out;
+  }
+
+  header nav .section.nav-sections span.icon-hyundai-blue.onHover {
+    display: block;
+    transition: all .4s ease-out;
+  }
+
   header .section.nav-brand {
     display: none;
   }
-
+  
   header .tab-item {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -551,6 +584,12 @@ header nav .nav-sections ul > li > ul {
     display: inline-block;
     width: 128px;
     height: auto;
+  }
+
+  header nav .section.nav-sections span.icon-hyundai-blue {
+    width: 128px;
+    height: auto;
+    display: none;
   }
 
   header nav span.icon-hyundai-blue {
