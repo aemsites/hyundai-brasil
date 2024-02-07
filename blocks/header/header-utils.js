@@ -70,12 +70,8 @@ export function enableHover(tabButton, block, button, tab, navPanel, navFragment
     mobileSectionHeader.textContent = tab.title;
     const mobileBody = document.querySelector('.item-mobile-body');
 
-    // remove diacritics
-    const normalizedTitle = tab.title.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-    const sanitizedTitle = toClassName(normalizedTitle);
-
     mobileBody.replaceWith(div(
-      { class: `item-mobile-body ${sanitizedTitle}` },
+      { class: `item-mobile-body ${toClassName(tab.title)}` },
       ...tab.content.cloneNode(true).children,
     ));
 
@@ -139,6 +135,9 @@ export function addTabs(tabs, block, navFragment, isDesktop) {
       console.error('Hamburger tab should have already been handled', tab);
       return;
     }
+
+    tabButton.classList.add(toClassName(title));
+
     if (button.textContent === 'hyundai') {
       // eslint-disable-next-line
       button.innerHTML='<span class="icon icon-hyundai"><img data-icon-name="hyundai" src="/icons/hyundai.svg" alt="" loading="lazy"></span>';
