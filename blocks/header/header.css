@@ -165,7 +165,7 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:hover > .tab-
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 992px) {
   header .section.nav-brand {
     display: none;
   }
@@ -266,7 +266,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   transform: rotate(-45deg);
 }
 
-@media (width >= 900px) {
+@media (width >= 992px) {
   header nav .nav-hamburger {
     display: none;
     visibility: hidden;
@@ -307,7 +307,7 @@ header nav .nav-sections ul > li > ul {
 }
 
 /* TODO use as default config - temp workaround to work faster */
-@media (width < 900px) {
+@media (width < 992px) {
   header nav {
     padding: 0;
     height: auto;
@@ -485,7 +485,6 @@ header nav .nav-sections ul > li > ul {
     padding-left: 10px;
   }
 
-
   header nav .nav-sections .main-tab ul:last-child li {
     display: block;
     padding: 0;
@@ -525,7 +524,7 @@ header nav .nav-sections ul > li > ul {
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 992px) {
   header .icon-ofertas,
   header .icon-arrow {
     display: none;

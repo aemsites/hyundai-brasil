@@ -239,7 +239,7 @@
   }
 }
 
-@media (width >= 900px) {
+@media (width >= 992px) {
   .cards.header-content.block {
     position: relative;
     top: 5rem;
