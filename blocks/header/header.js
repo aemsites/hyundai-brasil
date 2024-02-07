@@ -190,24 +190,23 @@ export default async function decorate(block) {
   });
 
   const clonedTab = hamburgerTab.content.cloneNode(true);
-  const mobileHamburgerSection = div({ class: 'mobile-only main-tab' }, ...[...clonedTab.querySelectorAll('ul')].map((ul) => ul.cloneNode(true)));
+  const mobileHamburgerSection = div({ class: 'mobile-only main-tab' }, ...clonedTab.querySelectorAll('ul'));
   heroHorizTabsNav.after(mobileHamburgerSection);
 
   const hyundaiBlueSpan = span({ class: 'icon icon-hyundai-blue' });
   nav.querySelector('span.icon-hyundai').after(hyundaiBlueSpan);
 
   nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul > li:not(:last-child)').forEach((li) => {
-    li.append(span({ class: 'icon icon-arrow' }));
+    li.append(span({ class: 'icon icon-arrow mobile-only' }));
   });
   nav.querySelector('nav.hero-horiz-tabs-nav > ul > li:last-child').append(img(
-    { class: 'icon-ofertas', src: '/icons/ofertas.avif', alt: 'Icon ofertas' },
+    { class: 'icon-ofertas mobile-only', src: '/icons/ofertas.avif', alt: 'Icon ofertas' },
   ));
   decorateIcons(nav);
 
   if (isDesktop.matches) {
     const rightNavSection = document.createElement('ul');
-    nav.querySelectorAll('.section.nav-sections .hero-horiz-tabs-nav ul > li:not(:has(button.onlyclick))');
-    nav.querySelectorAll('.section.nav-sections .hero-horiz-tabs-nav ul > li:not(:has(button.onlyclick))').forEach((x) => {
+    nav.querySelectorAll('.section.nav-sections .hero-horiz-tabs-nav > ul > li:not(:has(button.onlyclick))').forEach((x) => {
       rightNavSection.appendChild(x);
     });
     const parent = nav.querySelector('.section.nav-sections .hero-horiz-tabs-nav');

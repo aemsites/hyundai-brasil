@@ -56,30 +56,6 @@ export function createTabs(block, navFragment) {
 }
 
 export function enableHover(tabButton, block, button, tab, navPanel, navFragment, isDesktop) {
-  function disableHoverEffect(activeButton) {
-    activeButton.classList.remove('active');
-    // remove active class from parent li
-    activeButton.parentElement.classList.remove('active');
-    if (tab.content) {
-      tab.content.classList.remove('active');
-      if (navPanel.nextSibling) navPanel.nextSibling.remove();
-    }
-  }
-
-  document.querySelector('main .section.columns-container').addEventListener('mouseover', () => {
-    const activeButton = block.querySelector('button.active');
-    if (activeButton) {
-      disableHoverEffect(activeButton);
-    }
-  });
-
-  navFragment.querySelector('div:not(.section.nav-sections)').addEventListener('mouseover', () => {
-    const activeButton = block.querySelector('button.active');
-    if (activeButton) {
-      disableHoverEffect(activeButton);
-    }
-  });
-
   tabButton.addEventListener('click', () => {
     if (isDesktop.matches) {
       return;
@@ -110,28 +86,8 @@ export function enableHover(tabButton, block, button, tab, navPanel, navFragment
     if (!isDesktop.matches) {
       return;
     }
-    const activeButton = block.querySelector('button.active');
 
     document.body.classList.remove('nav-open');
-    if (!activeButton) {
-      button.classList.add('active');
-      // add active class to parent li
-      tabButton.classList.add('active');
-      if (tab.content) {
-        tab.content.classList.add('active');
-        navPanel.after(tab.content);
-        navPanel.nextSibling.classList.add('tab-active');
-      }
-    } else if (activeButton !== tabButton) {
-      disableHoverEffect(activeButton);
-      button.classList.add('active');
-      // add active class to parent li
-      tabButton.classList.add('active');
-      if (tab.content) {
-        tab.content.classList.add('active');
-        navPanel.after(tab.content);
-      }
-    }
   });
 }
 
@@ -195,10 +151,9 @@ export function addTabs(tabs, block, navFragment, isDesktop) {
       // TODO check whether we need these "cloneNode"
       // TODO handle "Ofertas" tab
       if (tab.content) {
-        console.log('tab', tab.title, tab.content);
-        button.after(tab.content.cloneNode(true));
+        button.after(tab.content);
       }
-      // enableHover(tabButton, block, button, tab, navPanel, navFragment, isDesktop);
+      enableHover(tabButton, block, button, tab, navPanel, navFragment, isDesktop);
     }
   });
 }
