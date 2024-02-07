@@ -12,6 +12,10 @@ footer .form-wrapper {
   margin: auto;
 }
 
+footer ul {
+  list-style: none;
+}
+
 footer .form h2 {
   font-size: 13px;
   font-family: HyundaiSansHead-Bold, sans-serif;
@@ -139,7 +143,6 @@ footer .section.logo p {
 
 footer .section.social-icons ul {
   display: flex;
-  list-style: none;
   padding: 0;
   margin: 0;
   align-items: flex-end;
@@ -177,7 +180,6 @@ footer .section.hamburger h5 {
 
 footer .section.hamburger ul {
   padding-left: 12px;
-  list-style: none;
   display: flex;
   flex-direction: column;
 }
