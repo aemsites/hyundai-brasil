@@ -17,7 +17,7 @@
 }
 
 @font-face {
-  font-family: HyundaiSansHead-Regular, sans-serif;
+  font-family: HyundaiSansHead-Regular;
   src: url('../fonts/HyundaiSansHead-Regular.woff2') format('woff2');
   font-display: swap;
   font-weight: normal;
@@ -26,7 +26,7 @@
 
 
 @font-face {
-  font-family: HyundaiSansHead-Medium, sans-serif;
+  font-family: HyundaiSansHead-Medium;
   src: url('../fonts/HyundaiSansHead-Medium.woff2') format('woff2');
   font-display: swap;
   font-weight: normal;
@@ -35,7 +35,7 @@
 
 
 @font-face {
-  font-family: HyundaiSansHead-Bold, sans-serif;
+  font-family: HyundaiSansHead-Bold;
   src: url('../fonts/HyundaiSansHead-Bold.woff2') format('woff2');
   font-display: swap;
   font-weight: normal;
@@ -43,7 +43,7 @@
 }
 
 @font-face {
-  font-family: HyundaiSansText-Regular, sans-serif;
+  font-family: HyundaiSansText-Regular;
   src: url('../fonts/HyundaiSansText-Regular.woff2') format('woff2');
   font-display: swap;
   font-weight: normal;
@@ -51,7 +51,7 @@
 }
 
 @font-face {
-  font-family: HyundaiSansText-Bold, sans-serif;
+  font-family: HyundaiSansText-Bold;
   src: url('../fonts/HyundaiSansText-Bold.woff2') format('woff2');
   font-display: swap;
   font-weight: normal;
