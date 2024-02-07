@@ -169,6 +169,16 @@ export default async function decorate(block) {
   ));
   decorateIcons(nav);
 
+  if (isDesktop.matches) {
+    const rightNavSection = document.createElement('ul');
+    nav.querySelectorAll('.section.nav-sections .hero-horiz-tabs-nav ul > li:not(:has(button.onlyclick))');
+    nav.querySelectorAll('.section.nav-sections .hero-horiz-tabs-nav ul > li:not(:has(button.onlyclick))').forEach((x) => {
+      rightNavSection.appendChild(x);
+    });
+    const parent = nav.querySelector('.section.nav-sections .hero-horiz-tabs-nav');
+    parent.appendChild(rightNavSection);
+  }
+
   // hamburger for mobile
   const hamburger = document.createElement('div');
   hamburger.classList.add('nav-hamburger');

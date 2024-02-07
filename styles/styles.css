@@ -75,7 +75,6 @@ html {
   src: local('Arial');
 }
 
-
 @media (width >= 900px) {
   :root {
     --heading-font-size-xxl: 39px;

@@ -185,6 +185,12 @@ export function addTabs(tabs, block, navFragment, isDesktop) {
       button.classList.add('tab');
       tabButton.replaceChildren(button);
       enableClick(tabButton, block, button, tab, navPanel);
+    } else if (button.textContent === 'hyundai') {
+      // eslint-disable-next-line
+      button.innerHTML='<span class="icon icon-hyundai"><img data-icon-name="hyundai" src="/icons/hyundai.svg" alt="" loading="lazy"></span>';
+      button.classList.add('onlyclick');
+      button.classList.add('tab');
+      tabButton.replaceChildren(button);
     } else {
       button.classList.add('tab');
       tabButton.replaceChildren(button);
