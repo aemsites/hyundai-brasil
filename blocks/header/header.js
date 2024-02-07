@@ -1,6 +1,6 @@
 import { decorateIcons, getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
-import { addTabs, createTabs } from './header-utils.js';
+import { addTabs, createTabs, enableClick } from './header-utils.js';
 import { div, img, span } from '../../scripts/dom-helpers.js';
 
 // media query match that indicates mobile/tablet width
@@ -141,6 +141,22 @@ export default async function decorate(block) {
     ),
   );
 
+  const hamburgerTab = tabs.find((t) => t.title === 'hamburger');
+  tabs.splice(tabs.indexOf(hamburgerTab), 1);
+
+  console.log('found hamburger tab', hamburgerTab);
+  {
+    const button = document.createElement('button');
+    const { tabButton } = hamburgerTab;
+    button.textContent = 'hamburger';
+    // eslint-disable-next-line
+    button.innerHTML = '<span class="icon icon-hamburger"><img data-icon-name="hamburger" src="/icons/hamburger.svg" alt="" loading="lazy"></span>';
+    button.classList.add('onlyclick');
+    button.classList.add('tab');
+    tabButton.replaceChildren(button);
+    enableClick(tabButton, block, button, hamburgerTab, navPanel);
+  }
+
   addTabs(tabs, block, nav, isDesktop);
 
   navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
@@ -154,7 +170,7 @@ export default async function decorate(block) {
     });
   });
 
-  const clonedTab = tabs.find((t) => t.name === 'hamburger').content.cloneNode(true);
+  const clonedTab = hamburgerTab.content.cloneNode(true);
   const mobileHamburgerSection = div({ class: 'mobile-only main-tab' }, ...clonedTab.querySelectorAll('ul'));
   navSections.querySelector('.hero-horiz-tabs-nav').after(mobileHamburgerSection);
 
