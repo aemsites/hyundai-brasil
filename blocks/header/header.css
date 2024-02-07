@@ -120,17 +120,17 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
 }
 
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:last-child {
-  background-color: var(--primary-color);
-  border: solid 1px var(--primary-color);
-}
-
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li {
   display: flex;
   height: var(--nav-height);
   padding-top: 0;
   padding-bottom: 0;
   align-items: center;
+}
+
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:last-child {
+  background-color: var(--primary-color);
+  border: solid 1px var(--primary-color);
 }
 
 header nav .nav-sections ul:last-of-type > li > button {
