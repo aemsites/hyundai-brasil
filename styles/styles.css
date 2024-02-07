@@ -47,8 +47,8 @@ html {
     --primary-color: #00aad2;
 
   /* fonts */
-  --body-font-family: "HyundaiSansHead-Medium", sans-serif;
-  --heading-font-family: var(--body-font-family);
+  --body-font-family: "HyundaiSansHead-Regular", sans-serif;
+  --heading-font-family: "HyundaiSansHead-Medium", sans-serif;
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
