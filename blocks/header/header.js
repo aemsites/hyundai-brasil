@@ -194,10 +194,12 @@ export default async function decorate(block) {
 
   const hyundaiBlueSpan = span({ class: 'icon icon-hyundai-blue' });
   const hyundaiBlueSpanNavSection = span({ class: 'icon icon-hyundai-blue' });
-  console.log(hyundaiBlueSpan);
   nav.querySelector('span.icon-hyundai').after(hyundaiBlueSpan);
   nav.querySelector('.onlyclick span.icon-hyundai').after(hyundaiBlueSpanNavSection);
 
+
+  const hamburgerBlackNavSection = span({ class: 'icon icon-hamburger-black' });
+  nav.querySelector('.onlyclick span.icon-hamburger').after(hamburgerBlackNavSection);
 
   nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul > li:not(:last-child)').forEach((li) => {
     li.append(span({ class: 'icon icon-arrow mobile-only' }));
@@ -254,8 +256,11 @@ export default async function decorate(block) {
       nav.querySelectorAll('.nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button').forEach((ele) => {
         ele.classList.add('onHover');
       });
+      nav.querySelector('.section.nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:first-of-type > button').classList.add('onHover');
       nav.querySelector('.section.nav-sections span.icon-hyundai').classList.add('onHover');
       nav.querySelector('.section.nav-sections span.icon-hyundai-blue').classList.add('onHover');
+      nav.querySelector('.section.nav-sections span.icon-hamburger').classList.add('onHover');
+      nav.querySelector('.section.nav-sections span.icon-hamburger-black').classList.add('onHover');
     });
 
     nav.querySelector('.nav-sections .hero-horiz-tabs-nav > ul:last-of-type').addEventListener('mouseout', () => {
@@ -263,8 +268,10 @@ export default async function decorate(block) {
       nav.querySelectorAll('.nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button').forEach((ele) => {
         ele.classList.remove('onHover');
       });
+      nav.querySelector('.section.nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:first-of-type > button').classList.remove('onHover');
       nav.querySelector('.section.nav-sections span.icon-hyundai').classList.remove('onHover');
       nav.querySelector('.section.nav-sections span.icon-hyundai-blue').classList.remove('onHover');
+      nav.querySelector('.section.nav-sections span.icon-hamburger').classList.remove('onHover');
+      nav.querySelector('.section.nav-sections span.icon-hamburger-black').classList.remove('onHover');
     });
-  
 }

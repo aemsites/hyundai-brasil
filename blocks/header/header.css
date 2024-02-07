@@ -144,14 +144,6 @@ header nav .nav-sections ul:last-of-type > li:last-of-type > button {
   padding: 26px 20px;
 }
 
-/* header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type):hover, header nav .nav-sections ul:last-of-type > li:not(:last-of-type):hover > button,
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type):focus, header nav .nav-sections ul:last-of-type > li:not(:last-of-type):focus > button {
-  background-color: white;
-  transition: all .4s ease-out;
-  color: black;
-  cursor: pointer;
-} */
-
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:hover, header nav .nav-sections ul:last-of-type > li:last-of-type > button:hover,
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:focus, header nav .nav-sections ul:last-of-type > li:last-of-type > button:focus {
   background-color: #fff;
@@ -211,6 +203,23 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:hover > .tab-
     display: block;
     transition: all .4s ease-out;
   }
+
+  header nav .section.nav-sections span.icon-hamburger.onHover {
+    display: none;
+    transition: all .4s ease-out;
+  }
+
+  header nav .section.nav-sections span.icon-hamburger-black.onHover {
+    display: block;
+    transition: all .4s ease-out;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:first-of-type > button.onHover {
+    border-right: solid 1px black;
+    transition: all .4s ease-out;
+  }
+
+
 
   header .section.nav-brand {
     display: none;
@@ -589,6 +598,10 @@ header nav .nav-sections ul > li > ul {
   header nav .section.nav-sections span.icon-hyundai-blue {
     width: 128px;
     height: auto;
+    display: none;
+  }
+
+  header nav .section.nav-sections span.icon-hamburger-black {
     display: none;
   }
 
