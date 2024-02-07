@@ -248,26 +248,26 @@ export default async function decorate(block) {
   // Changed after hovering over nav
 
   nav.querySelector('.nav-sections .hero-horiz-tabs-nav > ul:last-of-type').addEventListener('mouseover', () => {
-    nav.parentElement.classList.add('onHover');
+    nav.parentElement.classList.add('on-hover');
     nav.querySelectorAll('.nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button').forEach((ele) => {
-      ele.classList.add('onHover');
+      ele.classList.add('on-hover');
     });
-    nav.querySelector('.section.nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:first-of-type > button').classList.add('onHover');
-    nav.querySelector('.section.nav-sections span.icon-hyundai').classList.add('onHover');
-    nav.querySelector('.section.nav-sections span.icon-hyundai-blue').classList.add('onHover');
-    nav.querySelector('.section.nav-sections span.icon-hamburger').classList.add('onHover');
-    nav.querySelector('.section.nav-sections span.icon-hamburger-black').classList.add('onHover');
+    nav.querySelector('.section.nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:first-of-type > button').classList.add('on-hover');
+    nav.querySelector('.section.nav-sections span.icon-hyundai').classList.add('on-hover');
+    nav.querySelector('.section.nav-sections span.icon-hyundai-blue').classList.add('on-hover');
+    nav.querySelector('.section.nav-sections span.icon-hamburger').classList.add('on-hover');
+    nav.querySelector('.section.nav-sections span.icon-hamburger-black').classList.add('on-hover');
   });
 
   nav.querySelector('.nav-sections .hero-horiz-tabs-nav > ul:last-of-type').addEventListener('mouseout', () => {
-    nav.parentElement.classList.remove('onHover');
+    nav.parentElement.classList.remove('on-hover');
     nav.querySelectorAll('.nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button').forEach((ele) => {
-      ele.classList.remove('onHover');
+      ele.classList.remove('on-hover');
     });
-    nav.querySelector('.section.nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:first-of-type > button').classList.remove('onHover');
-    nav.querySelector('.section.nav-sections span.icon-hyundai').classList.remove('onHover');
-    nav.querySelector('.section.nav-sections span.icon-hyundai-blue').classList.remove('onHover');
-    nav.querySelector('.section.nav-sections span.icon-hamburger').classList.remove('onHover');
-    nav.querySelector('.section.nav-sections span.icon-hamburger-black').classList.remove('onHover');
+    nav.querySelector('.section.nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:first-of-type > button').classList.remove('on-hover');
+    nav.querySelector('.section.nav-sections span.icon-hyundai').classList.remove('on-hover');
+    nav.querySelector('.section.nav-sections span.icon-hyundai-blue').classList.remove('on-hover');
+    nav.querySelector('.section.nav-sections span.icon-hamburger').classList.remove('on-hover');
+    nav.querySelector('.section.nav-sections span.icon-hamburger-black').classList.remove('on-hover');
   });
 }
