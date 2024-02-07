@@ -47,12 +47,12 @@ header nav .tab-item > div.default-content-wrapper > ul {
 header nav .tab-item > div.default-content-wrapper > ul > li {
   border-bottom: 1px solid #f6f3f2;
   padding: 12px 10px;
-  font-family: HyundaiSansHead-Regular, sans-serif;
+  font-family: PotatoTest, sans-serif;
 }
 
 header nav .tab-item > div.default-content-wrapper > ul > li:hover {
   border-color: var(--hyundai-light-blue);
-  font-family: HyundaiSansHead-Medium, sans-serif;
+  font-family: PotatoTest, sans-serif;
 
   /* TODO remove when we fix the font issue */
   font-weight: 700;
