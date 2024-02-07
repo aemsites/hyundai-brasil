@@ -19,6 +19,49 @@ body.nav-open header nav .hamburger-tab.tab-item {
   left: 0;
 }
 
+header nav .tab-item {
+  display: flex;
+  padding: 60px 0;
+  justify-content: center;
+}
+
+header nav .tab-item > div {
+  max-width: 475px;
+  flex-basis: 50%;
+}
+
+header nav .tab-item > div.cards-wrapper {
+  margin-right: 56px;
+}
+
+header nav .tab-item > div.cards-wrapper > .cards {
+  position: unset !important;
+}
+
+header nav .tab-item > div.default-content-wrapper > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 15px 13px;
+}
+
+header nav .tab-item > div.default-content-wrapper > ul > li {
+  border-bottom: 1px solid #f6f3f2;
+  padding: 12px 10px;
+  font-family: HyundaiSansHead-Regular, sans-serif;
+}
+
+header nav .tab-item > div.default-content-wrapper > ul > li:hover {
+  border-color: var(--hyundai-light-blue);
+  font-family: HyundaiSansHead-Medium, sans-serif;
+
+  /* TODO remove when we fix the font issue */
+  font-weight: 700;
+}
+
+header nav .tab-item > div.default-content-wrapper > ul > li > a {
+  text-decoration: none;
+}
+
 header nav span.icon-hyundai {
   display: none;
 }
@@ -93,15 +136,6 @@ header .tab-item:has(.image) {
   height: 37rem;
 }
 
-header .tab-item:has(.hamburger) {
-  height: 35rem;
-}
-
-header .tab-item .cards-wrapper {
-  flex-basis: 50%;
-  padding: 2rem;
-}
-
 header nav .nav-sections ul {
   display: flex;
   flex-direction: column;
@@ -110,10 +144,6 @@ header nav .nav-sections ul {
   padding-left: 0;
   font-size: var(--body-font-size-s);
   font-weight: 500;
-}
-
-header nav .nav-sections ul > li {
-  font-weight: 700;
 }
 
 header nav .nav-sections ul > li > ul > li {
