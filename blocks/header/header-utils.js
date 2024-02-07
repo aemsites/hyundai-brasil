@@ -147,9 +147,9 @@ export function addTabs(tabs, block, navFragment, isDesktop) {
     } else {
       button.classList.add('tab');
       tabButton.replaceChildren(button);
-      // TODO check whether we need these "cloneNode"
       // TODO handle "Ofertas" tab
       if (tab.content) {
+        tab.content.classList.add('desktop-only');
         button.after(tab.content);
       }
       enableHover(tabButton, block, button, tab, navPanel, navFragment, isDesktop);

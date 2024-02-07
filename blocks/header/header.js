@@ -146,7 +146,7 @@ export default async function decorate(block) {
 
   const heroHorizTabsNav = navSections.querySelector('.hero-horiz-tabs-nav');
 
-  console.log('found hamburger tab', hamburgerTab);
+  // hamburger tab logic
   {
     const button = document.createElement('button');
     const { tabButton, content } = hamburgerTab;
@@ -160,7 +160,6 @@ export default async function decorate(block) {
     button.classList.add('onlyclick');
     button.classList.add('tab');
     tabButton.replaceChildren(button);
-    // enableClick(tabButton, block, button, hamburgerTab, navPanel);
     button.addEventListener('click', () => {
       function toggleNav() {
         document.body.classList.toggle('nav-open');

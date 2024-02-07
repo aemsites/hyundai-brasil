@@ -258,6 +258,12 @@ main .section {
   }
 }
 
+@media (width < 992px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
 @media (width >= 992px) {
   .mobile-only {
     display: none !important;
