@@ -192,7 +192,13 @@ export function addTabs(tabs, block, navFragment, isDesktop) {
     } else {
       button.classList.add('tab');
       tabButton.replaceChildren(button);
-      enableHover(tabButton, block, button, tab, navPanel, navFragment, isDesktop);
+      // TODO check whether we need these "cloneNode"
+      // TODO handle "Ofertas" tab
+      if (tab.content) {
+        console.log('tab', tab.title, tab.content);
+        button.after(tab.content.cloneNode(true));
+      }
+      // enableHover(tabButton, block, button, tab, navPanel, navFragment, isDesktop);
     }
   });
 }

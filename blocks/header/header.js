@@ -190,7 +190,7 @@ export default async function decorate(block) {
   });
 
   const clonedTab = hamburgerTab.content.cloneNode(true);
-  const mobileHamburgerSection = div({ class: 'mobile-only main-tab' }, ...clonedTab.querySelectorAll('ul'));
+  const mobileHamburgerSection = div({ class: 'mobile-only main-tab' }, ...[...clonedTab.querySelectorAll('ul')].map((ul) => ul.cloneNode(true)));
   heroHorizTabsNav.after(mobileHamburgerSection);
 
   const hyundaiBlueSpan = span({ class: 'icon icon-hyundai-blue' });

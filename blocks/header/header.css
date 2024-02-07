@@ -146,6 +146,14 @@ header nav .nav-sections .hero-horiz-tabs-nav {
   gap:10vw;
 }
 
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:not(:first-child) > .tab-item {
+  display: none;
+}
+
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:hover > .tab-item {
+  display: flex;
+}
+
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child li:last-child {
   background-color: var(--primary-color);
   border: solid 1px var(--primary-color);
