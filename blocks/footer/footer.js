@@ -25,7 +25,7 @@ function decorateFooterMultilist(block) {
     index += 1;
 
     while (index < children.length) {
-      if (children[index].tagName === 'H5') {
+      if (children[index].tagName === 'H2') {
         if (!children[index + 1] || (children[index - 1].tagName === 'H5' && children[index + 1].tagName !== 'UL')) {
           topItem.appendChild(children[index]);
         } else {
@@ -76,5 +76,15 @@ export default async function decorate(block) {
     decorateBlock(footerForm);
     await loadBlock(footerForm);
     await decorateIcons(block);
+
+    block.querySelectorAll('.section.logo span.icon-hyundai img').forEach((img) => {
+      img.alt = 'Logo Footer Hyundai Motor Brasil';
+    });
+    block.querySelectorAll('.section.social-icons img').forEach((img) => {
+      const iconName = img.getAttribute('data-icon-name');
+      const capitalizedIconName = iconName.charAt(0).toUpperCase() + iconName.slice(1);
+
+      img.alt = `${capitalizedIconName} Hyundai Motor Brasil`;
+    });
   }
 }
