@@ -71,9 +71,17 @@ header nav .tab-item {
   box-shadow: 0 4px 2px -2px rgba(0 0 0 / 20%);
 }
 
+header nav .tab-item:has(.veiculos-highlight-wrapper) {
+  height: 35rem;
+}
+
 header nav .tab-item > div {
   max-width: 475px;
   flex-basis: 50%;
+}
+
+header nav .tab-item > div.veiculos-highlight-wrapper {
+  max-width: 1360px;
 }
 
 header nav .tab-item > div.cards-wrapper {
