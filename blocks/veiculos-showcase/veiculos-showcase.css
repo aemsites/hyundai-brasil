@@ -18,3 +18,12 @@
 .veiculos-showcase .vehicle-list > div {
     display: flex;
 }
+
+.veiculos-showcase .vehicle-list > div > div:last-child {
+    display: none;
+}
+
+.veiculos-showcase img {
+    width: 100px;
+    height: 100px;
+}
