@@ -68,7 +68,7 @@ header nav .tab-item {
   width: 100vw;
   height: 25rem;
   flex-direction: row;
-  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgba(0 0 0 / 19%);
+  box-shadow: 0 4px 2px -2px rgba(0 0 0 / 20%);
 }
 
 header nav .tab-item > div {
@@ -259,6 +259,27 @@ header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:
 }
 
 @media (width >=992px) {
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button::after {
+    width: 100%;
+    height: 3.5px;
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: transparent;
+    z-index: 100000;
+    transform: scale(0);
+    transform-origin: center center;
+    transition: .5s;
+    transition-property: background-color,transform;
+  }
+
+  header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button:hover::after {
+    background-color: #00aad2;
+    transform: scale(1);
+  }
+  
   /* header and nav layout */
   header .nav-wrapper {
     background-color: transparent;
