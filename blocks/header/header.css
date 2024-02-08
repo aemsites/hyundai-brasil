@@ -220,33 +220,33 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:hover > .tab-
     transition: all .4s ease-out;
   }
 
-  header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button.on-hover {
+  header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button {
     transition: all .4s ease-out;
     color: black;
     cursor: pointer;
   }
 
-  header nav .section.nav-sections span.icon-hyundai.on-hover {
+  header .on-hover nav .section.nav-sections span.icon-hyundai {
     display: none;
     transition: all .4s ease-out;
   }
 
-  header nav .section.nav-sections span.icon-hyundai-blue.on-hover {
+  header .on-hover nav .section.nav-sections span.icon-hyundai-blue {
     display: block;
     transition: all .4s ease-out;
   }
 
-  header nav .section.nav-sections span.icon-hamburger.on-hover {
+  header .on-hover nav .section.nav-sections span.icon-hamburger {
     display: none;
     transition: all .4s ease-out;
   }
 
-  header nav .section.nav-sections span.icon-hamburger-black.on-hover {
+  header .on-hover nav .section.nav-sections span.icon-hamburger-black {
     display: block;
     transition: all .4s ease-out;
   }
 
-  header nav .nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:first-of-type > button.on-hover {
+  header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:first-of-type > button {
     border-right: solid 1px black;
     transition: all .4s ease-out;
   }
