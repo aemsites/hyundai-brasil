@@ -1,4 +1,4 @@
-import { decorateIcons, getMetadata } from '../../scripts/aem.js';
+import { decorateIcons, getMetadata, toClassName } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import { addTabs, createTabs } from './header-utils.js';
 import { div, img, span } from '../../scripts/dom-helpers.js';
@@ -123,10 +123,11 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
 
+  const mobileHeaderTitle = span('Placeholder header');
   const mobileSectionHeader = div(
     { class: 'item-mobile-header' },
     span({ class: 'icon icon-arrow inverted' }),
-    span('Placeholder header'),
+    mobileHeaderTitle,
   );
   const navPanel = nav.querySelector('.section.nav-sections').parentElement;
   mobileSectionHeader.addEventListener('click', () => {
@@ -150,14 +151,12 @@ export default async function decorate(block) {
   tabs.splice(tabs.indexOf(hamburgerTab), 1);
 
   const heroHorizTabsNav = navSections.querySelector('.hero-horiz-tabs-nav');
-
   // hamburger tab logic
   {
     const button = document.createElement('button');
     const { tabButton, content } = hamburgerTab;
-    const clonedContent = content.cloneNode(true);
-    clonedContent.classList.add('hamburger-tab', 'desktop-only');
-    heroHorizTabsNav.after(clonedContent);
+    content.classList.add('hamburger-tab', 'desktop-only');
+    heroHorizTabsNav.after(content);
 
     button.textContent = 'hamburger';
     // eslint-disable-next-line
@@ -180,7 +179,7 @@ export default async function decorate(block) {
     });
   }
 
-  addTabs(tabs, block, nav, isDesktop);
+  addTabs(tabs, isDesktop);
 
   navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
     if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
@@ -205,10 +204,7 @@ export default async function decorate(block) {
   const hamburgerBlackNavSection = span({ class: 'icon icon-hamburger-black' });
   nav.querySelector('.onlyclick span.icon-hamburger').after(hamburgerBlackNavSection);
 
-  nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul > li:not(:last-child)').forEach((li) => {
-    li.append(span({ class: 'icon icon-arrow mobile-only' }));
-  });
-  nav.querySelector('nav.hero-horiz-tabs-nav > ul > li:last-child').append(img(
+  nav.querySelector('nav.hero-horiz-tabs-nav > ul > li.ofertas').append(img(
     { class: 'icon-ofertas mobile-only', src: '/icons/ofertas.avif', alt: 'Icon ofertas' },
   ));
   decorateIcons(nav);
@@ -219,6 +215,25 @@ export default async function decorate(block) {
   });
   const parent = nav.querySelector('.section.nav-sections .hero-horiz-tabs-nav');
   parent.appendChild(rightNavSection);
+
+  const mobileTabs = heroHorizTabsNav.querySelector(':scope > ul:last-child').cloneNode(true);
+  mobileTabs.querySelectorAll('li:not(.ofertas)').forEach((li) => {
+    li.append(span({ class: 'icon icon-arrow mobile-only' }));
+    const firstClass = li.classList[0];
+    const tab = tabs.find((t) => toClassName(t.title) === firstClass);
+    li.addEventListener('click', () => {
+      mobileHeaderTitle.textContent = tab.title;
+      const mobileBody = document.querySelector('.item-mobile-body');
+
+      mobileBody.replaceWith(div(
+        { class: `item-mobile-body ${firstClass}` },
+        ...nav.querySelector(`.hero-horiz-tabs-nav .${firstClass} .tab-item`).cloneNode(true).children,
+      ));
+      navPanel.classList.add('show-mobile-section');
+    });
+  });
+  decorateIcons(mobileTabs);
+  mobileHamburgerSection.prepend(mobileTabs, div({ class: 'separator' }));
 
   // hamburger for mobile
   const hamburger = document.createElement('div');

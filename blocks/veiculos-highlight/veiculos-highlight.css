@@ -117,7 +117,27 @@
     font-family: HyundaiSansHead-Medium, sans-serif;
 }
 
-@media (width >=1200px) {
+@media (width < 992px) {
+    .veiculos-highlight .highlighted-vehicle {
+        display: none;
+    }
+
+    .veiculos-highlight.block .vehicles-list {
+        grid-template-columns: 1fr;
+    }
+
+    .veiculos-highlight.block .vehicles-list .vehicle {
+        width: 100%;
+        margin: auto;
+    }
+
+    .veiculos-highlight.block .vehicles-list > div > div.vehicle img {
+        width: 80vw;
+        height: auto;
+    }
+}
+
+@media (width >= 1200px) {
     .veiculos-highlight.block .vehicles-list {
         list-style: none;
         margin: 0;
