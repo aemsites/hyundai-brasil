@@ -27,8 +27,8 @@ function getQuestions() {
         { class: 'question-rating-content' },
         div(
           { class: 'question-rating', 'data-rating': '0' },
-          div(
-            { class: 'data-list' },
+          label(
+            { class: 'data-list', for: 'score' },
             ...Array.from({ length: 11 }, (_, i) => span({ class: 'range-mark' }, i.toString())),
           ),
           input({
@@ -49,7 +49,7 @@ function getQuestions() {
       ),
     ),
     div(
-      label('Descreva em poucas palavras o motivo da sua nota atribuída:\n'),
+      label({ for: 'scoreReason' }, 'Descreva em poucas palavras o motivo da sua nota atribuída:\n'),
       input({ type: 'text', name: 'scoreReason', id: 'scoreReason' }),
     ),
     div(
@@ -152,7 +152,7 @@ export default async function decorate(block) {
         a({
           class: 'whatsapp',
           href: 'https://api.whatsapp.com/send?phone=5508007703355&text=Ol%C3%A1!+Entrei+no+site+da+Hyundai+e+gostaria+de+saber+mais.',
-        }, span({ class: 'icon icon-whatsapp' })),
+        }, span({ class: 'icon icon-whatsapp', 'aria-label': 'WPP floating button' })),
       ),
     ),
     surveyContent,

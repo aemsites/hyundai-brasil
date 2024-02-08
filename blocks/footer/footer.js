@@ -76,5 +76,12 @@ export default async function decorate(block) {
     decorateBlock(footerForm);
     await loadBlock(footerForm);
     await decorateIcons(block);
+
+    block.querySelectorAll('.section.social-icons img').forEach((img) => {
+      const iconName = img.getAttribute('data-icon-name');
+      const capitalizedIconName = iconName.charAt(0).toUpperCase() + iconName.slice(1);
+
+      img.alt = `${capitalizedIconName} Hyundai Motor Brasil`;
+    });
   }
 }
