@@ -420,7 +420,7 @@ footer .icon-hyundai {
     display: block;
   }
 
-  footer .section.contact a.button:any-link {
+  footer .section:not(.form-container) a.button:any-link {
     display: block;
     padding: 0;
     background-color: unset;
@@ -430,7 +430,7 @@ footer .icon-hyundai {
     text-align: start;
   }
 
-  footer .section.contact a.button:hover {
+  footer .section:not(.form-container) a.button:hover {
     text-decoration: underline;
   }
 
