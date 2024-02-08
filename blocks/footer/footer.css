@@ -416,6 +416,24 @@ footer .icon-hyundai {
     padding: 8px;
   }
 
+  footer .section.contact {
+    display: block;
+  }
+
+  footer .section.contact a.button:any-link {
+    display: block;
+    padding: 0;
+    background-color: unset;
+    font-size: unset;
+    margin: 0;
+    border: none;
+    text-align: start;
+  }
+
+  footer .section.contact a.button:hover {
+    text-decoration: underline;
+  }
+
   footer .section.contact p {
     margin: 0;
     font-size: 12px;
@@ -444,10 +462,6 @@ footer .icon-hyundai {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-  }
-
-  footer .section.contact {
-    display: block;
   }
 
   footer .multilist h6 {
