@@ -83,7 +83,7 @@ header nav .tab-item > div {
 header nav .tab-item > div.veiculos-highlight-wrapper {
   max-width: 1360px;
   position: absolute;
-  left: 10rem;
+  left: 5rem;
 }
 
 header nav .tab-item > div.cards-wrapper {
