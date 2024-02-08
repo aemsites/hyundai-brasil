@@ -11,7 +11,6 @@ import {
 import {
   decorateAnchors,
 } from '../../scripts/scripts.js';
-import { h2 } from '../../scripts/dom-helpers.js';
 
 function decorateFooterMultilist(block) {
   const footerTop = block.querySelector('.multilist');
