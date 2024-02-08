@@ -85,11 +85,17 @@
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-    grid-gap: 16px;
+    grid-gap: 10px;
 }
 
 .veiculos-highlight.block .vehicles-list > div > div:last-of-type {
     display: none;
+}
+
+.veiculos-highlight.block .vehicles-list > div > div.vehicle img {
+    width: 222px;
+    height: 115px;
+    object-fit: cover;
 }
 
 .veiculos-highlight.block .vehicles-list > div > div.vehicle > div .button-container a {
