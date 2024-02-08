@@ -1,5 +1,5 @@
 header nav {
-  background-color: white;
+  background-color: transparent;
   color: black;
   display: grid;
   align-items: center;
@@ -99,10 +99,6 @@ header nav .tab-item > div.default-content-wrapper > ul > li > a {
   text-decoration: none;
 }
 
-header nav span.icon-hyundai {
-  display: none;
-}
-
 /* header and nav layout */
 header .nav-wrapper {
   background-color: transparent;
@@ -197,6 +193,64 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:hover > .tab-
   display: flex;
 }
 
+header nav .section.nav-sections span.icon-hyundai {
+  display: inline-block;
+  width: 128px;
+  height: auto;
+}
+
+header nav span.icon-hyundai-blue {
+  display: none;
+}
+
+header .on-hover nav span.icon-hyundai-blue {
+  display: block;
+  height: auto;
+}
+
+header nav .section.nav-sections span.icon-hyundai-blue {
+  width: 128px;
+  height: auto;
+  display: none;
+}
+
+header .nav-wrapper.on-hover {
+  background-color: white;
+  background-image: none;
+  transition: all .4s ease-out;
+}
+
+header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button {
+  transition: all .4s ease-out;
+  color: black;
+  cursor: pointer;
+}
+
+header .on-hover nav .section.nav-sections span.icon-hyundai {
+  display: none;
+  transition: all .4s ease-out;
+}
+
+header .on-hover nav .section.nav-sections span.icon-hyundai-blue {
+  display: block;
+  transition: all .4s ease-out;
+}
+
+header .on-hover nav .section.nav-sections span.icon-hamburger {
+  display: none;
+  transition: all .4s ease-out;
+}
+
+header .on-hover nav .section.nav-sections span.icon-hamburger-black {
+  display: block;
+  transition: all .4s ease-out;
+}
+
+header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:first-of-type > button {
+  border-right: solid 1px black;
+  transition: all .4s ease-out;
+}
+
 @media (width >= 600px) {
   header nav {
     padding: 0 2rem;
@@ -213,45 +267,6 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:hover > .tab-
     z-index: 2;
     position: fixed;
   }
-
-  header .nav-wrapper.on-hover {
-    background-color: white;
-    background-image: none;
-    transition: all .4s ease-out;
-  }
-
-  header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button {
-    transition: all .4s ease-out;
-    color: black;
-    cursor: pointer;
-  }
-
-  header .on-hover nav .section.nav-sections span.icon-hyundai {
-    display: none;
-    transition: all .4s ease-out;
-  }
-
-  header .on-hover nav .section.nav-sections span.icon-hyundai-blue {
-    display: block;
-    transition: all .4s ease-out;
-  }
-
-  header .on-hover nav .section.nav-sections span.icon-hamburger {
-    display: none;
-    transition: all .4s ease-out;
-  }
-
-  header .on-hover nav .section.nav-sections span.icon-hamburger-black {
-    display: block;
-    transition: all .4s ease-out;
-  }
-
-  header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:first-of-type > button {
-    border-right: solid 1px black;
-    transition: all .4s ease-out;
-  }
-
-
 
   header .section.nav-brand {
     display: none;
@@ -551,7 +566,7 @@ header nav[aria-expanded="true"] .nav-sections {
 
   /* Undo desktop style */
   a.button:not(.onlyclick):hover, a.button:not(.onlyclick):focus, button:not(.onlyclick):hover, button:not(.onlyclick):focus {
-    background-color: inherit;
+    background-color: white;
   }
 
   header nav .nav-sections ul:first-child li button {
@@ -599,22 +614,6 @@ header nav[aria-expanded="true"] .nav-sections {
 
   header nav button {
     color: #fff;
-  }
-
-  header nav .section.nav-sections span.icon-hyundai {
-    display: inline-block;
-    width: 128px;
-    height: auto;
-  }
-
-  header nav span.icon-hyundai-blue {
-    display: none;
-  }
-
-  header nav .section.nav-sections span.icon-hyundai-blue {
-    width: 128px;
-    height: auto;
-    display: none;
   }
 
   header nav .section.nav-sections span.icon-hamburger-black {
