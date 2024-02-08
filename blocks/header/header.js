@@ -56,6 +56,11 @@ function toggleAllNavSections(sections, expanded = false) {
  * @param {*} forceExpanded Optional param to force nav expand behavior when not null
  */
 function toggleMenu(nav, navSections, forceExpanded = null) {
+  if (document.body.classList.contains('nav-open')) {
+    nav.parentElement?.classList.add('on-hover');
+  } else {
+    nav.parentElement?.classList.remove('on-hover');
+  }
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
   document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
@@ -163,11 +168,6 @@ export default async function decorate(block) {
     button.addEventListener('click', () => {
       function toggleNav() {
         document.body.classList.toggle('nav-open');
-        if (document.body.classList.contains('nav-open')) {
-          nav.parentElement.classList.add('on-hover');
-        } else {
-          nav.parentElement.classList.remove('on-hover');
-        }
         toggleMenu(nav, navSections);
       }
 
@@ -249,6 +249,17 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  // toggle on-hover class on scroll
+  new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        navWrapper.classList.add('on-hover');
+      } else {
+        navWrapper.classList.remove('on-hover');
+      }
+    });
+  }).observe(document.querySelector('.block.hero'));
 
   const navTabs = nav.querySelector('.nav-sections .hero-horiz-tabs-nav > ul:last-of-type');
   navTabs.addEventListener('mouseover', () => {
