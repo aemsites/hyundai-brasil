@@ -69,3 +69,22 @@
     white-space: pre-line;
 }
 
+.veiculos-highlight.block .vehicles-list > div > div:last-of-type {
+    display: none;
+}
+
+.veiculos-highlight.block .vehicles-list > div > div.vehicle > div .button-container a {
+    width: 100%;
+    height: auto;
+    display: block;
+    color: #000;
+    font-size: 16px;
+    font-family: HyundaiSansHead-Regular, sans-serif;
+    line-height: 1.2;
+    text-align: center;
+    margin-top: 20px;
+    background-color: transparent;
+}
+
+
+
