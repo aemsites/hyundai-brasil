@@ -11,6 +11,7 @@ import {
 import {
   decorateAnchors,
 } from '../../scripts/scripts.js';
+import { h2 } from '../../scripts/dom-helpers.js';
 
 function decorateFooterMultilist(block) {
   const footerTop = block.querySelector('.multilist');
@@ -25,7 +26,7 @@ function decorateFooterMultilist(block) {
     index += 1;
 
     while (index < children.length) {
-      if (children[index].tagName === 'H5') {
+      if (children[index].tagName === 'H2') {
         if (!children[index + 1] || (children[index - 1].tagName === 'H5' && children[index + 1].tagName !== 'UL')) {
           topItem.appendChild(children[index]);
         } else {
