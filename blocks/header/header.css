@@ -107,6 +107,7 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
+  transition: all .5s ease-out;
 }
 
 header .section.nav-brand {
@@ -217,7 +218,7 @@ header nav .section.nav-sections span.icon-hyundai-blue {
 header .nav-wrapper.on-hover {
   background-color: white;
   background-image: none;
-  transition: all .4s ease-out;
+  box-shadow: rgb(216 209 200 / 70%) 0 1px 3px;
 }
 
 header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button {

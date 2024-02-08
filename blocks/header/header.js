@@ -250,6 +250,17 @@ export default async function decorate(block) {
   navWrapper.append(nav);
   block.append(navWrapper);
 
+  // toggle on-hover class on scroll
+  new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        navWrapper.classList.add('on-hover');
+      } else {
+        navWrapper.classList.remove('on-hover');
+      }
+    });
+  }).observe(document.querySelector('.block.hero'));
+
   const navTabs = nav.querySelector('.nav-sections .hero-horiz-tabs-nav > ul:last-of-type');
   navTabs.addEventListener('mouseover', () => {
     nav.parentElement.classList.add('on-hover');
