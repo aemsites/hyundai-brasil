@@ -77,6 +77,9 @@ export default async function decorate(block) {
     await loadBlock(footerForm);
     await decorateIcons(block);
 
+    block.querySelectorAll('.section.logo span.icon-hyundai img').forEach((img) => {
+      img.alt = 'Logo Footer Hyundai Motor Brasil';
+    });
     block.querySelectorAll('.section.social-icons img').forEach((img) => {
       const iconName = img.getAttribute('data-icon-name');
       const capitalizedIconName = iconName.charAt(0).toUpperCase() + iconName.slice(1);
