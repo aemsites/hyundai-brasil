@@ -5,9 +5,8 @@ export default function decorate(block) {
   const rightDiv = div({ class: 'vehicles-list' });
   let virtualDiv = 0;
   let metadataDiv = 0;
-  
   [...block.children].forEach((row, r) => {
-    if(row.querySelector('img')) {
+    if (row.querySelector('img')) {
       if (r > 0) {
         virtualDiv.appendChild(metadataDiv);
         rightDiv.appendChild(virtualDiv);
@@ -23,8 +22,6 @@ export default function decorate(block) {
   });
   virtualDiv.appendChild(metadataDiv);
   rightDiv.appendChild(virtualDiv);
-  console.log(virtualDiv);
-  console.log(rightDiv.querySelector('div'));
   const leftDiv = div({ class: 'highlighted-vehicle' }, rightDiv.querySelector('div').cloneNode(true));
   rightDiv.querySelectorAll('div').forEach((car) => {
     car.addEventListener('mouseover', () => {

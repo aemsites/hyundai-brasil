@@ -7,6 +7,7 @@
     margin: 0 auto;
     gap: 5rem;
 }
+
 .veiculos-highlight.block .highlighted-vehicle > div {
     display: flex;
     flex-direction: column;
@@ -21,6 +22,10 @@
     justify-content: space-around;
     margin: 30px auto 0;
     gap: 2rem;
+}
+
+.veiculos-highlight.block .vehicles-list > div > div:last-of-type {
+    display: none;
 }
 
 .veiculos-highlight.block .highlighted-vehicle > div > div.vehicle > div {
@@ -51,9 +56,8 @@
     display: block;
     color: #000;
     font-size: 42px;
-    font-family: "HyundaiSansHead-Regular";
+    font-family: HyundaiSansHead-Regular, sans-serif;
     line-height: 1.2;
-    font-size: 36px;
     background-color: transparent;
 }
 
@@ -86,10 +90,6 @@
     display: grid;
     grid-template-columns: repeat(2, 50%);
     grid-gap: 10px;
-}
-
-.veiculos-highlight.block .vehicles-list > div > div:last-of-type {
-    display: none;
 }
 
 .veiculos-highlight.block .vehicles-list > div > div.vehicle img {
