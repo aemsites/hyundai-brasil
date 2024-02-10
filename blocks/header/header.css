@@ -72,7 +72,7 @@ header nav .tab-item {
 }
 
 header nav .tab-item:has(.veiculos-highlight-wrapper) {
-  height: 35rem;
+  height: 40rem;
 }
 
 header nav .tab-item > div {
