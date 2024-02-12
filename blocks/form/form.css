@@ -13,10 +13,6 @@
   padding: 0;
 }
 
-.form.header-right.block {
-  margin-top: 4rem;
-}
-
 .form.header-right.block form h2 {
   width: 100%;
   height: auto;
@@ -67,10 +63,28 @@
   height: 0;
 }
 
-.form.header-right.block fieldset input {
+.form.header-right.block fieldset .field-wrapper > input {
+  display: none;
+}
+
+.form.header-right.block fieldset .field-wrapper > label > input {
+    display: none;
+  }
+
+  .form.header-right.block fieldset .field-wrapper > label > span {
+    position: relative;
+    display: inline-block;
     width: 20px;
     height: 20px;
-}
+    top: 5px;
+    left: -10px;
+    background-color: #f5f4f4;
+    border-radius: 50%;
+    border: solid 1px var(--rating-border);
+    margin-right: 10px;
+  }
+
+
 
 .form .field-wrapper > label {
   order: -1;
