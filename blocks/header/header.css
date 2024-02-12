@@ -71,9 +71,19 @@ header nav .tab-item {
   box-shadow: 0 4px 2px -2px rgba(0 0 0 / 20%);
 }
 
+header nav .tab-item:has(.veiculos-highlight-wrapper) {
+  height: 40rem;
+}
+
 header nav .tab-item > div {
   max-width: 475px;
   flex-basis: 50%;
+}
+
+header nav .tab-item > div.veiculos-highlight-wrapper {
+  max-width: 1360px;
+  position: absolute;
+  left: 10rem;
 }
 
 header nav .tab-item > div.cards-wrapper {
@@ -152,10 +162,6 @@ header nav[aria-expanded="true"] {
     'tools tools' var(--nav-height) / auto 1fr;
   overflow-y: auto;
   min-height: 100vh;
-}
-
-header .tab-item:has(.image) {
-  height: 37rem;
 }
 
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:last-child {
@@ -738,3 +744,4 @@ header nav[aria-expanded="true"] .nav-sections {
 header nav .nav-tools {
   grid-area: tools;
 }
+
