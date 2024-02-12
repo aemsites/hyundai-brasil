@@ -125,7 +125,7 @@
         display: grid;
         grid-template-columns: repeat(3, 33%);
         grid-gap: 10px;
-        height: 25rem;
+        height: 20rem;
     }
 }
 
