@@ -94,8 +94,8 @@
 }
 
 .veiculos-highlight.block .vehicles-list > div > div.vehicle img {
-    width: 222px;
-    height: 115px;
+    width: 202px;
+    height: auto;
     object-fit: cover;
 }
 
@@ -112,7 +112,7 @@
     background-color: transparent;
 }
 
-.veiculos-highlight.block .vehicles-list > div > div.vehicle > div .button-container a:hover {
+.veiculos-highlight.block .vehicles-list > div > div.vehicle > div:hover .button-container a {
     font-family: HyundaiSansHead-Medium, sans-serif;
 }
 
