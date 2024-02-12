@@ -110,6 +110,7 @@
     text-align: center;
     margin-top: 20px;
     background-color: transparent;
+    padding: 0;
 }
 
 .veiculos-highlight.block .vehicles-list > div > div.vehicle > div:hover .button-container a {
