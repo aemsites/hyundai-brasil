@@ -125,7 +125,7 @@ export default async function decorate(block) {
     const targetLabel = block.querySelectorAll('.fieldset-wrapper label');
     targetLabel.forEach((x, index) => {
       const inputElement = createRadioInput(x.innerHTML, index);
-      const spanElement =  span({ class: 'radio-button' });
+      const spanElement = span({ class: 'radio-button' });
       x.prepend(inputElement);
       inputElement.after(spanElement);
       x.addEventListener('click', () => {
@@ -136,9 +136,9 @@ export default async function decorate(block) {
     let activeElement = targetLabel[0];
     targetLabel.forEach((y) => {
       y.addEventListener('click', () => {
-          activeElement.querySelector('input').checked = false;
-          y.querySelector('input').checked = true;
-          activeElement = y;
+        activeElement.querySelector('input').checked = false;
+        y.querySelector('input').checked = true;
+        activeElement = y;
       });
     });
   }

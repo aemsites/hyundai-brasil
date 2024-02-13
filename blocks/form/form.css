@@ -94,7 +94,7 @@
     transition: all .5s ease-out;
   }
 
-  .form.header-right.block fieldset .field-wrapper > label > input[type="radio"]:checked ~ .radio-button:after {
+  .form.header-right.block fieldset .field-wrapper > label > input[type="radio"]:checked ~ .radio-button::after {
     position: absolute;
     top: 4px;
     left: 4px;
@@ -103,7 +103,6 @@
     height: 10px;
     border-radius: 50%;
     background-color: var(--hyundai-light-blue);
-    /* border: solid 1px var(--hyundai-light-blue); */
     transition: all .5s ease-out;
   }
 
