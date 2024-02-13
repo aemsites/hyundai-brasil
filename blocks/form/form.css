@@ -21,7 +21,6 @@
   font-size: 18px;
   font-family: HyundaiSansHead-Regular, sans-serif;
   line-height: 1.2;
-  margin-bottom: 18px;
 }
 
 .form input,
@@ -76,7 +75,6 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-    top: 5px;
     left: -10px;
     background-color: #f5f4f4;
     border-radius: 50%;
@@ -116,6 +114,7 @@
 
 .form.header-right.block fieldset label {
   color: #747474;
+  display: flex;
 }
 
 .form.header-right.block select {
