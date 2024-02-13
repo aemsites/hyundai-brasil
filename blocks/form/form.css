@@ -5,6 +5,14 @@
   padding: 8px;
 }
 
+.form.block.header-right .field-wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 8px;
+}
+
 .form fieldset {
   display: grid;
   grid-auto-flow: row;
