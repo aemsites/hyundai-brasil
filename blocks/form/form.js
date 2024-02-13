@@ -128,7 +128,18 @@ export default async function decorate(block) {
       const spanElement =  span({ class: 'radio-button' });
       x.prepend(inputElement);
       inputElement.after(spanElement);
-      console.log(x);
+      x.addEventListener('click', () => {
+        x.querySelector('input').checked = true;
+      });
+    });
+    targetLabel[0].querySelector('input').checked = true;
+    let activeElement = targetLabel[0];
+    targetLabel.forEach((y) => {
+      y.addEventListener('click', () => {
+          activeElement.querySelector('input').checked = false;
+          y.querySelector('input').checked = true;
+          activeElement = y;
+      });
     });
   }
 }
