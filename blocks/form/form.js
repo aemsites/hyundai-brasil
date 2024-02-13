@@ -1,5 +1,8 @@
 import createField from './form-fields.js';
 import { sampleRUM } from '../../scripts/aem.js';
+import {
+  input, span,
+} from '../../scripts/dom-helpers.js';
 
 async function createForm(formHref) {
   const { pathname } = new URL(formHref);
@@ -85,6 +88,16 @@ async function handleSubmit(form) {
   }
 }
 
+function createRadioInput(name, value) {
+  const id = `${name}-${value}`;
+  return input({
+    type: 'radio',
+    name,
+    id,
+    value,
+  });
+}
+
 export default async function decorate(block) {
   const formLink = block.querySelector('a[href$=".json"]');
   if (!formLink) {
@@ -108,4 +121,25 @@ export default async function decorate(block) {
       }
     }
   });
+  if (block.classList.contains('header-right')) {
+    const targetLabel = block.querySelectorAll('.fieldset-wrapper label');
+    targetLabel.forEach((x, index) => {
+      const inputElement = createRadioInput(x.innerHTML, index);
+      const spanElement = span({ class: 'radio-button' });
+      x.prepend(inputElement);
+      inputElement.after(spanElement);
+      x.addEventListener('click', () => {
+        x.querySelector('input').checked = true;
+      });
+    });
+    targetLabel[0].querySelector('input').checked = true;
+    let activeElement = targetLabel[0];
+    targetLabel.forEach((y) => {
+      y.addEventListener('click', () => {
+        activeElement.querySelector('input').checked = false;
+        y.querySelector('input').checked = true;
+        activeElement = y;
+      });
+    });
+  }
 }

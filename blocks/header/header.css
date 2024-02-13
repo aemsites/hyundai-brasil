@@ -66,13 +66,17 @@ header nav .tab-item {
   left: 0;
   top: var(--nav-height);
   width: 100vw;
-  height: 25rem;
+  height: 20rem;
   flex-direction: row;
   box-shadow: 0 4px 2px -2px rgba(0 0 0 / 20%);
 }
 
 header nav .tab-item:has(.veiculos-highlight-wrapper) {
   height: 40rem;
+}
+
+header nav .tab-item:has(.hamburger) {
+  height: 25rem;
 }
 
 header nav .tab-item > div {
@@ -662,7 +666,6 @@ header nav[aria-expanded="true"] .nav-sections {
     display: flex;
     flex-direction: row;
     width: auto;
-    gap: 2em;
     margin: 0;
     font-size: var(--body-font-size-xs);
   }

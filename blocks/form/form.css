@@ -5,16 +5,20 @@
   padding: 8px;
 }
 
+.form.block.header-right .field-wrapper {
+  display: grid;
+  grid-auto-flow: row;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 8px;
+}
+
 .form fieldset {
   display: grid;
   grid-auto-flow: row;
   gap: 8px;
   border: none;
   padding: 0;
-}
-
-.form.header-right.block {
-  margin-top: 4rem;
 }
 
 .form.header-right.block form h2 {
@@ -25,7 +29,6 @@
   font-size: 18px;
   font-family: HyundaiSansHead-Regular, sans-serif;
   line-height: 1.2;
-  margin-bottom: 18px;
 }
 
 .form input,
@@ -67,10 +70,47 @@
   height: 0;
 }
 
-.form.header-right.block fieldset input {
+.form.header-right.block fieldset .field-wrapper > input {
+  display: none;
+}
+
+.form.header-right.block fieldset .field-wrapper > label > input[type="radio"] {
+    opacity: 0;
+  }
+
+  .form.header-right.block fieldset .field-wrapper > label > span {
+    position: relative;
+    display: inline-block;
     width: 20px;
     height: 20px;
-}
+    left: -5px;
+    background-color: #f5f4f4;
+    border-radius: 50%;
+    border: solid 1px var(--rating-border);
+    margin-right: 10px;
+  }
+
+  .form.header-right.block fieldset .field-wrapper > label:hover > span {
+    border: solid 1px var(--hyundai-light-blue);
+    transition: all .5s ease-out;
+  }
+
+  .form.header-right.block fieldset .field-wrapper > label > input[type="radio"]:checked ~ .radio-button {
+    border: solid 1px var(--hyundai-light-blue);
+    transition: all .5s ease-out;
+  }
+
+  .form.header-right.block fieldset .field-wrapper > label > input[type="radio"]:checked ~ .radio-button::after {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--hyundai-light-blue);
+    transition: all .5s ease-out;
+  }
 
 .form .field-wrapper > label {
   order: -1;
@@ -82,6 +122,9 @@
 
 .form.header-right.block fieldset label {
   color: #747474;
+  display: flex;
+  position: relative;
+  left: -2rem;
 }
 
 .form.header-right.block select {
