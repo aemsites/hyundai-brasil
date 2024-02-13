@@ -666,7 +666,6 @@ header nav[aria-expanded="true"] .nav-sections {
     display: flex;
     flex-direction: row;
     width: auto;
-    gap: 2em;
     margin: 0;
     font-size: var(--body-font-size-xs);
   }
