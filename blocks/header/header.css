@@ -268,7 +268,7 @@ header .on-hover nav .section.nav-sections div.icon-hamburger-black > div {
 }
 
 header .on-hover nav .section.nav-sections div.icon-hamburger-black > div span {
-  height: 1px;
+  height: 1.5px;
   position: relative;
   background-color: black;
   border-radius: 0;
@@ -277,20 +277,20 @@ header .on-hover nav .section.nav-sections div.icon-hamburger-black > div span {
 }
 
 header .on-hover nav .section.nav-sections div.icon-hamburger-black > div span:nth-child(1) {
-  width: 18px;
+  width: 24px;
   animation: ease .7s top-2 forwards;
 }
 
 header .on-hover nav .section.nav-sections div.icon-hamburger-black > div span:nth-child(2) {
-  width: 18px;
+  width: 24px;
   animation: ease .7s scaled-2 forwards;
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
 header .on-hover nav .section.nav-sections div.icon-hamburger-black > div span:nth-child(3) {
-  width: 12px;
+  width: 18px;
   animation: ease .7s bottom-2 forwards;
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
 header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:first-of-type > button {
@@ -407,8 +407,7 @@ header nav .section.nav-sections div.icon-hamburger-black {
 
 header nav .section.nav-sections button:has(.icon-hamburger) {
   border-right: solid 1px #fff;
-  /* width: 35px;
-  height: 35px; */
+  height: 35px; 
 }
 
 header nav .nav-sections {
