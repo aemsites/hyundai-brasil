@@ -288,7 +288,7 @@ header .on-hover nav .section.nav-sections div.icon-hamburger-black > div span:n
 }
 
 header .on-hover nav .section.nav-sections div.icon-hamburger-black > div span:nth-child(3) {
-  width: 18px;
+  width: 16px;
   animation: ease .7s bottom-2 forwards;
   margin-top: 4px;
 }
