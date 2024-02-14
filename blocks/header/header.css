@@ -509,8 +509,6 @@ header nav .nav-brand img {
   header nav .section.mobile {
     left: 100vw;
     transition: transform .5s ease-out;
-    display: flex;
-    flex-wrap: wrap;
   }
 
   header nav .section.mobile .item-mobile-header {
@@ -523,6 +521,7 @@ header nav .nav-brand img {
     line-height: 1.2;
     font-size: 16px;
     font-family: HyundaiSansHead-Medium, sans-serif;
+    height: fit-content;
   }
 
   header nav .nav-sections .main-tab > ul {
@@ -627,6 +626,66 @@ header nav .nav-brand img {
 
   header nav .nav-sections .main-tab > ul:first-child li.ofertas button.tab {
     color: white;
+  }
+
+  header nav .section.mobile .item-mobile-body .default-content-wrapper > ul {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 90%;
+    padding-inline-start: 0;
+  }
+
+  header nav .section.mobile .item-mobile-body .default-content-wrapper > ul > li {
+    height: 48px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    border-bottom: solid 1px #e5e5e5;
+  }
+
+  header nav .section.mobile .item-mobile-body .default-content-wrapper > ul > li:last-child {
+    border-bottom: none;
+  }
+
+  header nav .section.mobile .item-mobile-body .default-content-wrapper > ul > li > a {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+  }
+
+  header nav .section.mobile .item-mobile-body {
+    padding: 10px;
+  }
+
+  header nav .section.mobile .item-mobile-body .cards-wrapper {
+    margin: 10px auto;
+  }
+
+  header nav .section.mobile .item-mobile-body .cards {
+    position: static;
+  }
+
+  header nav .section.mobile .item-mobile-body .cards > ul > li > a {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+
+  header nav .section.mobile .item-mobile-body .cards .cards-card-body {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  header nav .section.mobile .item-mobile-body .cards .cards-card-image span {
+    display: flex;
+    align-items: center;
+  }
+
+  header nav .section.mobile .item-mobile-body .cards > ul > li img {
+    position: static;
+    width: 26px;
+    height: 26px;
   }
 
   header nav .nav-sections .main-tab > ul li.veiculos {
