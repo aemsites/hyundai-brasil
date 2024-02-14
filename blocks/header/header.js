@@ -2,6 +2,7 @@ import { decorateIcons, getMetadata, toClassName } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import { addTabs, createTabs } from './header-utils.js';
 import { div, img, span } from '../../scripts/dom-helpers.js';
+import { htmlToElement } from '../../scripts/scripts.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 992px)');
@@ -201,7 +202,15 @@ export default async function decorate(block) {
   nav.querySelector('span.icon-hyundai').after(hyundaiBlueSpan);
   nav.querySelector('.onlyclick span.icon-hyundai').after(hyundaiBlueSpanNavSection);
 
-  const hamburgerBlackNavSection = span({ class: 'icon icon-hamburger-black' });
+  // const hamburgerBlackNavSection = span({ class: 'icon icon-hamburger-black' });
+  const hamburgerBlackNavSection = htmlToElement(`<div class="icon-hamburger-black">
+  <div>
+    <span></span>
+    <span></span>
+    <span></span>
+    </div>
+  </div>`);
+
   nav.querySelector('.onlyclick span.icon-hamburger').after(hamburgerBlackNavSection);
 
   nav.querySelector('nav.hero-horiz-tabs-nav > ul > li.ofertas').append(img(
