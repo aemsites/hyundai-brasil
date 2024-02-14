@@ -1,4 +1,3 @@
-import { div } from '../../scripts/dom-helpers.js';
 import { toClassName } from '../../scripts/aem.js';
 
 export function createTabs(block, navFragment) {
@@ -55,40 +54,7 @@ export function createTabs(block, navFragment) {
   return tabs;
 }
 
-export function setUpTabListeners(tabButton, block, button, tab, navPanel, navFragment, isDesktop) {
-  tabButton.addEventListener('click', () => {
-    if (isDesktop.matches) {
-      return;
-    }
-
-    if (!tab.content) {
-      // TODO implement ofertas logic
-      console.warn('No content for tab', tabButton);
-    }
-
-    const mobileSectionHeader = document.querySelector('.item-mobile-header > span:last-child');
-    mobileSectionHeader.textContent = tab.title;
-    const mobileBody = document.querySelector('.item-mobile-body');
-
-    mobileBody.replaceWith(div(
-      { class: `item-mobile-body ${toClassName(tab.title)}` },
-      ...tab.content.cloneNode(true).children,
-    ));
-
-    navPanel.classList.add('show-mobile-section');
-  });
-
-  tabButton.addEventListener('mouseover', () => {
-    if (!isDesktop.matches) {
-      return;
-    }
-
-    document.body.classList.remove('nav-open');
-  });
-}
-
-export function addTabs(tabs, block, navFragment, isDesktop) {
-  const navPanel = navFragment.querySelector('.section.nav-sections').parentElement;
+export function addTabs(tabs, isDesktop) {
   tabs.forEach((tab) => {
     const button = document.createElement('button');
     const { tabButton, title } = tab;
@@ -114,7 +80,14 @@ export function addTabs(tabs, block, navFragment, isDesktop) {
         tab.content.classList.add('desktop-only');
         button.after(tab.content);
       }
-      setUpTabListeners(tabButton, block, button, tab, navPanel, navFragment, isDesktop);
+
+      tabButton.addEventListener('mouseover', () => {
+        if (!isDesktop.matches) {
+          return;
+        }
+
+        document.body.classList.remove('nav-open');
+      });
     }
   });
 }
