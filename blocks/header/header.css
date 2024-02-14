@@ -3,7 +3,6 @@ header nav {
   color: black;
   align-items: center;
   justify-content: start;
-  grid-gap: 0 2em;
   height: var(--nav-height);
   font-family: var(--body-font-family);
   box-sizing: border-box;
@@ -37,7 +36,6 @@ header nav .nav-sections ul {
   font-weight: 500;
   flex-direction: row;
   width: auto;
-  gap: 2em;
   margin: 0;
   font-size: var(--body-font-size-xs);
 }
