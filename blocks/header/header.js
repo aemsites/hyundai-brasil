@@ -168,6 +168,17 @@ export default async function decorate(block) {
     button.addEventListener('click', () => {
       function toggleNav() {
         document.body.classList.toggle('nav-open');
+        if (document.body.classList.contains('nav-open')) {
+          if (nav.querySelector('nav.hero-horiz-tabs-nav > ul div span').classList.contains('openmenu')) {
+            nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
+              x.classList.remove('openmenu');
+            });
+          } else {
+            nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
+              x.classList.add('openmenu');
+            });
+          }
+        } 
         toggleMenu(nav, navSections);
       }
 
@@ -288,6 +299,11 @@ export default async function decorate(block) {
   const navTabs = nav.querySelector('.nav-sections .hero-horiz-tabs-nav > ul:last-of-type');
   navTabs.addEventListener('mouseover', () => {
     nav.parentElement.classList.add('on-hover');
+    if (nav.querySelector('nav.hero-horiz-tabs-nav > ul div span').classList.contains('openmenu')) {
+      nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
+        x.classList.remove('openmenu');
+      });
+    }
   });
 
   navTabs.addEventListener('mouseout', () => {
