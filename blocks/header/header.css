@@ -324,7 +324,7 @@ header .on-hover nav .section.nav-sections div.icon-hamburger-black > div span:n
 
 header .on-hover nav .section.nav-sections div.icon-hamburger-black > div span:nth-child(1).openmenu {
   transition: all 1s ease-out;
-  transform: translate(-50%, -50%) rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 header .on-hover nav .section.nav-sections div.icon-hamburger-black > div span:nth-child(2) {
@@ -336,7 +336,7 @@ header .on-hover nav .section.nav-sections div.icon-hamburger-black > div span:n
 header .on-hover nav .section.nav-sections div.icon-hamburger-black > div span:nth-child(2).openmenu {
   margin-top: 0;
   transition: all .4s ease-out;
-  transform: translate(-50%, -50%) rotate(45deg);
+  transform: rotate(45deg);
 }
 
 header .on-hover nav .section.nav-sections div.icon-hamburger-black > div span:nth-child(3) {
