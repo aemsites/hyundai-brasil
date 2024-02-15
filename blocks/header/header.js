@@ -200,7 +200,7 @@ export default async function decorate(block) {
   const hyundaiBlueSpan = span({ class: 'icon icon-hyundai-blue' });
   const hyundaiBlueSpanNavSection = span({ class: 'icon icon-hyundai-blue' });
   nav.querySelector('span.icon-hyundai').after(hyundaiBlueSpan);
-  nav.querySelector('li.hyundai button.onlyclick')?.setAttribute('name', 'Home');
+  nav.querySelector('li.hyundai button.onlyclick')?.setAttribute('aria-label', 'Home');
   nav.querySelector('.onlyclick span.icon-hyundai').after(hyundaiBlueSpanNavSection);
 
   const hamburgerBlackNavSection = span({ class: 'icon icon-hamburger-black' });
