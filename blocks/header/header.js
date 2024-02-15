@@ -178,16 +178,14 @@ export default async function decorate(block) {
               x.classList.add('openmenu');
             });
           }
+        } else if (nav.querySelector('nav.hero-horiz-tabs-nav > ul div span').classList.contains('openmenu')) {
+          nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
+            x.classList.remove('openmenu');
+          });
         } else {
-          if (nav.querySelector('nav.hero-horiz-tabs-nav > ul div span').classList.contains('openmenu')) {
-            nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
-              x.classList.remove('openmenu');
-            });
-          } else {
-            nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
-              x.classList.add('openmenu');
-            });
-          }
+          nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
+            x.classList.add('openmenu');
+          });
         }
         toggleMenu(nav, navSections);
       }
