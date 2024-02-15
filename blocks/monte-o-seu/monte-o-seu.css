@@ -41,8 +41,8 @@ body.nav-open .monte-o-seu {
 }
 
 .monte-o-seu div.flecha > img {
-    width: 10px;
-    height: 20px;
+    max-width: 10px;
+    max-height: 20px;
 }
 
 .monte-o-seu div.menu {
