@@ -163,6 +163,7 @@ export default async function decorate(block) {
     button.innerHTML = '<span class="icon icon-hamburger"><img data-icon-name="hamburger" src="/icons/hamburger.svg" alt="" loading="lazy"></span>';
     button.classList.add('onlyclick');
     button.classList.add('tab');
+    button.setAttribute('aria-label', 'Toggle navigation');
     tabButton.replaceChildren(button);
     button.addEventListener('click', () => {
       function toggleNav() {
@@ -199,6 +200,7 @@ export default async function decorate(block) {
   const hyundaiBlueSpan = span({ class: 'icon icon-hyundai-blue' });
   const hyundaiBlueSpanNavSection = span({ class: 'icon icon-hyundai-blue' });
   nav.querySelector('span.icon-hyundai').after(hyundaiBlueSpan);
+  nav.querySelector('li.hyundai button.onlyclick')?.setAttribute('aria-label', 'Home');
   nav.querySelector('.onlyclick span.icon-hyundai').after(hyundaiBlueSpanNavSection);
 
   const hamburgerBlackNavSection = span({ class: 'icon icon-hamburger-black' });
