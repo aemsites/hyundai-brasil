@@ -168,8 +168,8 @@ header nav .nav-hamburger button {
 
 
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:last-child {
-  background-color: var(--hyundai-light-blue);
-  border: solid 1px var(--hyundai-light-blue);
+  background-color: var(--hyundai-light-blue-accessible);
+  border: solid 1px var(--hyundai-light-blue-accessible);
 }
 
 header nav .nav-sections ul:last-of-type > li > button {

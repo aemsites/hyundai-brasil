@@ -77,8 +77,8 @@ body.nav-open .monte-o-seu {
     font-size: 14px;
     line-height: 1;
     height: 138px;
-    background-color: var(--hyundai-light-blue);
-    border: solid 1px var(--hyundai-light-blue);
+    background-color: var(--hyundai-light-blue-accessible);
+    border: solid 1px var(--hyundai-light-blue-accessible);
     text-orientation: mixed;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
