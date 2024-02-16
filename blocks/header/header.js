@@ -2,6 +2,7 @@ import { decorateIcons, getMetadata, toClassName } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
 import { addTabs, createTabs } from './header-utils.js';
 import { div, img, span } from '../../scripts/dom-helpers.js';
+import { htmlToElement } from '../../scripts/scripts.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 992px)');
@@ -168,6 +169,25 @@ export default async function decorate(block) {
     button.addEventListener('click', () => {
       function toggleNav() {
         document.body.classList.toggle('nav-open');
+        if (document.body.classList.contains('nav-open')) {
+          if (nav.querySelector('nav.hero-horiz-tabs-nav > ul div span').classList.contains('openmenu')) {
+            nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
+              x.classList.remove('openmenu');
+            });
+          } else {
+            nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
+              x.classList.add('openmenu');
+            });
+          }
+        } else if (nav.querySelector('nav.hero-horiz-tabs-nav > ul div span').classList.contains('openmenu')) {
+          nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
+            x.classList.remove('openmenu');
+          });
+        } else {
+          nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
+            x.classList.add('openmenu');
+          });
+        }
         toggleMenu(nav, navSections);
       }
 
@@ -203,7 +223,15 @@ export default async function decorate(block) {
   nav.querySelector('li.hyundai button.onlyclick')?.setAttribute('aria-label', 'Home');
   nav.querySelector('.onlyclick span.icon-hyundai').after(hyundaiBlueSpanNavSection);
 
-  const hamburgerBlackNavSection = span({ class: 'icon icon-hamburger-black' });
+  // const hamburgerBlackNavSection = span({ class: 'icon icon-hamburger-black' });
+  const hamburgerBlackNavSection = htmlToElement(`<div class="icon-hamburger-black">
+  <div>
+    <span></span>
+    <span></span>
+    <span></span>
+    </div>
+  </div>`);
+
   nav.querySelector('.onlyclick span.icon-hamburger').after(hamburgerBlackNavSection);
 
   nav.querySelector('nav.hero-horiz-tabs-nav > ul > li.ofertas').append(img(
@@ -281,6 +309,11 @@ export default async function decorate(block) {
   const navTabs = nav.querySelector('.nav-sections .hero-horiz-tabs-nav > ul:last-of-type');
   navTabs.addEventListener('mouseover', () => {
     nav.parentElement.classList.add('on-hover');
+    if (nav.querySelector('nav.hero-horiz-tabs-nav > ul div span').classList.contains('openmenu')) {
+      nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
+        x.classList.remove('openmenu');
+      });
+    }
   });
 
   navTabs.addEventListener('mouseout', () => {
