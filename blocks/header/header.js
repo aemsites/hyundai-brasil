@@ -306,17 +306,21 @@ export default async function decorate(block) {
     });
   }).observe(document.querySelector('.block.hero'));
 
-  const navTabs = nav.querySelector('.nav-sections .hero-horiz-tabs-nav > ul:last-of-type');
-  navTabs.addEventListener('mouseover', () => {
-    nav.parentElement.classList.add('on-hover');
-    if (nav.querySelector('nav.hero-horiz-tabs-nav > ul div span').classList.contains('openmenu')) {
-      nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
-        x.classList.remove('openmenu');
-      });
-    }
+  const navTabs = nav.querySelectorAll('.nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type)');
+  navTabs.forEach((eachTab) => {
+    eachTab.addEventListener('mouseover', () => {
+      nav.parentElement.classList.add('on-hover');
+      if (nav.querySelector('nav.hero-horiz-tabs-nav > ul div span').classList.contains('openmenu')) {
+        nav.querySelectorAll('nav.hero-horiz-tabs-nav > ul div span').forEach((x) => {
+          x.classList.remove('openmenu');
+        });
+      }
+    });
   });
 
-  navTabs.addEventListener('mouseout', () => {
-    nav.parentElement.classList.remove('on-hover');
+  navTabs.forEach((eachTab) => {
+    eachTab.addEventListener('mouseout', () => {
+      nav.parentElement.classList.remove('on-hover');
+    });
   });
 }
