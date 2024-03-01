@@ -181,7 +181,7 @@ header nav .nav-sections ul:last-of-type > li button {
   height: var(--nav-height);
 }
 
-header nav .nav-sections ul:last-of-type > li:last-of-type > button {
+header nav .nav-sections ul:last-of-type > li:last-of-type button {
   min-width: 166px;
   color: #fff;
   margin: 0;
