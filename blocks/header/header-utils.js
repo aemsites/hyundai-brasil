@@ -68,7 +68,6 @@ export function createTabs(block, navFragment) {
 
 export function addTabs(tabs, isDesktop) {
   tabs.forEach((tab) => {
-    console.log(tab);
     const button = document.createElement('button');
     const { tabButton, title } = tab;
     button.textContent = title.split(',');
@@ -81,7 +80,7 @@ export function addTabs(tabs, isDesktop) {
 
     if (button.textContent === 'hyundai') {
       // eslint-disable-next-line
-      button.innerHTML='<span class="icon icon-hyundai"><img data-icon-name="hyundai" src="/icons/hyundai.svg" alt="" loading="lazy"></span>';
+      button.innerHTML = '<span class="icon icon-hyundai"><img data-icon-name="hyundai" src="/icons/hyundai.svg" alt="" loading="lazy"></span>';
       button.classList.add('onlyclick');
       button.classList.add('tab');
       tabButton.replaceChildren(button);
@@ -92,11 +91,19 @@ export function addTabs(tabs, isDesktop) {
         linkTab.href = tab.link;
         linkTab.appendChild(button);
         tabButton.replaceChildren(linkTab);
-      } else tabButton.replaceChildren(button);
-      // TODO handle "Ofertas" tab
-      if (tab.content) {
-        tab.content.classList.add('desktop-only');
-        button.after(tab.content);
+        // TODO handle "Ofertas" tab
+        if (tab.content) {
+          tab.content.classList.add('desktop-only');
+          linkTab.after(tab.content);
+        }
+      }
+      else {
+        tabButton.replaceChildren(button);
+        // TODO handle "Ofertas" tab
+        if (tab.content) {
+          tab.content.classList.add('desktop-only');
+          button.after(tab.content);
+        }
       }
 
       tabButton.addEventListener('mouseover', () => {
@@ -109,3 +116,12 @@ export function addTabs(tabs, isDesktop) {
     }
   });
 }
+
+
+
+
+
+
+
+
+
