@@ -55,6 +55,11 @@ header nav .tab-item > div.default-content-wrapper > ul > li {
   font-size: var(--body-font-size-s);
 }
 
+header nav .nav-sections .hero-horiz-tabs-nav > ul a:hover,
+header nav .nav-sections .hero-horiz-tabs-nav > ul a:focus {
+  text-decoration: none;
+}
+
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li {
   display: flex;
   height: var(--nav-height);
@@ -183,8 +188,8 @@ header nav .nav-sections ul:last-of-type > li:last-of-type > button {
   padding: 26px 20px;
 }
 
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:hover, header nav .nav-sections ul:last-of-type > li:last-of-type > button:hover,
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:focus, header nav .nav-sections ul:last-of-type > li:last-of-type > button:focus {
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:hover, header nav .nav-sections ul:last-of-type > li:last-of-type  button:hover,
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:focus, header nav .nav-sections ul:last-of-type > li:last-of-type  button:focus {
   background-color: #fff;
   color: var(--hyundai-light-blue);
   transition: all .4s ease-out;
@@ -230,7 +235,7 @@ header .nav-wrapper.on-hover {
   box-shadow: rgb(216 209 200 / 70%) 0 1px 3px;
 }
 
-header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button {
+header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) button {
   transition: all .4s ease-out;
   color: black;
   cursor: pointer;
