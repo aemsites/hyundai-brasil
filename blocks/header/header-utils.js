@@ -99,8 +99,7 @@ export function addTabs(tabs, isDesktop) {
           tab.content.classList.add('desktop-only');
           linkTab.after(tab.content);
         }
-      }
-      else {
+      } else {
         tabButton.replaceChildren(button);
         // TODO handle "Ofertas" tab
         if (tab.content) {
@@ -119,12 +118,3 @@ export function addTabs(tabs, isDesktop) {
     }
   });
 }
-
-
-
-
-
-
-
-
-
