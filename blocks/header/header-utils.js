@@ -83,7 +83,10 @@ export function addTabs(tabs, isDesktop) {
       button.innerHTML = '<span class="icon icon-hyundai"><img data-icon-name="hyundai" src="/icons/hyundai.svg" alt="" loading="lazy"></span>';
       button.classList.add('onlyclick');
       button.classList.add('tab');
-      tabButton.replaceChildren(button);
+      const linkTab = document.createElement('a');
+      linkTab.href = tab.link;
+      linkTab.appendChild(button);
+      tabButton.replaceChildren(linkTab);
     } else {
       button.classList.add('tab');
       if (tab.link) {
