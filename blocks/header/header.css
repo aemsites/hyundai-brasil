@@ -55,6 +55,11 @@ header nav .tab-item > div.default-content-wrapper > ul > li {
   font-size: var(--body-font-size-s);
 }
 
+header nav .nav-sections .hero-horiz-tabs-nav > ul a:hover,
+header nav .nav-sections .hero-horiz-tabs-nav > ul a:focus {
+  text-decoration: none;
+}
+
 header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li {
   display: flex;
   height: var(--nav-height);
@@ -172,19 +177,19 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:last-child > li:last-child {
   border: solid 1px var(--hyundai-light-blue-accessible);
 }
 
-header nav .nav-sections ul:last-of-type > li > button {
+header nav .nav-sections ul:last-of-type > li button {
   height: var(--nav-height);
 }
 
-header nav .nav-sections ul:last-of-type > li:last-of-type > button {
+header nav .nav-sections ul:last-of-type > li:last-of-type button {
   min-width: 166px;
   color: #fff;
   margin: 0;
   padding: 26px 20px;
 }
 
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:hover, header nav .nav-sections ul:last-of-type > li:last-of-type > button:hover,
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:focus, header nav .nav-sections ul:last-of-type > li:last-of-type > button:focus {
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:hover, header nav .nav-sections ul:last-of-type > li:last-of-type  button:hover,
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:last-of-type:focus, header nav .nav-sections ul:last-of-type > li:last-of-type  button:focus {
   background-color: #fff;
   color: var(--hyundai-light-blue);
   transition: all .4s ease-out;
@@ -230,7 +235,7 @@ header .nav-wrapper.on-hover {
   box-shadow: rgb(216 209 200 / 70%) 0 1px 3px;
 }
 
-header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button {
+header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) button {
   transition: all .4s ease-out;
   color: black;
   cursor: pointer;
@@ -366,7 +371,7 @@ header .on-hover nav .nav-sections .hero-horiz-tabs-nav > ul:first-of-type > li:
   }
 }
 
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button::after {
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) button::after {
   width: 100%;
   height: 3.5px;
   display: block;
@@ -382,7 +387,7 @@ header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-o
   transition-property: background-color, transform;
 }
 
-header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) > button:hover::after {
+header nav .nav-sections .hero-horiz-tabs-nav > ul:last-of-type > li:not(:last-of-type) button:hover::after {
   background-color: #00aad2;
   transform: scale(1);
 }

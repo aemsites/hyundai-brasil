@@ -2,14 +2,26 @@ import { toClassName } from '../../scripts/aem.js';
 
 export function createTabs(block, navFragment) {
   let title = 0;
+  let link = 0;
   const ul = block.querySelector('ul');
   if (!ul) return null;
 
   const tabs = [...ul.querySelectorAll('li')].map((li) => {
     if (!li.textContent) {
       title = li.querySelector('img').getAttribute('data-icon-name');
-    } else title = li.textContent;
+    } else {
+      title = li.textContent;
+    }
     const name = title.toLowerCase().trim();
+    if (li.querySelector('a')) {
+      link = li.querySelector('a').href;
+      return {
+        title,
+        name,
+        link,
+        tabButton: li,
+      };
+    }
     return {
       title,
       name,
@@ -68,17 +80,32 @@ export function addTabs(tabs, isDesktop) {
 
     if (button.textContent === 'hyundai') {
       // eslint-disable-next-line
-      button.innerHTML='<span class="icon icon-hyundai"><img data-icon-name="hyundai" src="/icons/hyundai.svg" alt="" loading="lazy"></span>';
+      button.innerHTML = '<span class="icon icon-hyundai"><img data-icon-name="hyundai" src="/icons/hyundai.svg" alt="" loading="lazy"></span>';
       button.classList.add('onlyclick');
       button.classList.add('tab');
-      tabButton.replaceChildren(button);
+      const linkTab = document.createElement('a');
+      linkTab.href = tab.link;
+      linkTab.appendChild(button);
+      tabButton.replaceChildren(linkTab);
     } else {
       button.classList.add('tab');
-      tabButton.replaceChildren(button);
-      // TODO handle "Ofertas" tab
-      if (tab.content) {
-        tab.content.classList.add('desktop-only');
-        button.after(tab.content);
+      if (tab.link) {
+        const linkTab = document.createElement('a');
+        linkTab.href = tab.link;
+        linkTab.appendChild(button);
+        tabButton.replaceChildren(linkTab);
+        // TODO handle "Ofertas" tab
+        if (tab.content) {
+          tab.content.classList.add('desktop-only');
+          linkTab.after(tab.content);
+        }
+      } else {
+        tabButton.replaceChildren(button);
+        // TODO handle "Ofertas" tab
+        if (tab.content) {
+          tab.content.classList.add('desktop-only');
+          button.after(tab.content);
+        }
       }
 
       tabButton.addEventListener('mouseover', () => {
